@@ -1,10 +1,10 @@
-import RandomText from '../components/RandomText.jsx';
+import HeroscrambleText from '../components/HeroscrambleText';
 
 const Home = () => {
   return (
     <div>
       <h1>Home トップページです。</h1>
-      <RandomText text='My Name is Takahashi Web Engineer' speed={300} />
+      <HeroscrambleText />
     </div>
   );
 };
