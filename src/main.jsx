@@ -5,8 +5,9 @@
 
 import { StrictMode } from 'react'; //ReactのStrictModeは「開発中に危険な書き方や非推奨な書き方を検出する」 こと。
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
+import 'normalize.css'; //normalize.cssをインポートする。normalize.cssはあなたのプロジェクトフォルダの中の「node_modules」にある。
+import './index.css'; //共通のcssスタイリングファイル
+import App from './App.jsx'; //App.jsxをインポートする
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

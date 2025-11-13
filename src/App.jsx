@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-//⬇︎自分で追加(2025/7/1)
+//⬇︎自分で追加
+//RoutesでHome.jsxを読み込む
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 
