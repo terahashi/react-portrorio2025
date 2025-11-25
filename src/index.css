@@ -1,5 +1,19 @@
+/* main.jsx に読み込まれる */
 /* ⬇︎全ページ共通のCSSは「index.css」に書くのが基本です。 */
-/* normalize.css」は npm（yarn）でパッケージとしてインストールする。yarn add normalize.css*/
+/* 「normalize.css」は npm（yarn）でパッケージとしてインストールする。yarn add normalize.css*/
+
+/* ⬇︎tailwind.cssを使用する➡️main.jsxでimportする➡️App.jsx内の「Home.jsxで使えるようになる」 */
+@import 'tailwindcss';
+
+/* ⬇︎tailwindのカスタマイズ */
+.bg-custom-yellow {
+  background-color: #e7b900;
+}
+/* h1 {
+  @apply m-0;
+} */
+
+/* ⬇︎index.cssデフォルト */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
