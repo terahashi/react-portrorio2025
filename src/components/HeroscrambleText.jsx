@@ -16,7 +16,9 @@ const HeroscrambleText = () => {
   return (
     <div>
       <h1 ref={refs.original}>Loading...</h1>
-      <h2 ref={refs.text1}>Loading...</h2>
+      <h2 className='text-[3.5rem]' ref={refs.text1}>
+        Loading...
+      </h2>
     </div>
   );
 };
