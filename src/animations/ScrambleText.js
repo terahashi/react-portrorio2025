@@ -11,6 +11,8 @@ const ScrambleText = (refs, duration = 2) => {
       start: 'top 80%',
       end: 'bottom 20%',
       toggleActions: 'play none none reverse',
+      once: true, //一度だけ発火
+      // markers: true, //デバッグ表示（慣れたらfalseに）
     },
   });
 
@@ -18,7 +20,7 @@ const ScrambleText = (refs, duration = 2) => {
   gsap.set(refs.text1.current, { opacity: 1 });
 
   tl.to(refs.text1.current, {
-    scrambleText: { text: 'Mix it up with ScrambleText.', chars: 'lowerCase' },
+    scrambleText: { text: 'MY PORTFORIO|', chars: 'lowerCase' },
     duration: duration,
     ease: 'none',
   });

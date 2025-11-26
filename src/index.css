@@ -9,11 +9,36 @@
 .bg-custom-yellow {
   background-color: #e7b900;
 }
+/* ⬇︎tailwind h1にmargin:0をapply(適用)させる */
 /* h1 {
   @apply m-0;
 } */
 
-/* ⬇︎index.cssデフォルト */
+/* ⬇︎タイピングアニメーション(カーソル点滅も追加) */
+/*<span class="ityped-cursor">には影響しないので、点滅アニメは自作。
+HTML+JavaScriptのityped.jsのcss設定も同じように設定している。 */
+.ityped {
+  display: inline-block;
+  white-space: nowrap;
+}
+.ityped + .ityped-cursor {
+  color: #000;
+  font-size: 4.5rem;
+  font-weight: 800;
+  animation: blink 1s step-start infinite; /*　点滅アニメ　*/
+}
+/* 点滅アニメのkeyframes */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ⬇︎index.cssのデフォルト */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -37,6 +62,7 @@ a:hover {
 }
 
 body {
+  font-family: 'Poppins', sans-serif; /* 自分で追加 */
   margin: 0;
   display: flex;
   place-items: center;

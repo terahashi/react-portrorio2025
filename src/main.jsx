@@ -11,7 +11,8 @@ import 'normalize.css'; //normalize.cssをインポートする。normalize.css�
 import './index.css'; //index.cssは共通のcssスタイリングファイル
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  // <StrictMode>
+  //   <App />
+  // </StrictMode> // タイピングアニメーション二重表示防止のために、</StrictMode>を一時的に外す
+  <App />
 );
