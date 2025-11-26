@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import initType from '../animations/initType';
+import initType from '../animations/InitType';
 
 const TypingText = () => {
   const textRef = useRef(null);
