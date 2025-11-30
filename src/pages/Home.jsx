@@ -27,7 +27,7 @@ const Home = () => {
       {/* ⬇︎Heroコンポーネントを後で作成して使用する 子コンポーネントなのでtargetRefとして渡す */}
       {/* <Hero targetRef={targetRef} /> */}
 
-      <div ref={targetRef} className='bg-[#deba99] w-full h-screen mt-20'>
+      <div ref={targetRef} className='bg-[#deba99] w-full h-screen'>
         <HeroscrambleText />
         <TypingText />
         <h1 className='bg-[#da5555]'>Home トップページです。</h1>
