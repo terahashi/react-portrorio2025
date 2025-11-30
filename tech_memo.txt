@@ -1,1 +1,136 @@
-testテスト
+------------------------------------------------------------------
+------------------------------------------------------------------
+🔶「useIntersection.js」は【カスタムフック化したInterSectionObserver】
+
+
+
+
+
+
+
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+🔶下記は「初期に使用した 基本のuseEffectを使ったInterSectionObserver」
+
+■⬇︎⬇︎⬇︎Home.jsx
+import { useState, useRef, useEffect } from 'react';
+
+import Header from '../components/Header';
+import SampleContent from '../components/SampleContent';
+import useIntersection from '../hooks/useIntersection';
+
+import HeroscrambleText from '../components/HeroscrambleText';
+import TypingText from '../components/TypingText';
+
+const Home = () => {
+  //////IntersectionObserverを設置して「Headerの文字色を白に変化させる」
+  const [isDark, setIsDark] = useState(false);
+  const heroRef = useRef(null); // ヒーローエリア のContent内の監視ターゲット
+  const targetRef = useRef(null); // SampleContent のContent内の監視ターゲット
+
+  console.log(isDark);
+
+  //IntersectionObserverを使用
+  //⬇︎①「SampleContent」に入ったらHeaderを白文字
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsDark(true); //白
+        }
+      },
+      { threshold: 0.93 } //「SampleContent」が93%交差したら白にする
+      // { threshold: 数値 }の「数値は0.01~0.99」が多く使用される
+    );
+    if (targetRef.current) observer.observe(targetRef.current);
+    return () => observer.disconnect(); //クリーンアップ
+  }, []);
+
+  //⬇︎②上に戻りヒーローエリアに入ったらHeaderを黒文字
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsDark(false); //黒
+        }
+      },
+      { threshold: 0.05 } //「ヒーローエリア」が5%交差したら黒に戻す
+    );
+    if (heroRef.current) observer.observe(heroRef.current);
+    return () => observer.disconnect(); //クリーンアップ
+  }, []);
+
+
+  return (
+    <>
+        <Header dark={isDark} />
+
+        <div ref={targetRef} className='bg-[#deba99] w-full h-screen mt-20'>
+          <HeroscrambleText />
+          <TypingText />
+          <h1 className='bg-[#da5555]'>Home トップページです。</h1>
+           <div className='bg-custom-yellow'>
+             <h1>子要素(背景黄色はbg-custom-yellowの「Tailwindcssのカスタム」)</h1>
+           </div>
+        </div>
+
+        <SampleContent targetRef={targetRef} />
+
+        <div className='bg-black w-full h-screen'>
+          <h2>content2</h2>
+        </div>
+
+        <SampleContent />
+    </>
+  );
+};
+
+export default Home;
+
+
+
+
+■⬇︎⬇︎⬇︎Header.jsx
+const HeaderWrap = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  z-index: 999;
+  background-color: #808080;
+  /* ⬇︎$darkが「trueなら白」「falseなら黒」 */
+  /* useStateの初期値はfalse。$dark = falseなので「最初は'black'が選択される」 */
+  color: ${(props) => (props.$dark ? 'white' : 'black')};
+  `;
+
+//⬇︎Home.jsxの<Header/>で受け取った【darkをstyled-componentsに$darkという名前で渡している】
+  const Header = ({ dark }) => {
+    return <HeaderWrap $dark={dark}>sample</HeaderWrap>;
+  };
+
+export default Header;
+
+
+
+■⬇︎⬇︎⬇︎SampleContent.jsx
+// SampleContent.jsx
+const SampleContent = ({ targetRef }) => {
+  return (
+    <div>
+      <section ref={targetRef} style={{ height: '100vh', background: '#ccc' }}>
+        WATCH AREA（ここに来たら Header の色が変わる）
+      </section>
+    </div>
+  );
+};
+
+export default SampleContent;
+
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+

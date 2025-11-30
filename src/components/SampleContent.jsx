@@ -1,11 +1,17 @@
 // SampleContent.jsx
-const SampleContent = ({ targetRef }) => {
+const SampleContent = () => {
   return (
-    <div>
-      <section ref={targetRef} style={{ height: '100vh', background: '#ccc' }}>
-        WATCH AREA（ここに来たら Header の色が変わる）
-      </section>
-    </div>
+    <section
+      style={{
+        height: '120vh',
+        background: '#333',
+        color: 'white',
+        padding: '40px',
+        fontSize: '24px',
+      }}
+    >
+      Sample Content Area
+    </section>
   );
 };
 
