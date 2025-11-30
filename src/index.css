@@ -9,10 +9,9 @@
 .bg-custom-yellow {
   background-color: #e7b900;
 }
-/* ⬇︎tailwind @applyで「複数のTailwindクラス(m-0 text-blue-500など)もまとめて適用(apply)可能*/
+
 h1 {
-  @apply m-0;
-  /* @apply m-0 text-blue-500 font-bold; こんな感じも可能 */
+  margin-top: 0;
 }
 
 /* ⬇︎タイピングアニメーション(カーソル点滅も追加) */
