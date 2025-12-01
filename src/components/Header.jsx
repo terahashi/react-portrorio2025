@@ -1,7 +1,7 @@
-//Headerは「CSS-in-JS(styled-components)で書いてみよう」
 import Menu from './Menu';
 import { styled } from 'styled-components';
 
+//「styled-components(CSS-in-JS))で書いてみよう」
 const HeaderWrap = styled.header`
   position: fixed;
   top: 0;
@@ -14,11 +14,7 @@ const HeaderWrap = styled.header`
   align-items: center; //* 垂直 中央揃え */
   z-index: 1000;
   /* background-color: #808080; */
-
   transition: color 0.3s ease;
-  /* ⬇︎$darkが「trueなら白」「falseなら黒」 */
-  /* useStateの初期値はfalse。$dark = falseなので「最初は'black'が選択される」 */
-  /* color: ${(props) => (props.$dark ? '#fff' : '#000')}; */
 
   a {
     font-size: 1.2rem;
@@ -29,15 +25,16 @@ const HeaderWrap = styled.header`
   }
 `;
 
-//⬇︎Home.jsxの<Header />から受け取った【$isDarkをstyled-componentsに $darkという名前で渡している】
+//⬇︎Home.jsxの<Header $isDark={!isIntersecting} />から受け取った【$isDarkをstyled-componentsに $darkという名前で渡している】
 const Header = ({ $isDark }) => {
   return (
     <HeaderWrap $dark={$isDark}>
       <a href='/'>MySite</a>
       <a href='/'>MySite</a>
       <a href='/'>MySite</a>
-      {/*⬇︎menuをHeaderWrap内で読み込み */}
-      <Menu />
+
+      {/* ⬇︎Menuを読み込みで<Header/>内に配置する */}
+      <Menu $dark={$isDark} />
     </HeaderWrap>
   );
 };
