@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
-  //①ref.currentからDOMを取得
+  //①Menu.jsxから受け取る。ref.currentからDOMを取得
   const hamburger = hamburgerRef.current;
   const nav = navRef.current;
   const nav2 = nav2Ref.current;

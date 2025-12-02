@@ -14,11 +14,11 @@ const HeaderWrap = styled.header`
   align-items: center; //* 垂直 中央揃え */
   z-index: 1000;
   /* background-color: #808080; */
-  transition: color 0.3s ease;
 
   a {
-    font-size: 1.2rem;
+    font-size: var(--text-sm);
     text-decoration: none;
+    transition: color 0.8s ease; /* 色だけ滑らかにスピードを変化させる */
     /* ⬇︎$darkが「trueなら白」「falseなら黒」 */
     /* useStateの初期値はfalse。$dark = falseなので「最初は'black'が選択される」 */
     color: ${(props) => (props.$dark ? '#fff' : '#000')};
