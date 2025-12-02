@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
-import animateHamburger from '../animations/hamburger'; //hamburger.jsからGSAPアニーションをimport
+import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 
 //「styled-components(CSS-in-JS))で書いてみよう」
 const MenuWrapper = styled.div`
@@ -22,7 +22,7 @@ const MenuWrapper = styled.div`
       //⬇︎$darkでspanのみを「白/黒」に切り替え
       //useIntersection.js(IntersectionScrollObserver)のカスタムフック機能。
       background: ${(props) => (props.$dark ? '#fff' : '#000')};
-      transition: background 0.3s ease;
+      transition: background 0.8s ease;
     }
   }
   nav.nav1 {
@@ -30,7 +30,7 @@ const MenuWrapper = styled.div`
     top: 0;
     right: 0;
     width: 100%;
-    height: 80vh;
+    height: 75vh;
     background: #d5ab95;
     transform: translateX(100%);
     z-index: 100;
@@ -55,29 +55,39 @@ const MenuWrapper = styled.div`
 
   nav.nav2 {
     position: fixed;
-    top: 80vh;
+    top: 75vh;
     right: 0;
     width: 100%;
-    height: 20vh;
+    height: 25vh;
     background: #000000;
     transform: translateX(-100%);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px 24px;
+    padding: 5% 3%;
     z-index: 100;
     ul {
-      list-style: none;
-      padding: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      margin-left: 2%;
       li {
-        margin-bottom: 15px;
+        font-size: var(--text-sm);
+        color: #fff;
+        text-align: left;
         a {
+          font-size: var(--text-sm);
           color: #fff;
           text-decoration: none;
-          font-size: 2rem;
-          font-weight: bold;
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
+    }
+    > ul:nth-child(2) {
+      margin-left: 2%;
     }
   }
 `;
@@ -117,8 +127,14 @@ const Menu = ({ $dark }) => {
       <nav className='nav2' ref={nav2Ref}>
         <ul>
           <li>
-            <a href='/'>Home</a>
+            <a href='/'>リンク・Welcome</a>
           </li>
+          <li>Welcome GSAPメニュー!</li>
+          <li>Welcome GSAPメニュー!</li>
+        </ul>
+        <ul>
+          <li>Welcome GSAPメニュー!</li>
+          <li>Welcome GSAPメニュー!</li>
         </ul>
       </nav>
     </MenuWrapper>

@@ -1,22 +1,26 @@
-/* main.jsx に読み込まれる */
-/* ⬇︎全ページ共通のCSSは「index.css」に書くのが基本です。 */
-/* 「normalize.css」は npm（yarn）でパッケージとしてインストールする。yarn add normalize.css*/
+/* main.jsx に読み込まれる。全ページ共通のCSSは「index.css」に書くのが基本です。 */
 
-/* ⬇︎tailwind.cssを使用する➡️main.jsxでimportする➡️App.jsx内の「Home.jsxで使えるようになる」 */
+/* ①「normalize.css」を使用する➡️yarn add normalize.cssでインストール。【main.jsxでimportする】 */
+/* ②⬇︎tailwind.cssを使用する➡️yarn add -D tailwindcss @tailwindcss/vite 【main.jsxでimportする】*/
 @import 'tailwindcss';
 
-/* ⬇︎tailwindのカスタマイズ */
+/******** ⬇︎TailwindCSSのカスタマイズ ********/
 .bg-custom-yellow {
   background-color: #e7b900;
 }
 
+/******** ⬇︎自分で追加にindex.css ********/
 h1 {
   margin-top: 0;
 }
-
-/* ⬇︎タイピングアニメーション(カーソル点滅も追加) */
-/*<span class="ityped-cursor">には影響しないので、点滅アニメは自作。
-HTML+JavaScriptのityped.jsのcss設定も同じように設定している。 */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --text-sm: 0.875rem;
+  --text-lg: 1.125rem;
+}
+/* 自作 タイピングアニメーション(点滅アニメも追加) */
 .ityped {
   display: inline-block;
   white-space: nowrap;
@@ -25,7 +29,7 @@ HTML+JavaScriptのityped.jsのcss設定も同じように設定している。 *
   color: #000;
   font-size: 4.5rem;
   font-weight: 800;
-  animation: blink 1s step-start infinite; /*　点滅アニメ　*/
+  animation: blink 1s step-start infinite; /* 点滅アニメのkeyframes */
 }
 /* 点滅アニメのkeyframes */
 @keyframes blink {
@@ -38,7 +42,7 @@ HTML+JavaScriptのityped.jsのcss設定も同じように設定している。 *
   }
 }
 
-/* ⬇︎index.cssのデフォルト */
+/******** デフォルトindex.css ********/
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -62,7 +66,6 @@ a:hover {
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* 自分で追加 */
   margin: 0;
   display: flex;
   place-items: center;
