@@ -15,6 +15,8 @@ h1 {
 }
 body {
   font-family: 'Poppins', sans-serif;
+  word-break: break-all; /* 日本語用の途中で折り返してよい*/
+  overflow-wrap: break-word; /* URLなどの長い単語が行からはみ出す場合、途中で折り返してよい */
 }
 :root {
   --text-sm: 0.875rem;
