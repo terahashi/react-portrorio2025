@@ -2,8 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import SampleContent from '../components/SampleContent';
 import useIntersection from '../hooks/useIntersection';
+import Three from '../components/3d';
+import SampleContent from '../components/SampleContent';
 
 const Home = () => {
   //⬇︎「カスタムフック化したuseIntersecton(IntersectionObserver)」を設置してHeaderの文字色を変化させる
@@ -22,6 +23,8 @@ const Home = () => {
 
       {/* ⬇︎HeroコンポーネントにtargetRefとして渡す。ヒーローが画面内に9%未満になる(つまりほぼ離れた) = Header白文字に変化 */}
       <Hero targetRef={targetRef} />
+
+      <Three />
 
       <div className='bg-black w-full h-screen'>
         <h2>content2</h2>
