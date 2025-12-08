@@ -25,7 +25,7 @@ const LeftArea = styled.div`
 const RightArea = styled.div`
   width: auto;
   flex: 1;
-  background: #927474;
+  background: #000;
   display: flex;
   flex-direction: column;
   justify-content: center; /* 横中央 */
@@ -60,10 +60,7 @@ const Three = () => {
       <AppLayout>
         <LeftArea>
           <h1>sampleです</h1>
-          <p>Thank you for sharing!"</p>
-          <p>
-            sketchfab クレジット <br></br>"Dog Puppy" (https://skfb.ly/oRKH6) by kenchoo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-          </p>
+          <p>Blenderで自作 cat-Robo</p>
         </LeftArea>
 
         {/* 右側（3D犬） */}

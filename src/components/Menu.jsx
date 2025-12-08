@@ -30,7 +30,7 @@ const MenuWrapper = styled.div`
     top: 0;
     right: 0;
     width: 100%;
-    height: 75vh;
+    height: 70vh;
     background: #d5ab95;
     transform: translateX(100%);
     z-index: 100;
@@ -55,10 +55,10 @@ const MenuWrapper = styled.div`
 
   nav.nav2 {
     position: fixed;
-    top: 75vh;
+    top: 70vh;
     right: 0;
     width: 100%;
-    height: 25vh;
+    height: 30vh;
     background: #000000;
     transform: translateX(-100%);
 
