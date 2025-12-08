@@ -42,10 +42,10 @@ const initThree = (container) => {
   // ②ライト (3Dモデルは「光」が無いと黒い影のように見えるので、ライトを設置します)
   // 下記全てをコメントアウトすると「犬が真っ黒になります」
   // ======================
-  const light = new THREE.DirectionalLight(0xffffff, 1.2); //DirectionalLight = 太陽のように一方向から照らす光
-  light.position.set(1, 1, 1); // 光の位置を設定
+  const light = new THREE.DirectionalLight(0xffffff, 2.5); //DirectionalLight = 太陽のように一方向から照らす光
+  light.position.set(2, 2, 2); // 光の位置を設定
   scene.add(light); // シーンに光を追加
-  scene.add(new THREE.AmbientLight(0xffffff, 0.6)); // AmbientLight = 部屋全体を明るくする光
+  scene.add(new THREE.AmbientLight(0xffffff, 3.5)); // AmbientLight = 部屋全体を明るくする光
 
   // ======================
   // ③犬モデルの読み込み
@@ -56,7 +56,7 @@ const initThree = (container) => {
   //3Dモデルファイルを読み込む(.glbファイル)
   //loader.loadは「3Dモデルファイルを読み込む処理」であり、loader.load()は非同期処理
   loader.load(
-    '/models/dog.glb', // 「/publicを書かなくて良し」➡︎publicディレクトリは ルートとして扱われる。だから/public/◯◯◯と書いてはいけない
+    '/models/cat_robo.glb', // 「/publicを書かなくて良し」➡︎publicディレクトリは ルートとして扱われる。だから/public/◯◯◯と書いてはいけない
 
     (gltf) => {
       dog = gltf.scene; // 読み込んだ3Dモデルを let dog; に代入
