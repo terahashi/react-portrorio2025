@@ -71,6 +71,7 @@ const initThree = (container) => {
       dog.position.y -= center.y * 1; // y軸=3Dモデルの中心より"下に1移動"させる。(1にすると中心より上に移動する)
       dog.position.z -= center.z; // z軸=3Dモデルを正面の中心に合わせる
     },
+
     undefined, // ロード中の処理（今回は特に何もしないので undefined）
     (e) => console.error(e) // エラーがあった場合にコンソールに表示
   );
@@ -88,10 +89,9 @@ const initThree = (container) => {
     requestAnimationFrame(animate); //ブラウザにアニメーションを行いたいとリクエストする
 
     //// ⬇︎もしも「③犬モデルの読み込み」のlet dogに【3Dモデルが入っている場合に回転させる。】
-    if (dog) dog.rotation.y -= 0.003; // y軸がゆっくり回転する。-＝で左回転、+=で右回転
+    if (dog) dog.rotation.y -= 0.015; // y軸がゆっくり回転する。-＝で左回転、+=で右回転
 
     controls.update(); // マウス操作に「必要なupdate()関数」
-
     renderer.render(scene, camera); // シーンとカメラを使って「描画を行う」
   }
   animate();
