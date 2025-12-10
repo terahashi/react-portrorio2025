@@ -1,4 +1,3 @@
-// SampleContent.jsx
 const SampleContent = () => {
   return (
     <section
@@ -10,7 +9,7 @@ const SampleContent = () => {
         fontSize: '24px',
       }}
     >
-      Sample Content Area
+      <h1>Sample Content Area</h1>
     </section>
   );
 };

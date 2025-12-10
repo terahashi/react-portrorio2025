@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import { styled } from 'styled-components';
 
@@ -29,8 +31,9 @@ const HeaderWrap = styled.header`
 const Header = ({ $isDark }) => {
   return (
     <HeaderWrap $dark={$isDark}>
-      <a href='/'>MySite</a>
-      <a href='/'>MySite</a>
+      <Link to='home'>Home</Link>
+      <Link to='/'>中身は/</Link>
+
       <a href='/'>MySite</a>
 
       {/* ⬇︎Menuを読み込みで<Header/>内に配置する */}

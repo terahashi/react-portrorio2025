@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 
+import useIntersection from '../hooks/useIntersection';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import useIntersection from '../hooks/useIntersection';
 import Three from '../components/3d';
 import SampleContent from '../components/SampleContent';
 
