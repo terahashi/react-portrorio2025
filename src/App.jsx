@@ -11,48 +11,56 @@ function App() {
   //⬇︎ローディングアニメーションのstate
   const [loading, setLoading] = useState(true); //最初は「true」で"ローディング中"にする
 
-  // ①⬇︎iOS含む全ブラウザで発火する「スクロール位置を保存」
-  // useEffect(() => {
-  //   const saveScroll = () => {
-  //     sessionStorage.setItem('scrollPos', window.scrollY);
-  //   };
-  //   window.addEventListener('scroll', saveScroll); //iOS含む全ブラウザで動く➡︎scrollイベントで保存
-  //   return () => window.removeEventListener('scroll', saveScroll); //iOS含む全ブラウザで動く➡︎scrollイベントで保存
-  // }, []);
+  /// スクロール位置の保存 (iOS 対応)
   useEffect(() => {
     const saveScroll = () => {
-      const top = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || document.scrollingElement?.scrollTop || 0;
-
-      sessionStorage.setItem('scrollPos', top);
+      const pos = document.scrollingElement?.scrollTop ?? window.scrollY;
+      sessionStorage.setItem('scrollPos', pos);
     };
 
-    window.addEventListener('scroll', saveScroll, { passive: true });
-    return () => window.removeEventListener('scroll', saveScroll);
+    window.addEventListener('scroll', saveScroll);
+    window.addEventListener('pagehide', saveScroll); // iOS でも発火
+    return () => {
+      window.removeEventListener('scroll', saveScroll);
+      window.removeEventListener('pagehide', saveScroll);
+    };
   }, []);
 
-  //②⬇︎useLayoutEffectで「DOMが描画される直前に」スクロール位置を先にセットし「チラつき」を防ぐ。
+  // スクロール位置の復元
   useLayoutEffect(() => {
     if (!loading) {
       const saved = sessionStorage.getItem('scrollPos');
       if (saved !== null) {
-        window.scrollTo(0, Number(saved));
+        // DOM 高さ確定後に復元
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: Number(saved), behavior: 'auto' });
+        });
       }
     }
-  }, [loading]); //⬅︎loadingがfalseになったタイミングで実行
+  }, [loading]);
 
   return (
     <>
-      {/* ⬇︎ローディングアニメーション */}
-      {loading && <Loading onComplete={() => setLoading(false)} />}
-
-      {/* ⬇︎!loading(true扱い)= loadingがfalseなら「真(true)」という意味なので = <Home/>を表示させる。 */}
+      {/* {loading && <Loading onComplete={() => setLoading(false)} />}
       {!loading && (
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
           </Routes>
         </BrowserRouter>
-      )}
+      )} */}
+
+      {/* Home を先にレンダリングして高さを確保 */}
+      <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
+      {/* ローディング表示 */}
+      {loading && <Loading onComplete={() => setLoading(false)} />}
 
       {/*「BrowserRouter」は、アプリ全体を ルーティング可能にする親コンポーネント */}
       {/*「Routes」は、URLに応じて どのルートを表示するかをまとめるコンテナ */}
