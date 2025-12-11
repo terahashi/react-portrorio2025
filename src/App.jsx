@@ -21,10 +21,12 @@ function App() {
   // }, []);
   useEffect(() => {
     const saveScroll = () => {
-      console.log('scrollY:', window.scrollY);
-      sessionStorage.setItem('scrollPos', window.scrollY);
+      const top = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || document.scrollingElement?.scrollTop || 0;
+
+      sessionStorage.setItem('scrollPos', top);
     };
-    window.addEventListener('scroll', saveScroll);
+
+    window.addEventListener('scroll', saveScroll, { passive: true });
     return () => window.removeEventListener('scroll', saveScroll);
   }, []);
 
