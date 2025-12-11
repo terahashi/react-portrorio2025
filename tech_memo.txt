@@ -19,26 +19,11 @@
 
 
 
-
 ------------------------------------------------------------------
 ------------------------------------------------------------------
-🔶■Home.jsxにスクロール位置を保存する機能を追加するけど....ipadのiOSのSafariでは「下記は動作しない」
-⬇︎・IOSで動作しない❌①PCブラウザだけ、ページ更新でスクロール位置を保存する
-//////// beforeunloa 無効化
-//////// pagehide無効化（条件によって発火しない）
-//////// visibilitychange無効化（バックグラウンドで動かない）
-
-//// useEffect(() => {
-////   const saveScroll = () => {
-////     sessionStorage.setItem('scrollPos', window.scrollY);
-////    };
-////    window.addEventListener('beforeunload', saveScroll);      //❌beforeunloadはiOSでは発火しない
-////    return () => window.removeEventListener('beforeunload', saveScroll);     //❌beforeunloadはiOSでは発火しない
-////   }, []);
-
-
-
-
+🔶Reactで「ページ更新」でスクロール位置が最上部に戻る
+仕様です。
+ 「ページロード時にブラウザが最上部から描画する仕様」＋「React SPA ではページ更新でアプリが再マウントされる」 から。
 
 
 ------------------------------------------------------------------
