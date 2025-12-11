@@ -11,26 +11,21 @@ function App() {
   //⬇︎ローディングアニメーションのstate
   const [loading, setLoading] = useState(true); //最初は「true」で"ローディング中"にする
 
-  // //⬇︎①PCブラウザだけ、ページ更新でスクロール位置を保存する
-  // //しかしiOSのSafari/Chrome が無効化しているイベントなので「ipadなどでは下記は動作しない」
-  // // beforeunloa 無効化
-  // // pagehide無効化（条件によって発火しない）
-  // // visibilitychange無効化（バックグラウンドで動かない）
+  // ①⬇︎iOS含む全ブラウザで発火する「スクロール位置を保存」
   // useEffect(() => {
   //   const saveScroll = () => {
   //     sessionStorage.setItem('scrollPos', window.scrollY);
   //   };
-  //   window.addEventListener('beforeunload', saveScroll); //beforeunloadは❌iOSでは発火しない理由
-  //   return () => window.removeEventListener('beforeunload', saveScroll); //beforeunloadは❌iOSでは発火しない理由
+  //   window.addEventListener('scroll', saveScroll); //iOS含む全ブラウザで動く➡︎scrollイベントで保存
+  //   return () => window.removeEventListener('scroll', saveScroll); //iOS含む全ブラウザで動く➡︎scrollイベントで保存
   // }, []);
-
-  // ①⬇︎iOS含む全ブラウザで発火する「スクロール位置を保存」
   useEffect(() => {
     const saveScroll = () => {
+      console.log('scrollY:', window.scrollY);
       sessionStorage.setItem('scrollPos', window.scrollY);
     };
-    window.addEventListener('scroll', saveScroll); //iOS含む全ブラウザで動く➡︎scrollイベントで保存
-    return () => window.removeEventListener('scroll', saveScroll); //iOS含む全ブラウザで動く➡︎scrollイベントで保存
+    window.addEventListener('scroll', saveScroll);
+    return () => window.removeEventListener('scroll', saveScroll);
   }, []);
 
   //②⬇︎useLayoutEffectで「DOMが描画される直前に」スクロール位置を先にセットし「チラつき」を防ぐ。
