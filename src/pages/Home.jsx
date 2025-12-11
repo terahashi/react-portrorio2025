@@ -1,27 +1,30 @@
 import { useState, useRef, useEffect } from 'react';
 
 import useIntersection from '../hooks/useIntersection';
-import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Three from '../components/3d';
 import SampleContent from '../components/SampleContent';
 
-const Home = () => {
-  //⬇︎「カスタムフック化したuseIntersecton(IntersectionObserver)」を設置してHeaderの文字色を変化させる
+const Home = ({ setIsDark }) => {
+  //⬇︎「useIntersecton(カスタムフック化)」で監視し、Headerの文字色を変化させる。
+  //「targetRef」はHero要素に付けて監視対象にするrefです
   const { targetRef, isIntersecting } = useIntersection({
     threshold: 0.09,
     //ヒーローが画面内に9%以上入っている → isIntersecting = true = Header黒文字
     //ヒーローが画面内に9%未満になる(つまりほぼ離れた)→ isIntersecting = false = Header白文字に変化
-    //①{ !isIntersecting } で反転させている
-    //②isIntersecting = true（初期値）だとすると【$isDark={!isIntersecting} = falseになる】
-    //③Headerの$isDark = false つまり color:#000（黒）が選択され初期表示される
   });
+
+  //⬇︎useEffectで「propsで渡ってきたsetIsDark」を使う
+  //初期値はisDarkはfalseなので「Headerは黒文字になる」
+  useEffect(() => {
+    setIsDark(!isIntersecting);
+  }, [isIntersecting, setIsDark]);
+  //⬆︎依存配列でisIntersectingが変わる度にuseEffect実行。
+  //・setIsDarkは「propsで渡された関数なので依存に入れる（React推奨）」
 
   return (
     <>
-      <Header $isDark={!isIntersecting} />
-
-      {/* ⬇︎HeroコンポーネントにtargetRefとして渡す。ヒーローが画面内に9%未満になる(つまりほぼ離れた) = Header白文字に変化 */}
+      {/* ⬇︎targetRefを付けて監視。ヒーローが画面内に9%未満になる(つまりほぼ離れた) = trueになりHeader白文字に変化。 */}
       <Hero targetRef={targetRef} />
 
       <Three />
