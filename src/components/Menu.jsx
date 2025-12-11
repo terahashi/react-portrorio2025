@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 
