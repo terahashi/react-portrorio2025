@@ -3,8 +3,8 @@ import './App.css';
 
 //⬇︎自分で追加
 //RoutesでHome.jsxを読み込む
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; //「React Router バージョン6」
-import ColorContext from './contexts/ColorContext.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; //React Router バージョン6
+import ColorContext from './contexts/ColorContext.js'; //useContext
 
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      {/* useContextを使用 */}
+      {/* useContextのProviderを使用 */}
       <ColorContext.Provider value={{ isDark, setIsDark }}>
         <BrowserRouter>
           <Routes>
