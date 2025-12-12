@@ -1,7 +1,8 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
+import ColorContext from '../contexts/ColorContext';
 
 //「styled-components(CSS-in-JS))で書いてみよう」
 const MenuWrapper = styled.div`
@@ -93,8 +94,11 @@ const MenuWrapper = styled.div`
   }
 `;
 
-//⬇︎Header.jsxから受け取った【$darkをCSS-in-JSに、$darkという名前で渡している】
-const Menu = ({ $dark }) => {
+//⬇︎useContext使用【$darkをCSS-in-JSに、$darkという名前で渡している】
+const Menu = () => {
+  //useContext
+  const { isDark } = useContext(ColorContext);
+
   const hamburgerRef = useRef(null);
   const navRef = useRef(null);
   const nav2Ref = useRef(null);
@@ -108,7 +112,7 @@ const Menu = ({ $dark }) => {
   }, []);
 
   return (
-    <MenuWrapper $dark={$dark}>
+    <MenuWrapper $dark={isDark}>
       <div className='hamburger' ref={hamburgerRef}>
         <span></span>
         <span></span>

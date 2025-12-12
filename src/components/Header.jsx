@@ -12,11 +12,10 @@ const HeaderWrap = styled.header`
   width: 100%;
   padding: 20px;
   display: flex;
-  flex-direction: row; //* 水平 横並び */
-  justify-content: space-between; //* 水平 両端揃え */
-  align-items: center; //* 垂直 中央揃え */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   z-index: 1000;
-  /* background-color: #808080; */
 
   a {
     font-size: var(--text-sm);
@@ -28,18 +27,20 @@ const HeaderWrap = styled.header`
   }
 `;
 
-//⬇︎Home.jsxの<Header $isDark={!isIntersecting} />から受け取った【$isDarkをstyled-componentsに $darkという名前で渡している】
-const Header = ({ $isDark }) => {
+//⬇︎useContextを使用【$isDarkをstyled-componentsに $darkという名前で渡している】
+const Header = () => {
+  //useContext
   const { isDark } = useContext(ColorContext);
+
   return (
-    <HeaderWrap $dark={$isDark}>
+    <HeaderWrap $dark={isDark}>
       <Link to='home'>Home</Link>
       <Link to='/'>中身は/</Link>
 
       <a href='/'>MySite</a>
 
       {/* ⬇︎Menuを読み込みで<Header/>内に配置する */}
-      <Menu $dark={$isDark} />
+      <Menu $dark={isDark} />
     </HeaderWrap>
   );
 };
