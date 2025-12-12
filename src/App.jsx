@@ -18,20 +18,22 @@ function App() {
   return (
     <>
       {/* ⬇︎ローディングアニメーション */}
-      {/* ⬇︎ローディングアニメーションを外すとスクロール位置が保持される */}
-      {loading && <Loading onComplete={() => setLoading(false)} />}
+      {/* {loading && <Loading onComplete={() => setLoading(false)} />} */}
 
       {/* ⬇︎!loading(true扱い)= loadingがfalseなら「真(true)」という意味なので = <Home/>を表示させる。 */}
-      {!loading && (
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Layout isDark={isDark} />}>
-              {/* ⬇︎Layout.jsxの<Outlet />に各自入る */}
-              <Route path='/' element={<Home setIsDark={setIsDark} />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      )}
+      {/* {!loading && ( */}
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout isDark={isDark} />}>
+            {/* ⬇︎Layout.jsxの<Outlet />に各自入る */}
+            <Route path='/' element={<Home setIsDark={setIsDark} />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* )} */}
+
+      {/* ⬇︎ローディングは上から覆いかぶさるだけ リッチな演出として実装する */}
+      {loading && <Loading onComplete={() => setLoading(false)} />}
 
       {/*「BrowserRouter」は、アプリ全体を ルーティング可能にする親コンポーネント */}
       {/*「Routes」は、URLに応じて どのルートを表示するかをまとめるコンテナ */}

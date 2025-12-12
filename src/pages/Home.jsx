@@ -27,7 +27,7 @@ const Home = ({ setIsDark }) => {
       {/* ⬇︎targetRefを付けて監視。ヒーローが画面内に9%未満になる(つまりほぼ離れた) = trueになりHeader白文字に変化。 */}
       <Hero targetRef={targetRef} />
 
-      {/* <Three /> */}
+      <Three />
 
       <div className='bg-black w-full h-screen'>
         <h2>content2</h2>
