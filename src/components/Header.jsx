@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
-import { styled } from 'styled-components';
+import ColorContext from '../contexts/ColorContext';
 
 //「styled-components(CSS-in-JS))で書いてみよう」
 const HeaderWrap = styled.header`
@@ -29,6 +30,7 @@ const HeaderWrap = styled.header`
 
 //⬇︎Home.jsxの<Header $isDark={!isIntersecting} />から受け取った【$isDarkをstyled-componentsに $darkという名前で渡している】
 const Header = ({ $isDark }) => {
+  const { isDark } = useContext(ColorContext);
   return (
     <HeaderWrap $dark={$isDark}>
       <Link to='home'>Home</Link>
