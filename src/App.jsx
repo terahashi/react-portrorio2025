@@ -4,6 +4,8 @@ import './App.css';
 //⬇︎自分で追加
 //RoutesでHome.jsxを読み込む
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; //「React Router バージョン6」
+import ColorContext from './contexts/ColorContext.js';
+
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Loading from './components/Loading.jsx';
@@ -17,22 +19,18 @@ function App() {
 
   return (
     <>
-      {/* ⬇︎ローディングアニメーション */}
-      {/* {loading && <Loading onComplete={() => setLoading(false)} />} */}
+      {/* useContextを使用 */}
+      <ColorContext.Provider value={{ isDark, setIsDark }}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Layout isDark={isDark} />}>
+              <Route path='/' element={<Home setIsDark={setIsDark} />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ColorContext.Provider>
 
-      {/* ⬇︎!loading(true扱い)= loadingがfalseなら「真(true)」という意味なので = <Home/>を表示させる。 */}
-      {/* {!loading && ( */}
-      <BrowserRouter>
-        <Routes>
-          <Route element={<Layout isDark={isDark} />}>
-            {/* ⬇︎Layout.jsxの<Outlet />に各自入る */}
-            <Route path='/' element={<Home setIsDark={setIsDark} />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      {/* )} */}
-
-      {/* ⬇︎ローディングは上から覆いかぶさるだけ リッチな演出として実装する */}
+      {/* ⬇︎ローディングアニメは上から覆いかぶさるだけ リッチな演出として実装する */}
       {loading && <Loading onComplete={() => setLoading(false)} />}
 
       {/*「BrowserRouter」は、アプリ全体を ルーティング可能にする親コンポーネント */}
