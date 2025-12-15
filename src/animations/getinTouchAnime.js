@@ -12,10 +12,10 @@ const getinTouch = (svgRef) => {
     const length = Math.ceil(path.getTotalLength());
     const fill = fills[i];
 
-    //初期状態
+    //初期状態(SVGが後から描かれていく)演出になる
     gsap.set(path, {
-      strokeDasharray: length,
-      strokeDashoffset: length,
+      strokeDasharray: length, //「実線部分の長さ」と「空白部分の長さ」を交互に指定する
+      strokeDashoffset: length, //線が全部隠れる
     });
 
     // 塗りのズレを初期設定
@@ -31,8 +31,8 @@ const getinTouch = (svgRef) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: path, //各pathごとに発火する
-        start: 'top 90%',
-        end: '+=400', // end= start + 300px (startが発動した瞬間・そこからさらに300pxスクロールしたらアニメ完了)
+        start: 'top 80%',
+        end: '+=300', // end= start + 300px (startが発動した瞬間・そこからさらに300pxスクロールしたらアニメ完了)
         scrub: true,
       },
     });
@@ -40,7 +40,7 @@ const getinTouch = (svgRef) => {
     // 線を描く
     tl.to(path, {
       strokeDashoffset: 0,
-      duration: 0.7,
+      duration: 1.5,
       ease: 'none',
     });
 
@@ -52,7 +52,7 @@ const getinTouch = (svgRef) => {
         duration: 0.7,
         ease: 'none',
       },
-      0.6 //このアニメをタイムラインの「0.6秒の位置から開始」
+      3 //このアニメをタイムラインの「2秒の位置から開始」
     );
   });
 };

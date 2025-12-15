@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react';
-import getinTouch from '../animations/GetinTouch';
+import getinTouchAnime from '../animations/getinTouchAnime';
 import styled from 'styled-components';
 
 const GetInWrap = styled.div`
@@ -16,7 +16,7 @@ const GetInWrap = styled.div`
       margin: 0 auto;
       .char {
         fill: none; //最初は塗りなし
-        stroke: white; //描かれていく「線の色」
+        stroke: #7d7d7d; //描かれていく「線の色」
         stroke-width: 0.6; //線の太さ
         stroke-linecap: round;
         stroke-linejoin: round;
@@ -29,7 +29,7 @@ const GetInTouch = () => {
   const svgRef = useRef(null);
 
   useLayoutEffect(() => {
-    getinTouch(svgRef); //refは対象のDOM参照。
+    getinTouchAnime(svgRef); //refは対象のDOM参照。
   }, []);
 
   return (
