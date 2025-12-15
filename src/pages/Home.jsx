@@ -5,6 +5,7 @@ import ColorContext from '../contexts/ColorContext';
 import Hero from '../components/Hero';
 import Three from '../components/Three';
 import SampleContent from '../components/SampleContent';
+import GetInTouch from '../components/GetInTouch';
 
 const Home = () => {
   //⬇︎useContext使用
@@ -39,6 +40,8 @@ const Home = () => {
       <SampleContent />
 
       <SampleContent />
+
+      <GetInTouch />
     </>
   );
 };

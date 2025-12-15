@@ -6,7 +6,7 @@ const loadingAnimation = (blinds, onComplete) => {
   const tl = gsap.timeline({
     //⬇︎外側のonComplete:は「GSAPのtimelineが全部終わったら実行」
     onComplete: () => {
-      onComplete(); //⬅︎内側はLoading.jsxから"propsで渡ってきたonComplete()"を実行 => 実体は setLoading(false) => ローディングが消えてメイン画面が出る
+      onComplete(); //⬅︎内側はLoading.jsxから"propsで渡ってきたonComplete()"を実行する。実体(中身)はsetLoading(false)であり、ローディングが終了、メイン画面が出る
     },
   });
 
