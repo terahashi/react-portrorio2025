@@ -1,4 +1,4 @@
-const SampleContent1 = () => {
+const SampleContent2 = () => {
   return (
     <section
       style={{
@@ -18,7 +18,7 @@ const SampleContent1 = () => {
           width: '300px',
         }}
       >
-        SampleContent1
+        SampleContent2
       </h2>
 
       <div
@@ -32,11 +32,11 @@ const SampleContent1 = () => {
             fontSize: '2rem',
           }}
         >
-          コンテンツ1
+          コンテンツ
         </h2>
       </div>
     </section>
   );
 };
 
-export default SampleContent1;
+export default SampleContent2;

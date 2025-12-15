@@ -5,7 +5,9 @@ import ColorContext from '../contexts/ColorContext';
 import Hero from '../components/Hero';
 import Three from '../components/Three';
 import SampleContent from '../components/SampleContent';
+import SampleContent2 from '../components/SampleContent2.jsx';
 import GetInTouch from '../components/GetInTouch';
+import ParagraphSection from '../components/ParagraphSection';
 
 const Home = () => {
   //⬇︎useContext使用
@@ -33,13 +35,13 @@ const Home = () => {
 
       <Three />
 
-      <div className='bg-black w-full h-screen'>
-        <h2>content2</h2>
-      </div>
+      <ParagraphSection title='Works'>
+        <SampleContent />
+      </ParagraphSection>
 
-      <SampleContent />
-
-      <SampleContent />
+      <ParagraphSection title='Skills'>
+        <SampleContent2 />
+      </ParagraphSection>
 
       <GetInTouch />
     </>
