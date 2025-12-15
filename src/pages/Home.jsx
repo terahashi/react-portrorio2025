@@ -3,7 +3,7 @@ import useIntersection from '../hooks/useIntersection';
 import ColorContext from '../contexts/ColorContext';
 
 import Hero from '../components/Hero';
-import Three from '../components/3d';
+import Three from '../components/Three';
 import SampleContent from '../components/SampleContent';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
     //ヒーローが画面内に9%未満になる(つまりほぼ離れた)→ isIntersecting = false = Header白文字に変化
   });
 
-  //⬇︎useEffectで「useContextで渡ってきた setIsDark(更新用関数)」を使う
+  //⬇︎useEffectで「useContextで渡ってきた setIasDark(更新用関数)」を使う
   useEffect(() => {
     setIsDark(!isIntersecting);
   }, [isIntersecting, setIsDark]);

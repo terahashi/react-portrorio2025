@@ -30,6 +30,7 @@ const LoadingWrap = styled.div`
 `;
 
 //⬇︎Loadingコンポーネント
+//{ onComplete }はApp.jsxから渡ってきたprops。
 const Loading = ({ onComplete }) => {
   // ブラインド全体を保持するref
   const containerRef = useRef(null);
@@ -42,7 +43,7 @@ const Loading = ({ onComplete }) => {
     //②子要素.blindを全部取得（これで querySelectorAllは不要！）
     const blinds = containerRef.current.querySelectorAll('.blind');
 
-    //③⬇︎GSAPアニメーションを実行
+    //③⬇︎GSAPアニメーションを実行(各blindsとonCompleteを渡す)
     loadingAnimation(blinds, onComplete);
   }, []);
 
@@ -50,12 +51,12 @@ const Loading = ({ onComplete }) => {
     <LoadingWrap>
       <div className='bl-loader'>
         <div className='blind-container' ref={containerRef}>
-          {/*⬇︎ blindを10個生成 */}
           {Array.from({ length: 10 }).map((_, index) => (
             <div className='blind' key={index}></div>
           ))}
+
           {/*⬆︎ Array.from()は「新しい配列を生成するメソッド」
-          第一引数　_ は配列の値（今回はundefined）。
+          第一引数　_ は配列の値（今回はundefined）
           第二引数 index は要素の「インデックス番号（0〜9）」
           ・Reactでは「ループで生成するblind要素に key={index} をつける必要がある。」
           */}

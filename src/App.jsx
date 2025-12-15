@@ -24,7 +24,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Layout isDark={isDark} />}>
-              <Route path='/' element={<Home setIsDark={setIsDark} />} />
+              {/* <Route path='/' element={<Home setIsDark={setIsDark} />} /> */}
+              <Route path='/' element={!loading && <Home setIsDark={setIsDark} />} />
             </Route>
           </Routes>
         </BrowserRouter>
