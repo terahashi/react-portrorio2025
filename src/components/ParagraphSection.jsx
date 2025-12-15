@@ -1,5 +1,5 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
-import paragraphAnime from '../animations/ParagraphAnime';
+import paragraphAnime from '../animations/paragraphAnime';
 import styled from 'styled-components';
 
 const ParaSection = styled.section`
