@@ -43,7 +43,7 @@ const Three = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    //⬇︎「まだ containerRef(ModelArea = #dog-area)がDOMに存在しないなら (つまりnullならtrue扱いになり) initThreeを実行しない」
+    //⬇︎「まだ containerRef(ModelArea = #cat-area)がDOMに存在しないなら (つまりnullならtrue扱いになり) initThreeを実行しない」
     if (!containerRef.current) return;
 
     //⬇︎Three.js(initThree)初期化 実行
@@ -65,7 +65,7 @@ const Three = () => {
 
         {/* 右側（3D犬） */}
         <RightArea>
-          <ModelArea id='dog-area' ref={containerRef}></ModelArea>
+          <ModelArea id='cat-area' ref={containerRef}></ModelArea>
         </RightArea>
       </AppLayout>
     </div>

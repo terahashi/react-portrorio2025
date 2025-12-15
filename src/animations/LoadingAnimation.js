@@ -1,10 +1,12 @@
-//ブラインドアニメ
+//使う先は「Loading.jsx」
+//ブラインドのローディングアニメ
 import gsap from 'gsap';
 
 const loadingAnimation = (blinds, onComplete) => {
   const tl = gsap.timeline({
+    //⬇︎外側のonComplete:は「GSAPのtimelineが全部終わったら実行」
     onComplete: () => {
-      onComplete();
+      onComplete(); //⬅︎内側はLoading.jsxから"propsで渡ってきたonComplete()"を実行 => 実体は setLoading(false) => ローディングが消えてメイン画面が出る
     },
   });
 
