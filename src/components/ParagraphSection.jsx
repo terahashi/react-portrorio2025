@@ -11,7 +11,6 @@ const ParaSection = styled.section`
   }
   .paragraph-area {
     padding: 10px;
-    /* display: flex; //子要素の「.headline」と「{children}」を並べたい時 */
   }
   .headline {
     position: relative;
@@ -19,7 +18,6 @@ const ParaSection = styled.section`
     display: inline-block; //rectを文字幅ピッタリにする。inline-blockは「中身（内容）分だけの幅を取る」
     text-align: left;
     /* margin-bottom: 0; */
-    /* height: fit-content; //.headlineの高さが定まる。「.rectとspan.label」が.headline高さピッタリになる。 */
     .rect {
       content: '';
       width: 100%;

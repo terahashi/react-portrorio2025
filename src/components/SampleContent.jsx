@@ -2,14 +2,14 @@ const SampleContent1 = () => {
   return (
     <section
       style={{
-        display: 'flex',
-        justifycontent: 'space-between',
+        // display: 'flex',
+        // justifycontent: 'space-between',
         height: '120vh',
         background: '#333',
-        color: 'white',
-        padding: '10px',
-        fontSize: '1rem',
-        gap: '20px',
+        // color: 'white',
+        // padding: '10px',
+        // fontSize: '1rem',
+        // gap: '20px',
       }}
     >
       <h2
@@ -20,21 +20,6 @@ const SampleContent1 = () => {
       >
         SampleContent1
       </h2>
-
-      <div
-        style={{
-          width: 'calc(100% - 300px)',
-          textAlign: 'center',
-        }}
-      >
-        <h2
-          style={{
-            fontSize: '2rem',
-          }}
-        >
-          コンテンツ1
-        </h2>
-      </div>
     </section>
   );
 };
