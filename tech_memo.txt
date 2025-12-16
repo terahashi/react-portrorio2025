@@ -112,3 +112,30 @@ iPhone（ka-ta の iPhone）
 
 
 
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+🔶import { useOutletContext } って何？
+・Home.jsxで使用している。
+
+・useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【データheaderRef】を渡すためのフック」
+今回は「追従タイトルでHeaderコンポーネントの高さDOMが必要だったので」下記のように使用している。
+
+📄🍎⬇︎Layout.jsx
+const Layout = () => {
+  const headerRef = useRef(null); //side.js(追従タイトル)で使用するため、HeaderのuseRef(のDOM)を取得
+  return (
+    <>
+      <Header headerRef={headerRef} />
+      <Outlet context={{ headerRef }} /> //⭐️ここで「Home.jsxにcontextとして{headerRef}を渡す。」
+      {/* ⬆︎<Outlet/>は子コンポーネント(Home.jsxやAbout.jsx)を差し込むもの */}
+    </>
+  );
+};
+
+📄🍎⬇︎Home.jsx
+import { useOutletContext } from 'react-router-dom'; //⭐️useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【データheaderRef】を渡すためのフック」
+const Home = () => {
+  //⬇︎Layout.jsxから受け取ったheaderRefを使用するために「useOutletContext」を使用
+  const { headerRef } = useOutletContext();
+}

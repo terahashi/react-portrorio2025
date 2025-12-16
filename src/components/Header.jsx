@@ -28,12 +28,12 @@ const HeaderWrap = styled.header`
 `;
 
 //⬇︎useContextを使用【$isDarkをstyled-componentsに $darkという名前で渡している】
-const Header = () => {
+const Header = ({ headerRef }) => {
   //useContext
   const { isDark } = useContext(ColorContext);
 
   return (
-    <HeaderWrap $dark={isDark}>
+    <HeaderWrap ref={headerRef} $dark={isDark}>
       <Link to='home'>Home</Link>
       <Link to='/'>中身は/</Link>
 

@@ -1,15 +1,22 @@
 import { useEffect, useContext } from 'react';
+import { useOutletContext } from 'react-router-dom'; //⭐️useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【データ:headerRef】を渡すためのフック」
+
 import useIntersection from '../hooks/useIntersection';
 import ColorContext from '../contexts/ColorContext';
 
 import Hero from '../components/Hero';
 import Three from '../components/Three';
-import SampleContent from '../components/SampleContent';
-import SampleContent2 from '../components/SampleContent2.jsx';
 import GetInTouch from '../components/GetInTouch';
 import ParagraphSection from '../components/ParagraphSection';
+import SideFixed from '../components/SideFixed.jsx';
+
+import SampleContent from '../components/SampleContent';
+import SampleContent2 from '../components/SampleContent2.jsx';
 
 const Home = () => {
+  //⬇︎親(Layout.jsx)から受け取った「headerRefを使用するために【useOutletContext()】を使用する」
+  const { headerRef } = useOutletContext();
+
   //⬇︎useContext使用
   const { setIsDark } = useContext(ColorContext);
 
@@ -30,13 +37,15 @@ const Home = () => {
 
   return (
     <>
-      {/* ⬇︎targetRefを付けて監視。ヒーローが画面内に9%未満になる(つまりほぼ離れた) = trueになりHeader白文字に変化。 */}
       <Hero targetRef={targetRef} />
 
       <Three />
 
       <ParagraphSection title='Works'>
-        <SampleContent />
+        {/* SideFixedで追従タイトルを部品化 */}
+        <SideFixed headerRef={headerRef}>
+          <SampleContent />
+        </SideFixed>
       </ParagraphSection>
 
       <ParagraphSection title='Skills'>
