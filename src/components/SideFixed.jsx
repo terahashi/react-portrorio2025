@@ -1,4 +1,4 @@
-import { useRef, useEffect, Children } from 'react';
+import { useRef, useEffect } from 'react';
 import areaFixedFunk from '../animations/side';
 
 const SideFixed = ({ children, headerRef }) => {

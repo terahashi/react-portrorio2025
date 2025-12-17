@@ -3,9 +3,9 @@ import paragraphAnime from '../animations/paragraphAnime';
 import styled from 'styled-components';
 
 const ParaSection = styled.section`
-  background: #000;
-  padding: 5%;
-  margin-bottom: 5%;
+  background: #494949;
+  padding: 10px;
+  margin-bottom: 100px;
   &:last-of-type {
     margin-bottom: 25%;
   }
