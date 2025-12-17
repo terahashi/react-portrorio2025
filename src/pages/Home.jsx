@@ -6,10 +6,11 @@ import ColorContext from '../contexts/ColorContext';
 
 import Hero from '../components/Hero';
 import Three from '../components/Three';
-import GetInTouch from '../components/GetInTouch';
 import ParagraphSection from '../components/ParagraphSection';
 import SideFixed from '../components/SideFixed.jsx';
+import GetInTouch from '../components/GetInTouch';
 
+import Works from '../components/Works';
 import SampleContent from '../components/SampleContent';
 import SampleContent2 from '../components/SampleContent2.jsx';
 
@@ -39,9 +40,13 @@ const Home = () => {
     <>
       <Hero targetRef={targetRef} />
 
+      <ParagraphSection title='Works'>
+        <Works />
+      </ParagraphSection>
+
       <Three />
 
-      <ParagraphSection title='Works'>
+      <ParagraphSection title='sample'>
         {/* SideFixedで追従タイトルを部品化 */}
         <SideFixed headerRef={headerRef}>
           <SampleContent />

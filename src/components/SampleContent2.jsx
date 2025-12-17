@@ -12,27 +12,13 @@ const SampleContent2 = () => {
         gap: '20px',
       }}
     >
-      <h2
-        style={{
-          fontSize: '2rem',
-          width: '300px',
-        }}
-      >
-        SampleContent2
-      </h2>
-
-      <div
-        style={{
-          width: 'calc(100% - 300px)',
-          textAlign: 'center',
-        }}
-      >
+      <div>
         <h2
           style={{
             fontSize: '2rem',
           }}
         >
-          コンテンツ
+          コンテンツ コンテンツ
         </h2>
       </div>
     </section>
