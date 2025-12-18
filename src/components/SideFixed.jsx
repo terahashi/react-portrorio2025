@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import areaFixedFunk from '../animations/side';
 
-const SideFixed = ({ children, headerRef }) => {
+const SideFixed = ({ children, title, headerRef, description }) => {
   const areaRef = useRef(null);
   const targetRef = useRef(null);
 
@@ -21,7 +21,13 @@ const SideFixed = ({ children, headerRef }) => {
 
       {/* ⬇︎⭐️実際に追従する要素（fixedになる） */}
       <div ref={targetRef} style={{ width: '30%' }}>
-        <h1>追従タイトル</h1>
+        {/* ⬇︎ <SideFixed title='追従タイトル'などから「titleやdescriptionを受け取る。」 */}
+        <h1 style={{ margin: '0' }}>{title}</h1>
+        <p>{description}</p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt qui maiores iure adipisci corporis quisquam id iusto fugit saepe. At atque repellat nulla repellendus? Expedita architecto
+          odit eum itaque ipsam.
+        </p>
       </div>
     </div>
   );

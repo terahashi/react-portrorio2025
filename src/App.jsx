@@ -1,14 +1,16 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 //⬇︎自分で追加
 //RoutesでHome.jsxを読み込む
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; //React Router バージョン6
-import ColorContext from './contexts/ColorContext.js'; //useContext
+import ColorContext from './contexts/ColorContext.js'; //useContext(ColorContext)
 
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Loading from './components/Loading.jsx';
+import WorksDetail from './pages/Works/WorksDetail.jsx'; //作品works詳細ページ
+import NotFound404 from './pages/NotFound404.jsx';
 
 function App() {
   //⬇︎ローディングアニメーションのstate
@@ -24,14 +26,20 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Layout isDark={isDark} />}>
-              {/* !loading && で「初期は<Home>は表示されない」   */}
+              {/* 初期ローディングでは<Home>は表示されない */}
               <Route path='/' element={!loading && <Home setIsDark={setIsDark} />} />
+
+              {/* Works詳細ページ(/worksはルーティングで決めた固定パス。) */}
+              <Route path='/works/:id' element={<WorksDetail />} />
+
+              {/* 🔥404ページ */}
+              <Route path='*' element={<NotFound404 />} />
             </Route>
           </Routes>
         </BrowserRouter>
       </ColorContext.Provider>
 
-      {/* ⬇︎ローディングアニメは上から覆いかぶさるだけ リッチな演出として実装する */}
+      {/* ⬇︎ローディングアニメは上から覆いかぶさるだけ。論理AND演算子!loading && で「初期ローディングは<Home>は表示されない」*/}
       {loading && <Loading onComplete={() => setLoading(false)} />}
 
       {/*「BrowserRouter」は、アプリ全体を ルーティング可能にする親コンポーネント */}

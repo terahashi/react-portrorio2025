@@ -4,6 +4,7 @@ import { useRef } from 'react';
 
 const Layout = () => {
   const headerRef = useRef(null); //追従タイトル(side.js)で使用するため、HeaderのuseRef(のDOM)を取得
+
   return (
     <>
       <Header headerRef={headerRef} />

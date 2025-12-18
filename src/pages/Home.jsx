@@ -18,7 +18,7 @@ const Home = () => {
   //⬇︎親(Layout.jsx)から受け取った「headerRefを使用するために【useOutletContext()】を使用する」
   const { headerRef } = useOutletContext();
 
-  //⬇︎useContext使用
+  //⬇︎useContext(ColorContext)使用
   const { setIsDark } = useContext(ColorContext);
 
   //⬇︎「useIntersecton(カスタムフック化)」で監視し、Headerの文字色を変化させる。
@@ -29,7 +29,7 @@ const Home = () => {
     //ヒーローが画面内に9%未満になる(つまりほぼ離れた)→ isIntersecting = false = Header白文字に変化
   });
 
-  //⬇︎useEffectで「useContextで渡ってきた setIasDark(更新用関数)」を使う
+  //⬇︎useEffectで「useContextで渡ってきた setIsDark(更新用関数)」を使う
   useEffect(() => {
     setIsDark(!isIntersecting);
   }, [isIntersecting, setIsDark]);
@@ -48,7 +48,7 @@ const Home = () => {
 
       <ParagraphSection title='sample'>
         {/* SideFixedで追従タイトルを部品化 */}
-        <SideFixed headerRef={headerRef}>
+        <SideFixed title='追従タイトル' headerRef={headerRef}>
           <SampleContent />
         </SideFixed>
       </ParagraphSection>

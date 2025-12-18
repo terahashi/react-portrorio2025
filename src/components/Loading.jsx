@@ -1,6 +1,6 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
 import { styled } from 'styled-components';
-import loadingAnimation from '../animations/LoadingAnimation';
+import loadingAnimation from '../animations/loadingAnimation';
 
 //⬇︎「styled-components(CSS-in-JS))で書いてみよう」
 const LoadingWrap = styled.div`
