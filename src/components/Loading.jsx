@@ -1,6 +1,6 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
 import { styled } from 'styled-components';
-import loadingAnimation from '../animations/loadingAnimation';
+import LoadingAnimation from '../animations/loadingAnimation';
 
 //⬇︎「styled-components(CSS-in-JS))で書いてみよう」
 const LoadingWrap = styled.div`
@@ -44,7 +44,7 @@ const Loading = ({ onComplete }) => {
     const blinds = containerRef.current.querySelectorAll('.blind');
 
     //③⬇︎GSAPアニメーションを実行(各blindsとonCompleteを渡す)
-    loadingAnimation(blinds, onComplete);
+    LoadingAnimation(blinds, onComplete);
   }, []);
 
   return (
