@@ -1,7 +1,7 @@
 import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
-import animateHamburger from '../animations/hamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
+import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 import ColorContext from '../contexts/ColorContext';
 
 //「styled-components(CSS-in-JS))で書いてみよう」
