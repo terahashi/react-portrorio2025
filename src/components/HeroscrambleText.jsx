@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import scrambleText from '../animations/ScrambleText';
+import scrambleText from '../animations/scrambleText';
 
 const HeroscrambleText = () => {
   //refsを作成する
