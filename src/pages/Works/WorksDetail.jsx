@@ -37,8 +37,9 @@ const WorksDetail = () => {
   }, [setIsDark]);
 
   return (
-    <section>
-      <SideFixed title={workdetail.title} description={workdetail.desctription}>
+    <section style={{ marginTop: '30vh' }}>
+      {/* sideText={workdetail.sideText} ⬅︎ <SideFixed>コンポーネントに「"worksData"のsideTextデータを渡す」 */}
+      <SideFixed title={workdetail.title} sideText={workdetail.sideText}>
         <div style={{ height: '3000px' }}>
           <h1>{workdetail.title}</h1>
           <img src={workdetail.image} alt={workdetail.titke} />

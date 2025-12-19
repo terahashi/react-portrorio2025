@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import areaFixedFunk from '../animations/side';
 
-const SideFixed = ({ children, title, headerRef, description }) => {
+const SideFixed = ({ children, title, headerRef, sideText }) => {
   const areaRef = useRef(null);
   const targetRef = useRef(null);
 
@@ -13,21 +13,18 @@ const SideFixed = ({ children, title, headerRef, description }) => {
   return (
     <div ref={areaRef} style={{ position: 'relative' }}>
       <div style={{ display: 'flex' }}>
-        {/* 左側領域 レイアウト用の箱を用意（幅を確保） */}
+        {/* 左側領域で幅を確保 */}
         <div style={{ width: '300px' }}></div>
-        {/* 右側領域　{children}のコンテンツ */}
+        {/* 右側領域で{children} */}
         <div style={{ width: 'calc(100% - 300px)' }}>{children}</div>
       </div>
 
-      {/* ⬇︎⭐️実際に追従する要素（fixedになる） */}
-      <div ref={targetRef} style={{ width: '30%' }}>
-        {/* ⬇︎ <SideFixed title='追従タイトル'などから「titleやdescriptionを受け取る。」 */}
-        <h1 style={{ margin: '0' }}>{title}</h1>
-        <p>{description}</p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt qui maiores iure adipisci corporis quisquam id iusto fugit saepe. At atque repellat nulla repellendus? Expedita architecto
-          odit eum itaque ipsam.
-        </p>
+      {/* ⬇︎実際に追従するfixed */}
+      <div ref={targetRef} style={{ width: '300px' }}>
+        {/* <SideFixed title='追従タイトル'などから「titleなどのpropsを受け取る。」 */}
+        <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', margin: '0' }}>{title}</h1>
+        {/* sideText が「truthy（真)」のときだけ{sideText}を表示  */}
+        {sideText && <h2 style={{ fontSize: '1.0rem' }}>{sideText}</h2>}
       </div>
     </div>
   );
