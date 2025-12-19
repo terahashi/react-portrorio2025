@@ -10,14 +10,15 @@ import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Loading from './components/Loading.jsx';
 import WorksDetail from './pages/Works/WorksDetail.jsx'; //作品works詳細ページ
+// import WorksDetail from './Works/pages/Works/WorksDetail.jsx'; //作品works詳細ページ
 import NotFound404 from './pages/NotFound404.jsx';
 
 function App() {
+  //⬇︎useContext(ColorContext)でHeaderの文字色管理
+  const [isDark, setIsDark] = useState(false); //初期値は「false」なのでHeaderは黒文字になる
+
   //⬇︎ローディングアニメーションのstate
   const [loading, setLoading] = useState(true); //最初は「true」で"ローディング中"にする
-
-  //⬇︎Headerの文字色管理のstate
-  const [isDark, setIsDark] = useState(false); //初期値は「false」なのでHeaderは"黒文字"になる
 
   return (
     <>

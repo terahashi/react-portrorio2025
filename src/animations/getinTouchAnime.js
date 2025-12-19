@@ -32,7 +32,7 @@ const getinTouch = (svgRef) => {
       scrollTrigger: {
         trigger: path, //各pathごとに発火する
         start: 'top 80%',
-        end: '+=300', // end= start + 300px (startが発動した瞬間・そこからさらに300pxスクロールしたらアニメ完了)
+        end: '+=200', //startが発動した瞬間・そこからさらに200pxスクロールしたらアニメ完了
         scrub: true,
       },
     });
