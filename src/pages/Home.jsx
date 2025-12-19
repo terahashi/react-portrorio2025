@@ -48,7 +48,11 @@ const Home = () => {
 
       <ParagraphSection title='sample'>
         {/* SideFixedで追従タイトルを部品化 */}
-        <SideFixed title='追従タイトル' headerRef={headerRef}>
+        <SideFixed
+          title='追従タイトル'
+          sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
+          headerRef={headerRef}
+        >
           <SampleContent />
         </SideFixed>
       </ParagraphSection>
