@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const HoverWrap = styled.section`
   position: fixed;
-  top: ${({ y }) => y - 100}px; //マウス追従のUIはpx指定一択。「マウスの Y 座標から 100px 上に表示する」
+  top: ${({ y }) => y - 150}px; //マウス追従のUIはpx指定一択。「マウスの Y 座標から 100px 上に表示する」
   left: ${({ x }) => x - 200}px; //「マウスの X 座標から 20px 左に表示する」
   pointer-events: none;
   z-index: 1000;
