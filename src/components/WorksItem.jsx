@@ -1,18 +1,14 @@
 //Works.jsxファイルで使用するため、部品化
 import { Link } from 'react-router-dom';
 
-const WorksItem = ({ work }) => {
+const WorksItem = ({ work, onHover }) => {
   return (
-    <div className='w__item' key={work.id}>
-      {/* ⬇︎今回使用した<Link to={/works/${work.id}}> この書き方はテンプレートリテラルであり「URLルール(遷移先)が"コード側にある"」*/}
+    <div className='w__item' key={work.id} onMouseEnter={() => onHover(work)} onMouseLeave={() => onHover(null)}>
       <Link to={`/works/${work.id}`}>
+        {/* ⬇︎メモ:mp4動画にする */}
         <img src={work.image} alt={work.title} />
       </Link>
-
-      {/* ⬇︎下記の<Link to={work.link}>の場合は「URLルール(遷移先)が"配列データ(worksData.js)に含まれている"」*/}
-      {/* <Link to={work.link}>
-        <img src={work.image} alt={work.title} />
-      </Link> */}
+      {/* ⬆︎今回使用した {`/works/${work.id}`} この書き方はテンプレートリテラルであり「URLルール(遷移先)が"コード側にある"」*/}
     </div>
   );
 };
