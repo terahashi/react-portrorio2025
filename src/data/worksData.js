@@ -6,6 +6,7 @@ const worksData = [
     id: 1,
     title: 'サンプルサイト1',
     image: '/images/nature.jpg',
+    videos: '/videos/work1sample.mp4', //mp4動画
     desctription: 'サンプルサイト1のdescriptionとして定義',
     desctription2: '‼️サンプルサイト1のdescription2として定義',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
@@ -16,6 +17,7 @@ const worksData = [
     title: 'サンプルサイト2',
     description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
+    videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト2 descriptionとして定義',
     desctription2: 'サンプルサイト2 description2として定義',
   },
@@ -24,6 +26,7 @@ const worksData = [
     title: 'サンプルサイト3',
     description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
+    videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト3 descriptionとして定義',
     desctription2: 'サンプルサイト3 description2として定義',
   },
@@ -32,6 +35,7 @@ const worksData = [
     title: 'サンプルサイト4',
     description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
+    videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト4 descriptionとして定義',
     desctription2: 'サンプルサイト4 description2として定義',
   },
