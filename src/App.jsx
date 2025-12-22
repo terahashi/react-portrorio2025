@@ -6,11 +6,12 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; //React Router バージョン6
 import ColorContext from './contexts/ColorContext.js'; //useContext(ColorContext)
 
+import MouseStalker from './components/MouseStalker.jsx'; //マウスストーカー追加
+
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Loading from './components/Loading.jsx';
 import WorksDetail from './pages/Works/WorksDetail.jsx'; //作品works詳細ページ
-// import WorksDetail from './Works/pages/Works/WorksDetail.jsx'; //作品works詳細ページ
 import NotFound404 from './pages/NotFound404.jsx';
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
 
   return (
     <>
+      {/* ⬇︎マウスストーカー */}
+      <MouseStalker />
+
       {/* useContextのProviderを使用 */}
       <ColorContext.Provider value={{ isDark, setIsDark }}>
         <BrowserRouter>
