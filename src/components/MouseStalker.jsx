@@ -21,6 +21,10 @@ const Stalker = styled.div`
   pointer-events: none;
   z-index: 9999;
 
+  @media (hover: none) {
+    display: none;
+  }
+
   .cursor-text {
     font-size: 9px;
     font-weight: 600;
