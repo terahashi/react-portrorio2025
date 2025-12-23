@@ -7,7 +7,7 @@ const worksData = [
     title: 'サンプルサイト1',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4', //mp4動画
-    poster: '/images/works1.jpg', //posterで「動画が再生される前に表示されるサムネ画像を表示する」つまり【読み込み待ちの"空白"を防ぐ】
+    //poster: '/images/works1.jpg',
     desctription: 'サンプルサイト1のdescriptionとして定義',
     desctription2: '‼️サンプルサイト1のdescription2として定義',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
@@ -19,7 +19,7 @@ const worksData = [
     description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    poster: '/images/works1.jpg',
+    //poster: '/images/works1.jpg',
     desctription: 'サンプルサイト2 descriptionとして定義',
     desctription2: 'サンプルサイト2 description2として定義',
   },
@@ -29,7 +29,7 @@ const worksData = [
     description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    poster: '/images/works1.jpg',
+    //poster: '/images/works1.jpg',
     desctription: 'サンプルサイト3 descriptionとして定義',
     desctription2: 'サンプルサイト3 description2として定義',
   },
@@ -39,7 +39,7 @@ const worksData = [
     description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    poster: '/images/works1.jpg',
+    //poster: '/images/works1.jpg',
     desctription: 'サンプルサイト4 descriptionとして定義',
     desctription2: 'サンプルサイト4 description2として定義',
   },
