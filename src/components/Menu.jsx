@@ -37,6 +37,7 @@ const MenuWrapper = styled.div`
     transform: translateX(100%);
     z-index: 100;
     ul {
+      text-align: center;
       list-style: none;
       padding: 0;
       position: absolute;

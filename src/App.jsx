@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 
-//⬇︎自分で追加
-//RoutesでHome.jsxを読み込む
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; //React Router バージョン6
 import ColorContext from './contexts/ColorContext.js'; //useContext(ColorContext)
 
+import ScrollToTop from './components/ScrollToTop.jsx'; //ページ遷移時に「最上部へスクロールする」
 import MouseStalker from './components/MouseStalker.jsx'; //マウスストーカー追加
 
 import Layout from './components/Layout.jsx';
@@ -26,9 +25,12 @@ function App() {
       {/* ⬇︎マウスストーカー */}
       <MouseStalker />
 
-      {/* useContextのProviderを使用 */}
+      {/* useContextの「ColorContext.Provider」を使用する */}
       <ColorContext.Provider value={{ isDark, setIsDark }}>
         <BrowserRouter>
+          {/* ⬇︎ページ遷移時に「ページ最上部に戻る」 */}
+          <ScrollToTop />
+
           <Routes>
             <Route element={<Layout isDark={isDark} />}>
               {/* 初期ローディングでは<Home>は表示されない */}
