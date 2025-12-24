@@ -4,26 +4,44 @@
 /* ②⬇︎tailwind.cssを使用する➡️yarn add -D tailwindcss @tailwindcss/vite 【main.jsxでimportする】*/
 @import 'tailwindcss';
 
-/******** ⬇︎TailwindCSSのカスタマイズ ********/
+/*　おすすめletter-spacing
+通常本文（p）➡️ 0.02em
+見出し（h1〜）➡️ 0.04em
+英字見出し(ALL CAPS)➡️ 0.08em〜0.12em
+ナビ・ボタン ➡️ 0.05em
+*/
+
+/******** TailwindCSSのカスタマイズ ********/
 .bg-custom-yellow {
   background-color: #e7b900;
 }
 
-/******** ⬇︎自分で追加にindex.css ********/
-h1 {
-  /* font-size: 3.2em; */
-  margin-top: 0;
+/******** index.cssに自分で追加 ********/
+html {
+  /* font-sizeを rem で使用する */
+  font-size: 16px;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
   word-break: break-all; /* 日本語用の途中で折り返してよい*/
   overflow-wrap: break-word; /* URLなどの長い単語が行からはみ出す場合、途中で折り返してよい */
+
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
 }
+
+h1 {
+  margin-top: 0;
+}
+
 :root {
   --text-sm: 0.875rem;
   --text-lg: 1.125rem;
 }
-/* 自作 タイピングアニメーション(点滅アニメも追加) */
+
+/* タイピングアニメーション(点滅アニメも追加) */
 .ityped {
   display: inline-block;
   white-space: nowrap;
@@ -45,7 +63,7 @@ body {
   }
 }
 
-/******** デフォルトindex.css ********/
+/******** デフォルト設定********/
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
