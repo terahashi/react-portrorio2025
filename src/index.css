@@ -1,10 +1,15 @@
 /* main.jsx に読み込まれる。全ページ共通のCSSは「index.css」に書くのが基本です。 */
 
-/* ①「normalize.css」を使用する➡️yarn add normalize.cssでインストール。【main.jsxでimportする】 */
-/* ②⬇︎tailwind.cssを使用する➡️yarn add -D tailwindcss @tailwindcss/vite 【main.jsxでimportする】*/
+/* 🔶「normalize.css」を使用する*/
+/* ①yarn add normalize.cssでインストール。 */
+/* ②「main.jsx」でimportする */
+
+/* 🔶「tailwind.css」を使用する*/
+/* ①yarn add -D tailwindcss @tailwindcss/vite */
+/* ②「main.jsx」でimportする */
 @import 'tailwindcss';
 
-/*　おすすめletter-spacing
+/*　🔶おすすめletter-spacing
 通常本文（p）➡️ 0.02em
 見出し（h1〜）➡️ 0.04em
 英字見出し(ALL CAPS)➡️ 0.08em〜0.12em
