@@ -21,7 +21,16 @@
   background-color: #e7b900;
 }
 
-/******** index.cssに自分で追加 ********/
+/******** 自分で追加 ********/
+
+/* 変数定義 */
+:root {
+  --text-sm: 0.875rem;
+  --text-lg: 1.125rem;
+  color: #fff;
+  --color-primary: #f6cf65;
+}
+
 html {
   /* font-sizeを rem で使用する */
   font-size: 16px;
@@ -35,15 +44,11 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   letter-spacing: 0.02em;
+  background-color: #242424;
 }
 
 h1 {
   margin-top: 0;
-}
-
-:root {
-  --text-sm: 0.875rem;
-  --text-lg: 1.125rem;
 }
 
 /* タイピングアニメーション(点滅アニメも追加) */
@@ -69,7 +74,7 @@ h1 {
 }
 
 /******** デフォルト設定********/
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -80,7 +85,7 @@ h1 {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 a {
   font-weight: 500;
@@ -93,8 +98,8 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /* display: flex; */
+  /* place-items: center; */
 }
 
 h1 {
@@ -120,7 +125,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -131,4 +136,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
