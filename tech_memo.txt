@@ -1,5 +1,60 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
+🔶(📚課題):現状、全ての<ParagraphSection>の{Children}には「絶対にWrapperやInnerが付いてしまいます。」
+【ある特定の {children}コンポーネントだけには<Wrapper>や<Inner>を入れたくない！そんな時はどうする？】
+
+⬇︎
+
+⭕️A: 特定の{children}にだけWrapper/Innerを外す。propsと三項演算子を使って条件分岐させます。
+
+⬇︎
+
+🍏ParagraphSection.jsxファイル
+const ParagraphSection = ({title,children, withLayout = true,}) => {
+  //‼️⬆︎①withLayout = true;で初期はtrue
+
+  const paraRef = useRef(null);
+
+  useLayoutEffect(() => {
+    paragraphAnime(paraRef);
+  }, []);
+
+  //‼️⬇︎②三項演算子で表示する用のcontentを追加
+  const Content = (
+    <div className="paragraph-area" ref={paraRef}>
+      <h1 className="headline">
+        <span className="rect"></span>
+        <span className="label">{title}</span>
+      </h1>
+      {children}
+    </div>
+  );
+
+  return (
+    <ParaSection>
+      {withLayout ? (
+        <Wrapper>
+          <Inner>{Content}</Inner>
+        </Wrapper>
+      ) : (
+        Content   ‼️⬅︎③「falseの場合は<Wrapper>や<Inner>は付かない」という条件分岐ができる。
+      )}
+    </ParaSection>
+  );
+};
+
+
+🍏⬇︎使う側(Home.jsxなどで)
+<ParagraphSection title="Gallery" withLayout={false}>
+  <FullWidthGallery />
+</ParagraphSection>
+
+
+
+
+
+------------------------------------------------------------------
+------------------------------------------------------------------
 🔶❌「SCSS + TailWindCSS」は今回は使わない方向で。
 
 各理由
@@ -28,7 +83,7 @@
 🔶CSS
 ・aspect-ratio: 16 / 9;とは？
 
-■Works.jsxで使用。
+🍏Works.jsxで使用。
 img {
     width: 100%;
     aspect-ratio: 16 / 9; //⭐️縦横比をCSS側で指定。高さを直接書かなくていい。レスポンシブで安定。
@@ -76,7 +131,7 @@ top / left を動的に計算
 🔶作品一覧(Works.jsx & WorksItem.jsx)と、作品詳細ページ(WorksDetails.jsx)を「部品化して表示している。」
 
 
-📄🍎Works.jsx & WorksItem.jsx
+🍏Works.jsx & WorksItem.jsx
 ・Worksのデータの一覧表示の流れ
 ①worksData(データ(タイトルやimage)を取得
    ↓
@@ -86,19 +141,13 @@ top / left を動的に計算
 
 
 
-📄🍎WorksDetail.jsx
+🍏WorksDetail.jsx
 ・WorksDetail.jsx詳細ページの流れ
 ①URL (/works/:id)
    ↓
 ②WorksDetail
    ↓
 ③worksData.find(id)
-
-
-
-
-
-
 
 
 
@@ -232,7 +281,7 @@ iPhone（ka-ta の iPhone）
 ・useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【データheaderRef】を渡すためのフック」
 今回は「追従タイトルでHeaderコンポーネントの高さDOMが必要だったので」下記のように使用している。
 
-📄🍎⬇︎Layout.jsx
+🍏⬇︎Layout.jsx
 const Layout = () => {
   const headerRef = useRef(null); //side.js(追従タイトル)で使用するため、HeaderのuseRef(のDOM)を取得
   return (
@@ -244,7 +293,7 @@ const Layout = () => {
   );
 };
 
-📄🍎⬇︎Home.jsx
+🍏⬇︎Home.jsx
 import { useOutletContext } from 'react-router-dom'; //⭐️useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【データheaderRef】を渡すためのフック」
 const Home = () => {
   //⬇︎Layout.jsxから受け取ったheaderRefを使用するために「useOutletContext」を使用

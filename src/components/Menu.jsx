@@ -1,10 +1,12 @@
 import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 import ColorContext from '../contexts/ColorContext';
+import breakpoints from '../styles/breakpoints';
 
-//「styled-components(CSS-in-JS))で書いてみよう」
+////「styled-components」
 const MenuWrapper = styled.div`
   .hamburger {
     position: relative; //static以外のposition(relative)で「z-indexを有効化」する
@@ -15,6 +17,12 @@ const MenuWrapper = styled.div`
     justify-content: space-between;
     cursor: pointer;
     z-index: 1000;
+    @media (min-width: ${breakpoints.tablet}) {
+      display: none;
+    }
+    @media (min-width: ${breakpoints.pc}) {
+      display: none;
+    }
     span {
       display: block;
       height: 3px;
@@ -95,20 +103,38 @@ const MenuWrapper = styled.div`
   }
 `;
 
-//⬇︎useContext使用【$darkをCSS-in-JSに、$darkという名前で渡している】
+////⬇︎メニュー内のリンクを配列化して、データでまとめる
+const menuItems = [
+  { label: 'Home', hash: 'home' },
+  { label: 'About', hash: 'about' },
+  { label: 'Works', hash: 'works' },
+  { label: 'Skills', hash: 'skills' },
+  { label: 'Contact', hash: 'contact' },
+];
+
+////Menuコンポーネント。useContext使用している【$darkをCSS-in-JSに、$darkという名前で渡している】
 const Menu = () => {
-  //useContext
+  //⬇︎useContext
   const { isDark } = useContext(ColorContext);
 
+  //各種ref
   const hamburgerRef = useRef(null);
   const navRef = useRef(null);
   const nav2Ref = useRef(null);
-  //⬇︎「nav1のli」を動的に管理
+  //⬇︎「nav1のli」を動的に管理するref
   const navLiRefs = useRef([]);
+  //⬇︎「メニュー開閉」を管理するcontrollerRef
+  const controllerRef = useRef(null);
 
   useEffect(() => {
     if (hamburgerRef.current && navRef.current && nav2Ref.current && navLiRefs.current.length > 0) {
-      animateHamburger(hamburgerRef, navRef, nav2Ref, navLiRefs);
+      {
+        controllerRef.current = animateHamburger(hamburgerRef, navRef, nav2Ref, navLiRefs);
+      }
+
+      return () => {
+        controllerRef.current?.cleanup(); //「?」の意味はcontrollerRef.currentが存在してたらcleanup()を実行する。なかったら何もしない
+      };
     }
   }, []);
 
@@ -122,9 +148,9 @@ const Menu = () => {
 
       <nav className='nav1' ref={navRef}>
         <ul>
-          {['Home', 'About', 'Works', 'Contact'].map((text, index) => (
-            <li key={index} ref={(el) => (navLiRefs.current[index] = el)}>
-              <a href={`/${text.toLowerCase()}`}>{text}</a>
+          {menuItems.map((item, index) => (
+            <li key={item.hash} ref={(el) => (navLiRefs.current[index] = el)} onClick={() => controllerRef.current?.closeMenu()}>
+              {item.hash === 'home' ? <Link to={`/`}>{item.label}</Link> : <Link to={`/#${item.hash}`}>{item.label}</Link>}
             </li>
           ))}
         </ul>
