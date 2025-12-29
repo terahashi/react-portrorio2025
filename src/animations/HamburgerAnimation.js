@@ -10,7 +10,7 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
   if (!hamburger || !nav || !nav2) return;
 
   //②メニュー開閉アニメーションのタイムライン
-  //初期は「閉じている」状態に揃えるため「reversed:true を付ける。もしくはreverse(0)を呼ぶ」
+  //初期は「閉じている」状態に揃えるため「reversed:true を付ける。」
   const menuTl = gsap.timeline({ paused: true, reversed: true });
   //⬇︎上と下のnavを同時に出す
   menuTl
@@ -28,7 +28,7 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
       },
       '-=0.6'
     )
-    //⬇︎nav1のli要素群をフェードインで出す
+    //⬇︎nav1の「li要素群」をフェードインで出す
     .from(
       navli,
       {
@@ -51,26 +51,39 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
   //ハンバーガー全体をクリック対象にしているはずなので hamburger を使う
   //イベントハンドラonClickを定義
   const onClick = () => {
-    // 判定はburgerTl....つまりif (burgerTl.reversed())だけで良し（2つを常に同じ方向で play/reverse させる）
+    // 判定はburgerTl....つまり if (burgerTl.reversed()) だけで良し（2つを常に同じ方向で play/reverse させる）
     if (burgerTl.reversed()) {
-      // 現在はreversed（初期）なので、play()で✖︎＆メニュー開く
+      // ⬇︎現在はreversed（初期）なので、play()で✖︎＆メニュー開く
       burgerTl.play();
       menuTl.play();
     } else {
-      // 現在は再生済み（✖︎）なので、reverse()で元に戻す
+      // ⬇︎現在はplay済み（✖︎）なので、reverse()で元に戻す
       burgerTl.reverse();
       menuTl.reverse();
     }
   };
-  //⬇︎クリックすると「イベントハンドラonClickを登録」
+
+  //⬇︎hamburgerをクリックすると「イベントハンドラonClickを登録」
   hamburger.addEventListener('click', onClick);
 
+  // ⬇︎外(Menu.jsx側で)操作したいcloseMenu()関数
+  // <Link>をクリックするとメニューを閉じる関数です(ReactはSPAなので<a href>のようにページ遷移しないので必要)
+  const closeMenu = () => {
+    if (!burgerTl.reversed()) {
+      burgerTl.reverse();
+      menuTl.reverse();
+    }
+  };
+
+  // ⬇︎外(Menu.jsx側で)操作したいcloseMenu関数とcleanup関数をMenu.jsxに返す。
   //クリーンアップ（useEffectのreturnで呼べるように）
-  return () => {
-    hamburger.removeEventListener('click', onClick);
-    //⬇︎タイムラインをkillしてメモリ解放
-    menuTl.kill();
-    burgerTl.kill();
+  return {
+    closeMenu,
+    cleanup: () => {
+      hamburger.removeEventListener('click', onClick);
+      menuTl.kill(); //⬅︎タイムラインをkillしてメモリ解放
+      burgerTl.kill();
+    },
   };
 };
 
