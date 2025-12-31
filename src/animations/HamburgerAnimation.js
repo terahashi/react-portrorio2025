@@ -10,7 +10,7 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
   if (!hamburger || !nav || !nav2) return;
 
   //②メニュー開閉アニメーションのタイムライン
-  //初期は「閉じている」状態に揃えるため「reversed:true を付ける。」
+  //初期は「閉じている」状態に揃えるため「true」を付ける。
   const menuTl = gsap.timeline({ paused: true, reversed: true });
   //⬇︎上と下のnavを同時に出す
   menuTl
@@ -43,15 +43,14 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
 
   //③3本線ハンバーガーメニューから「✖︎印アニメーション」
   const bars = hamburger.querySelectorAll('span');
-  const burgerTl = gsap.timeline({ paused: true, reversed: true }); //両方とも「reversed:true」にして初期は「閉じた状態（＝三本線）」に揃えた
-  //GSAPで各線を✖︎印アニメーションに変形
+  const burgerTl = gsap.timeline({ paused: true, reversed: true }); //「true」にして初期は「閉じた状態（＝三本線）」に。
+  //⬇︎GSAPで各線を✖︎印アニメーションに変形
   burgerTl.to(bars[0], { y: 8, duration: 0.2, rotate: 45 }).to(bars[1], { opacity: 0, duration: 0.2 }, '<').to(bars[2], { y: -8, duration: 0.2, rotate: -45 }, '<');
 
   //⬇︎クリックで同期して開閉させる
-  //ハンバーガー全体をクリック対象にしているはずなので hamburger を使う
   //イベントハンドラonClickを定義
   const onClick = () => {
-    // 判定はburgerTl....つまり if (burgerTl.reversed()) だけで良し（2つを常に同じ方向で play/reverse させる）
+    // 判定はburgerTl。つまり if (burgerTl.reversed()) だけで良し（2つを常に同じ方向で play/reverse させる）
     if (burgerTl.reversed()) {
       // ⬇︎現在はreversed（初期）なので、play()で✖︎＆メニュー開く
       burgerTl.play();
@@ -62,7 +61,6 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
       menuTl.reverse();
     }
   };
-
   //⬇︎hamburgerをクリックすると「イベントハンドラonClickを登録」
   hamburger.addEventListener('click', onClick);
 
@@ -74,9 +72,9 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
       menuTl.reverse();
     }
   };
-
-  // ⬇︎外(Menu.jsx側で)操作したいcloseMenu関数とcleanup関数をMenu.jsxに返す。
-  //クリーンアップ（useEffectのreturnで呼べるように）
+  // ⬇︎外(Menu.jsx側で)操作したいcloseMenu関数とcleanup関数をMenu.jsxに返す。クリーンアップ（useEffectのreturnで呼べるように）
+  //今回使用: return { 処理 }　で関数(closeMenuやcleanup)をまとめて返す
+  //昔の書き方: return () => { 処理 } で関数を1つだけ返す。
   return {
     closeMenu,
     cleanup: () => {

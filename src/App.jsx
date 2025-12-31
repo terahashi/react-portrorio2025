@@ -3,6 +3,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; //React Router バージョン6
 import ColorContext from './contexts/ColorContext.js'; //useContext(ColorContext)
+import ScrollToHash from './components/common/ScrollToHash.jsx';
 
 import ScrollToTop from './components/ScrollToTop.jsx'; //ページ遷移時に「最上部へスクロールする」
 import MouseStalker from './components/MouseStalker.jsx'; //マウスストーカー追加
@@ -30,6 +31,9 @@ function App() {
         <BrowserRouter>
           {/* ⬇︎ページ遷移時に「ページ最上部に戻る」 */}
           <ScrollToTop />
+
+          {/* ⬇︎hashを監視してスクロールする */}
+          <ScrollToHash />
 
           <Routes>
             <Route element={<Layout isDark={isDark} />}>
