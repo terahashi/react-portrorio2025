@@ -3,9 +3,9 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; //React Router バージョン6
 import ColorContext from './contexts/ColorContext.js'; //useContext(ColorContext)
+import ScrollToTop from './components/common/ScrollToTop.jsx'; //ページ遷移時に「最上部へスクロールする」
 import ScrollToHash from './components/common/ScrollToHash.jsx';
 
-import ScrollToTop from './components/ScrollToTop.jsx'; //ページ遷移時に「最上部へスクロールする」
 import MouseStalker from './components/MouseStalker.jsx'; //マウスストーカー追加
 
 import Layout from './components/Layout.jsx';
