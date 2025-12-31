@@ -40,9 +40,11 @@ const Home = () => {
     <>
       <Hero targetRef={targetRef} />
 
-      <ParagraphSection title='Works'>
-        <Works />
-      </ParagraphSection>
+      <section id='works'>
+        <ParagraphSection title='Works'>
+          <Works />
+        </ParagraphSection>
+      </section>
 
       <Three />
 
@@ -57,9 +59,11 @@ const Home = () => {
         </SideFixed>
       </ParagraphSection>
 
-      <ParagraphSection title='Skills'>
-        <SampleContent2 />
-      </ParagraphSection>
+      <section id='skills'>
+        <ParagraphSection title='Skills'>
+          <SampleContent2 />
+        </ParagraphSection>
+      </section>
 
       <GetInTouch />
     </>

@@ -18,7 +18,7 @@ const paragraphAnime = (paraRef) => {
   });
 
   //⬇︎①「.headlineの中にある.rect要素(左から流れてくる白い長方形だけ。)」白い長方形が左から右へ走る
-  tl.fromTo(q('.headline .rect'), { x: '-100%' }, { x: '100%', duration: 1, ease: 'power3.inOut' });
+  tl.fromTo(q('.headline .rect'), { x: '-105%' }, { x: '100%', duration: 1, ease: 'power3.inOut' });
   //⬇︎②タイトル文字がふわっと出現
   tl.fromTo(q('.headline .label'), { opacity: 0 }, { opacity: 1, duration: 0.4, delay: 0.5 }, '<'); // "<"「rectの動きと少し重ねる」
   //⬇︎③段落やボタンが流れるように出現

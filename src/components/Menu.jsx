@@ -1,6 +1,5 @@
 import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 import ColorContext from '../contexts/ColorContext';
