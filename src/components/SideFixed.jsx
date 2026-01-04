@@ -12,7 +12,7 @@ const SideFixed = ({ children, title, headerRef, sideText }) => {
 
   return (
     <div ref={areaRef} style={{ position: 'relative' }}>
-      <div style={{ display: 'flex' }}>
+      <div className='flex flex-col md:flex-row'>
         {/* 左側領域で幅を確保 */}
         <div style={{ width: '300px' }}></div>
         {/* 右側領域で{children} */}

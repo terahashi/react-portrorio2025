@@ -1,6 +1,8 @@
 import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom'; //イベントハンドラー内で遷移したい場合に使うのが「useNavigate」
+
 import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 import ColorContext from '../contexts/ColorContext';
 import breakpoints from '../styles/breakpoints';
@@ -113,8 +115,21 @@ const menuItems = [
 
 ////Menuコンポーネント。useContext使用している【$darkをCSS-in-JSに、$darkという名前で渡している】
 const Menu = () => {
-  //⬇︎useContext
+  //⬇︎useContext(ColorContext)
   const { isDark } = useContext(ColorContext);
+
+  //⬇︎「menuItems配列データを使わないリンク遷移」のためのuseNavigate
+  const navigate = useNavigate();
+  //⬇︎「menuItems配列データを使わないリンク遷移」のイベントハンドラー。
+  //「リンクがクリックされたら、メニューを閉じて、閉じ終わったらその時に navigate(path) を実行してね
+  const handleLinkClick = (path) => {
+    controllerRef.current?.closeMenu(() => {
+      //コールバック関数は「() => {navigate(path);}」
+      //HamburgerAnimation.jsファイルの closeMenu関数に「navigate(path) === onCompleteとして渡される」
+      //メニューが閉じ終わったら「pathへ遷移する」
+      navigate(path);
+    });
+  };
 
   //各種ref
   const hamburgerRef = useRef(null);
@@ -157,11 +172,9 @@ const Menu = () => {
 
       <nav className='nav2' ref={nav2Ref}>
         <ul>
-          <li>
-            <a href='/'>リンク・Welcome</a>
-          </li>
-          <li>Welcome GSAPメニュー!</li>
-          <li>Welcome GSAPメニュー!</li>
+          <li onClick={() => handleLinkClick('/')}>MYPORTFOLIO</li>
+          <li onClick={() => handleLinkClick('/#works')}>Works</li>
+          <li onClick={() => handleLinkClick('/#skills')}>Skills</li>
         </ul>
         <ul>
           <li>Welcome GSAPメニュー!</li>

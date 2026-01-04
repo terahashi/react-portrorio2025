@@ -58,7 +58,7 @@ h1 {
 }
 .ityped + .ityped-cursor {
   color: #000;
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 800;
   animation: blink 1s step-start infinite; /* 点滅アニメのkeyframes */
 }
