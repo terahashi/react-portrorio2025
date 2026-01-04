@@ -66,12 +66,32 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
 
   // ⬇︎外(Menu.jsx側で)操作したいcloseMenu()関数
   // <Link>をクリックするとメニューを閉じる関数です(ReactはSPAなので<a href>のようにページ遷移しないので必要)
-  const closeMenu = () => {
+  const closeMenu = (onComplete) => {
     if (!burgerTl.reversed()) {
       burgerTl.reverse();
       menuTl.reverse();
+
+      ////⬇︎「menuItems配列データを使わないリンク遷移。(使用箇所はMenu.jsxの、nav2の<li>のリンクパス)」
+      //reverse完了後に「onComplete（= navigate(path)を包んだ関数）を実行する」
+      //・eventCallbackとは「このタイムラインで特定のイベントが発生した時に、指定した関数(今回はonReverseComplete)を呼び出すためのメソッド」
+      //・onReverseCompleteとは「menuTl.reverse()、つまり閉じるアニメ」などのreverse再生が完了した時に発火するイベント。
+      menuTl.eventCallback('onReverseComplete', () => {
+        onComplete?.();
+      });
+    } else {
+      // すでに閉じている場合は即実行
+      onComplete?.();
     }
   };
+
+  //⬇︎昔記載したcloseMenu関数のコード
+  // const closeMenu = () => {
+  //   if (!burgerTl.reversed()) {
+  //     burgerTl.reverse();
+  //     menuTl.reverse();
+  //   }
+  // };
+
   // ⬇︎外(Menu.jsx側で)操作したいcloseMenu関数とcleanup関数をMenu.jsxに返す。クリーンアップ（useEffectのreturnで呼べるように）
   //今回使用: return { 処理 }　で関数(closeMenuやcleanup)をまとめて返す
   //昔の書き方: return () => { 処理 } で関数を1つだけ返す。
