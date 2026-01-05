@@ -5,7 +5,7 @@ import ScrollDown from './ScrollDown';
 
 const Hero = ({ targetRef }) => {
   return (
-    <div ref={targetRef} className='bg-[#f0cebd] w-full h-screen relative'>
+    <div ref={targetRef} className='bg-[#ffe4d7] w-full h-screen relative'>
       <HeroscrambleText />
       <TypingText />
       <div className='bg-custom-yellow'>
