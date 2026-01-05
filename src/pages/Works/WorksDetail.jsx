@@ -10,6 +10,7 @@ import { useContext, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import ColorContext from '../../contexts/ColorContext'; //useContext(ColorContext)
+import { Wrapper, Inner } from '../../components/common/LayoutPrimitives';
 
 import worksData from '../../data/worksData';
 import SideFixed from '../../components/SideFixed';
@@ -38,19 +39,23 @@ const WorksDetail = () => {
 
   return (
     <section style={{ marginTop: '30vh' }}>
-      {/* sideText={workdetail.sideText} ⬅︎ <SideFixed>コンポーネントに「"worksData"のsideTextデータを渡す」 */}
-      <SideFixed title={workdetail.title} sideText={workdetail.sideText}>
-        <div style={{ height: '3000px' }}>
-          <h1>{workdetail.title}</h1>
-          <img src={workdetail.image} alt={workdetail.titke} />
-          <p>{workdetail.desctription}</p>
-          <p>{workdetail.desctription2}</p>
-        </div>
-      </SideFixed>
+      <Wrapper>
+        <Inner>
+          {/* sideText={workdetail.sideText} ⬅︎ <SideFixed>コンポーネントに「"worksData"のsideTextデータを渡す」 */}
+          <SideFixed title={workdetail.title} sideText={workdetail.sideText}>
+            <div style={{ height: '3000px' }}>
+              <h1>{workdetail.title}</h1>
+              <img src={workdetail.image} alt={workdetail.titke} />
+              <p>{workdetail.desctription}</p>
+              <p>{workdetail.desctription2}</p>
+            </div>
+          </SideFixed>
 
-      <Link to='/' className='back-home'>
-        ← トップに戻る
-      </Link>
+          <Link to='/' className='back-home'>
+            ← トップに戻る
+          </Link>
+        </Inner>
+      </Wrapper>
     </section>
   );
 };

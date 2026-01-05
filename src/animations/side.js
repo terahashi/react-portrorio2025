@@ -5,6 +5,11 @@
 const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
   if (!areaRef.current || !targetRef.current) return; // targetRefとareaRefがなければ実行せず終了
 
+  //⬇︎レスポンシブでは「areaFixedFunk関数を使わないで追従ロジック自体を無効化」する
+  if (window.innerWidth <= 768) {
+    return () => {};
+  }
+
   let ticking = false; //フラグの役割 = スクロール中に何度も処理されるのを抑制して、パフォーマンス改善。
 
   ////⬇︎Headerの高さを取得する関数を作成する。「Layout.jsx」にuseRef本体があります。
