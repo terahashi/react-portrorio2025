@@ -7,7 +7,7 @@ import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.js�
 import ColorContext from '../contexts/ColorContext';
 import breakpoints from '../styles/breakpoints';
 
-////「styled-components」
+////styled-components
 const MenuWrapper = styled.div`
   .hamburger {
     position: relative; //static以外のposition(relative)で「z-indexを有効化」する
@@ -88,6 +88,7 @@ const MenuWrapper = styled.div`
         font-size: var(--text-sm);
         color: #fff;
         text-align: left;
+        cursor: pointer;
         a {
           font-size: var(--text-sm);
           color: #fff;
@@ -104,7 +105,7 @@ const MenuWrapper = styled.div`
   }
 `;
 
-////⬇︎メニュー内のリンクを配列化して、データでまとめる
+//⬇︎menuItems配列データ。メニュー内のリンクを配列化する。
 const menuItems = [
   { label: 'Home', hash: 'home' },
   { label: 'About', hash: 'about' },
@@ -113,20 +114,23 @@ const menuItems = [
   { label: 'Contact', hash: 'contact' },
 ];
 
-////Menuコンポーネント。useContext使用している【$darkをCSS-in-JSに、$darkという名前で渡している】
+////Menuコンポーネント
 const Menu = () => {
-  //⬇︎useContext(ColorContext)
+  //⬇︎useContextを使用して【$darkをstyled-componentsに、$darkという名前で渡している】
   const { isDark } = useContext(ColorContext);
 
-  //⬇︎「menuItems配列データを使わないリンク遷移」のためのuseNavigate
+  //⬇︎「menuItems配列データを"使わない"場合を想定したリンク遷移」
+  //・まずuseNavigateを作成。
+  //コードを作成する理由1: menuItems配列データを"使わない"場合を想定したリンク遷移は、メニューが閉じないバグが発生するため。(Linkを使うとメニューが閉じないバグが発生するため)
+  //コードを作成する理由2: menuItems配列データを"使わない"場合を想定したリンク遷移は、メニューを閉じただけなのにトップに戻るバグが発生するため。
   const navigate = useNavigate();
-  //⬇︎「menuItems配列データを使わないリンク遷移」のイベントハンドラー。
-  //「リンクがクリックされたら、メニューを閉じて、閉じ終わったらその時に navigate(path) を実行してね
+
+  //⬇︎「menuItems配列データを"使わない"場合を想定したリンク遷移」のイベントハンドラー。
+  //・リンクがクリックされたら、メニューを閉じて、閉じ終わったらその時に navigate(path) を実行して遷移する。
   const handleLinkClick = (path) => {
     controllerRef.current?.closeMenu(() => {
-      //コールバック関数は「() => {navigate(path);}」
-      //HamburgerAnimation.jsファイルの closeMenu関数に「navigate(path) === onCompleteとして渡される」
-      //メニューが閉じ終わったら「pathへ遷移する」
+      //⭐️HamburgerAnimation.jsファイルの、closeMenu関数に「navigate(path) を コールバック関数扱いでcallbackNavigate」として渡す
+      //メニューが閉じ終わったら「navigate('/#works')へ遷移する」
       navigate(path);
     });
   };
@@ -135,7 +139,7 @@ const Menu = () => {
   const hamburgerRef = useRef(null);
   const navRef = useRef(null);
   const nav2Ref = useRef(null);
-  //⬇︎「nav1のli」を動的に管理するref
+  //⬇︎「nav1のli」を動的に管理するref。初期値は配列[]
   const navLiRefs = useRef([]);
   //⬇︎「メニュー開閉」を管理するcontrollerRef
   const controllerRef = useRef(null);
@@ -145,13 +149,14 @@ const Menu = () => {
       {
         controllerRef.current = animateHamburger(hamburgerRef, navRef, nav2Ref, navLiRefs);
       }
-
+      //⬇︎クリーンナップ処理
       return () => {
         controllerRef.current?.cleanup(); //「?」の意味はcontrollerRef.currentが存在してたらcleanup()を実行する。なかったら何もしない
       };
     }
   }, []);
 
+  //・JSX
   return (
     <MenuWrapper $dark={isDark}>
       <div className='hamburger' ref={hamburgerRef}>
@@ -162,6 +167,7 @@ const Menu = () => {
 
       <nav className='nav1' ref={navRef}>
         <ul>
+          {/* ⬇︎menuItems配列データを"使う"場合のリンク遷移 */}
           {menuItems.map((item, index) => (
             <li key={item.hash} ref={(el) => (navLiRefs.current[index] = el)} onClick={() => controllerRef.current?.closeMenu()}>
               {item.hash === 'home' ? <Link to={`/`}>{item.label}</Link> : <Link to={`/#${item.hash}`}>{item.label}</Link>}
@@ -172,6 +178,7 @@ const Menu = () => {
 
       <nav className='nav2' ref={nav2Ref}>
         <ul>
+          {/* ⬇︎menuItems配列データを"使わない"場合のリンク遷移 */}
           <li onClick={() => handleLinkClick('/')}>MYPORTFOLIO</li>
           <li onClick={() => handleLinkClick('/#works')}>Works</li>
           <li onClick={() => handleLinkClick('/#skills')}>Skills</li>

@@ -1,3 +1,4 @@
+////ハンバーガーメニューの処理をまとめたjsファイル
 import gsap from 'gsap';
 
 const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
@@ -64,35 +65,32 @@ const animateHamburger = (hamburgerRef, navRef, nav2Ref, navLiRefs) => {
   //⬇︎hamburgerをクリックすると「イベントハンドラonClickを登録」
   hamburger.addEventListener('click', onClick);
 
-  // ⬇︎外(Menu.jsx側で)操作したいcloseMenu()関数
+  // ⬇︎closeMenu()関数。外で(Menu.jsx側で)操作する。
   // <Link>をクリックするとメニューを閉じる関数です(ReactはSPAなので<a href>のようにページ遷移しないので必要)
-  const closeMenu = (onComplete) => {
+  const closeMenu = (callbackNavigate) => {
+    // if (!burgerTl.reversed())で「メニューが“開いている状態”から"これから閉じる必要がある状態"かどうか」判定
     if (!burgerTl.reversed()) {
       burgerTl.reverse();
       menuTl.reverse();
 
-      ////⬇︎「menuItems配列データを使わないリンク遷移。(使用箇所はMenu.jsxの、nav2の<li>のリンクパス)」
-      //reverse完了後に「onComplete（= navigate(path)を包んだ関数）を実行する」
-      //・eventCallbackとは「このタイムラインで特定のイベントが発生した時に、指定した関数(今回はonReverseComplete)を呼び出すためのメソッド」
-      //・onReverseCompleteとは「menuTl.reverse()、つまり閉じるアニメ」などのreverse再生が完了した時に発火するイベント。
-      menuTl.eventCallback('onReverseComplete', () => {
-        onComplete?.();
-      });
+      ////⬇︎「menuItems配列データを"使わない"場合のリンク遷移」
+      //・menuTl.reverse()実行時の処理。「つまりmenuTl(メニューのGSAPタイムライン)が閉じるアニメーション中の場合。」
+      // もしif(callbackNavigate)が存在した場合「callbackNavigateは、Menu.jsxから渡ってきたコールバックnavigate('/#works')を実行して遷移する」
+      // eventCallbackとは「このタイムラインで特定のイベントが発生した時に、指定した関数(今回はonReverseComplete)を呼び出すためのメソッド」
+      // onReverseCompleteとは「上記コードmenuTl.reverse()、つまりGSAPの"メニューを閉じるreverse再生"が完了(onReverseがComplete)した時」にcallbackNavigateを発火するイベント
+      if (callbackNavigate) {
+        menuTl.eventCallback('onReverseComplete', callbackNavigate); //「閉じ終わったらcallbackNavigate、つまりnavigate('/#works')を実行して」という指示を登録する
+      }
     } else {
-      // すでに閉じている場合は即実行
-      onComplete?.();
+      //・elseの場合は「既にメニューは閉じている場合」
+      // callbackNavigateが渡されていたら「navigate(path)」を実行する。
+      if (callbackNavigate) {
+        callbackNavigate?.(); //?.を書いて「callbackNavigateが存在したら'/#works'で遷移を実行。無かったらメニューをただ閉じるだけで遷移しない。」
+      }
     }
   };
 
-  //⬇︎昔記載したcloseMenu関数のコード
-  // const closeMenu = () => {
-  //   if (!burgerTl.reversed()) {
-  //     burgerTl.reverse();
-  //     menuTl.reverse();
-  //   }
-  // };
-
-  // ⬇︎外(Menu.jsx側で)操作したいcloseMenu関数とcleanup関数をMenu.jsxに返す。クリーンアップ（useEffectのreturnで呼べるように）
+  // ⬇︎returnで「closeMenu関数とcleanup関数をMenu.jsxに返す。」外で(Menu.jsx側で)操作する。
   //今回使用: return { 処理 }　で関数(closeMenuやcleanup)をまとめて返す
   //昔の書き方: return () => { 処理 } で関数を1つだけ返す。
   return {
