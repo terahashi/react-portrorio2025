@@ -12,19 +12,20 @@ const SideFixed = ({ children, title, headerRef, sideText }) => {
 
   return (
     <div ref={areaRef} style={{ position: 'relative' }}>
-      <div className='flex flex-col md:flex-row'>
-        {/* 左側領域で幅を確保 */}
-        <div style={{ width: '300px' }}></div>
-        {/* 右側領域で{children} */}
-        <div style={{ width: 'calc(100% - 300px)' }}>{children}</div>
-      </div>
-
       {/* ⬇︎実際に追従するfixed */}
-      <div ref={targetRef} style={{ width: '300px' }}>
+      <div ref={targetRef} className='mb-20 md:mb-0 w-full md:w-[300px]'>
         {/* <SideFixed title='追従タイトル'などから「titleなどのpropsを受け取る。」 */}
         <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', margin: '0' }}>{title}</h1>
         {/* sideText が「truthy（真)」のときだけ{sideText}を表示  */}
         {sideText && <h2 style={{ fontSize: '1.0rem' }}>{sideText}</h2>}
+      </div>
+
+      {/* ⬇︎display: flexで横並び */}
+      <div className='flex justify-between gap-8 md:gap-16 flex-col md:flex-row'>
+        {/* 左側領域で幅を確保 */}
+        <div style={{ width: '300px' }}></div>
+        {/* 右側領域で{children} */}
+        <div className='md:w-[calc(100%-300px)]'>{children}</div>
       </div>
     </div>
   );
