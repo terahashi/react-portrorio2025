@@ -106,7 +106,10 @@ const initThree = (container) => {
     camera.aspect = rect.width / rect.height; ////カメラの「rect「cat-area」アスペクト比を更新」
     camera.updateProjectionMatrix(); //カメラの投影行列を更新
   };
-  window.addEventListener('resize', handleResize); //addEventListener
+  // 初回サイズ調整
+  handleResize();
+  // resize イベント登録
+  window.addEventListener('resize', handleResize);
 
   // ======================
   // ⑥cleanup処理
