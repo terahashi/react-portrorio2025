@@ -1,25 +1,24 @@
 // animations/side.js
 // chatGPTの助言もあり作成ができた！
-//⬇︎useRefが渡ってくる。extraOffsetは余白。
+//useRefが渡ってくる。extraOffsetは余白。
 
 const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
   if (!areaRef.current || !targetRef.current) return; // targetRefとareaRefがなければ実行せず終了
 
-  //⬇︎レスポンシブでは「areaFixedFunk関数を使わないで追従ロジック自体を無効化」する
+  //⬇︎スマホ版では「areaFixedFunk関数を使わないで追従ロジック自体を無効化」する
   if (window.innerWidth <= 768) {
     return () => {};
   }
 
   let ticking = false; //フラグの役割 = スクロール中に何度も処理されるのを抑制して、パフォーマンス改善。
 
-  ////⬇︎Headerの高さを取得する関数を作成する。「Layout.jsx」にuseRef本体があります。
-  //下記の?が付いている意味は
-  //・headerRefがundefined でもOK
-  //・current === null でもOK
-  //なのでエラーを出さない
+  //⬇︎Headerの高さを取得する関数を作成する。「Layout.jsx」にuseRefがあります。
+  //下記の ?. が付いている意味は「オプショナルチェイニング演算子」です。
+  //・headerRefが undefined でもOK
+  //・current === null でもOK　なのでエラーが出ない。
   const getHeaderHeight = () => headerRef?.current?.offsetHeight || 0;
 
-  //⬇︎追従ロジック
+  ////⭐️⬇︎追従ロジック
   const checkFixed = () => {
     const area = areaRef.current;
     const target = targetRef.current;
@@ -57,27 +56,49 @@ const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
     }
   };
 
-  ////////////⬇︎スクロール時の処理
-  const onScroll = () => {
+  ////⬇︎「handleScrollOrResize関数」
+  //・リサイズ処理(開発者ツールで 初回マウント時のスマホ版 にした時に要素が追従しないようにする処理") と スクロール処理を「まとめて処理するロジック」
+  //これを使わないと「開発者ツールで 初回マウント時のスマホ版 にした時に"要素が追従してしまう不具合"」が発生する
+  const handleScrollOrResize = () => {
+    const width = window.innerWidth;
+    const target = targetRef.current;
+
+    if (!target) return; //targetが「turthyでなければ」実行せず終了
+
+    //リサイズ処理
+    //スマホ版(768px以下)の場合
+    if (width <= 768) {
+      // スマホでは「static」で追従解除
+      target.style.position = 'static'; //target.style.position = 'static';で 開発者ツールで初回マウント時スマホ版 では追従を解除する
+      target.style.top = '0';
+      target.style.left = '';
+      return;
+    }
+
+    //スクロール処理
+    //tickingが「false」なのでif文の中に入る
     if (!ticking) {
+      //①rAFを予約
+      //③rAFのコールバック内でchecFixed()を実行して「追従ロジック」を実行する
       requestAnimationFrame(() => {
-        checkFixed(); //追従ロジックcheckFixedを実行
-        ticking = false; //処理が終わったらtickingフラグをfalseに戻す
+        checkFixed();
+        ticking = false;
       });
-      ticking = true; //tickingフラグをtrueにセットして、次のスクロールイベントまで処理を抑制
+      ticking = true; //②即実行して次のスクロールイベントまで処理抑制のためにtrueにする
     }
   };
+  //初期位置チェック
+  handleScrollOrResize();
 
-  //⬇︎初期位置
-  checkFixed();
+  //イベント登録(scrollイベントとresizeイベントで 同じ処理を実行)
+  //{passive: ture}で標準の動作(preventDefault())を防ぐ。スクロールを止めないようにする。
+  window.addEventListener('scroll', handleScrollOrResize, { passive: true });
+  window.addEventListener('resize', handleScrollOrResize, { passive: true });
 
-  window.addEventListener('scroll', onScroll, { passive: true }); //{passive: ture}で標準の動作(preventDefault())を防ぐ。スクロールを止めないようにする。
-  window.addEventListener('resize', checkFixed);
-
-  //⬇︎✅cleanUP用に関数を渡す
+  //cleanUP用に関数を「SideFixed.jsxに渡す」
   return () => {
-    window.removeEventListener('scroll', onScroll);
-    window.removeEventListener('resize', checkFixed);
+    window.removeEventListener('scroll', handleScrollOrResize);
+    window.removeEventListener('resize', handleScrollOrResize);
   };
 };
 
