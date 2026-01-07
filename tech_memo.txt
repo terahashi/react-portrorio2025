@@ -1,23 +1,78 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
+🔶「font-size」などを『環境変数で一括管理』する際のメモ
+
+① 環境変数（CSS変数）で管理するべきもの
+■使うべき場面
+•	見出しサイズ（h1 / h2 / h3）
+•	本文サイズ
+•	サブテキスト
+•	ボタン文字サイズ
+•	全体で「意味を持つ」サイズ
+⬇︎
+⭕️Tailwind からの使い方
+<h2 className="text-[var(--text-heading-h2)]">
+
+⭕️ styled-components からの使い方
+const Title = styled.h2`
+  font-size: var(--text-heading-h2);
+  font-weight: 800;
+`;
+
+
+
+② text-[2rem] などを TailWindCSSにを直接書いていいケース
+■使ってOKな場面
+•	1箇所だけの装飾
+•	ヒーローセクションの巨大文字
+•	アニメーション専用テキスト
+•	デザイン検証など
+⬇︎
+⭕️Tailwind からの使い方
+return <h2 ref={textRef} className='text-[2rem] text-[#000]'></h2>;
+
+
+
+
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+🔶@layer base{}について
+・@layer base{} を入れることで下記は「Tailwind が用意している“CSSの優先順位レーン”の一番下」になる
+・@layer base(一番弱い(下)) → @layer components → @layer utilities(一番強い(上))
+・つまり下記のcssは、TailWindCSSと競合せず「TailWindCSSが最優先されるようになる。」
+
+👉 「デフォルトの見た目」
+⬇︎
+✔ html / body
+✔ h1〜h6
+✔ p / span / small
+✔ button の「基本スタイル」
+
+
+
+
+
+------------------------------------------------------------------
+------------------------------------------------------------------
 🔶(📚課題):現状、全ての<ParagraphSection>の{Children}には「絶対にWrapperやInnerが付いてしまいます。」
 【ある特定の {children}コンポーネントだけには<Wrapper>や<Inner>を入れたくない！そんな時はどうする？】
 
 ⬇︎
 
-⭕️A: 特定の{children}にだけWrapper/Innerを外す。propsと三項演算子を使って条件分岐させます。
+⭕️A: 特定の{children}にだけ Wrapper/Innerを外す。propsと三項演算子を使って条件分岐させます。
 
 ⬇︎
 
 🍏ParagraphSection.jsxファイル
+//‼️⬇︎①withLayout = true;で初期はtrue
 const ParagraphSection = ({title,children, withLayout = true,}) => {
-  //‼️⬆︎①withLayout = true;で初期はtrue
-
   const paraRef = useRef(null);
 
   useLayoutEffect(() => {
     paragraphAnime(paraRef);
   }, []);
+
 
   //‼️⬇︎②三項演算子で表示する用のcontentを追加
   const Content = (
@@ -32,12 +87,12 @@ const ParagraphSection = ({title,children, withLayout = true,}) => {
 
   return (
     <ParaSection>
-      {withLayout ? (
+      {withLayout ? (　///////‼️⬅︎③ {withLayout ? :} で「falseの場合は<Wrapper>や<Inner>は付かない」という条件分岐ができる。
         <Wrapper>
           <Inner>{Content}</Inner>
         </Wrapper>
       ) : (
-        Content   ‼️⬅︎③「falseの場合は<Wrapper>や<Inner>は付かない」という条件分岐ができる。
+        Content
       )}
     </ParaSection>
   );

@@ -11,7 +11,7 @@ const ScrambleText = (refs, duration = 2) => {
     repeat: -1, // 無限ループ
     repeatDelay: 0, // ループ間の待ち時間
     scrollTrigger: {
-      trigger: refs.original.current, //refsのoriginal:useRef(null)を「発火地点に設定」する
+      trigger: refs.text1.current,
       start: 'top 80%',
       end: 'bottom 20%',
       toggleActions: 'play none none reverse',
@@ -20,7 +20,7 @@ const ScrambleText = (refs, duration = 2) => {
     },
   });
 
-  gsap.set(refs.original.current, { opacity: 0 }); //gsap.set()で「アニメーション前の初期スタイルをセット」
+  // gsap.set(refs.original.current, { opacity: 0 }); //gsap.set()で「アニメーション前の初期スタイルをセット」
   gsap.set(refs.text1.current, { opacity: 1 });
 
   //①スクランブルで表示
