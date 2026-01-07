@@ -10,7 +10,8 @@ const Wrapper = styled.div`
 //Inner styled-components
 const Inner = styled.div`
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--layout-max-width);
+  padding-inline: var(--layout-padding);
   margin: 0 auto;
 `;
 

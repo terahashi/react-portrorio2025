@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
+import breakpoints from '../styles/breakpoints';
 
 import useMediaQuery from '../hooks/useMediaQuery'; //useMediaQueryカスタムフック
 import ColorContext from '../contexts/ColorContext'; //ColorContext
@@ -8,13 +9,24 @@ import ColorContext from '../contexts/ColorContext'; //ColorContext
 import { Wrapper, Inner } from './common/LayoutPrimitives';
 import Menu from './Menu';
 
-//「styled-components(CSS-in-JS))で書いてみよう」
+//styled-components
+const HeaderInner = styled(Inner)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  @media (min-width: ${breakpoints}) {
+    padding: 16px;
+  }
+`;
+
 const HeaderWrap = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  height: var(--header-height);
   .my-logo {
     position: relative;
   }
@@ -31,12 +43,6 @@ const HeaderWrap = styled.header`
   }
 `;
 
-const HeaderInner = styled(Inner)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 //⬇︎useContextを使用【$isDarkをstyled-componentsに $darkという名前で渡している】
 const Header = ({ headerRef }) => {
   //useContext
@@ -46,7 +52,7 @@ const Header = ({ headerRef }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   return (
-    <HeaderWrap ref={headerRef} $dark={isDark} className='p-4'>
+    <HeaderWrap ref={headerRef} $dark={isDark}>
       <Wrapper>
         <HeaderInner>
           <div className='my-logo'>

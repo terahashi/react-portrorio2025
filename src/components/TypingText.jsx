@@ -8,7 +8,7 @@ const TypingText = () => {
     initType(textRef);
   }, []);
 
-  return <h2 ref={textRef} className='ityped text-[2rem] text-[#000] font-extrabold'></h2>;
+  return <p ref={textRef} className='ityped text-[1rem] md:text-[1.5rem] text-[#000]'></p>;
 };
 
 export default TypingText;
