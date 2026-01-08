@@ -2,6 +2,7 @@ import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom'; //イベントハンドラー内で遷移したい場合に使うのが「useNavigate」
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import animateHamburger from '../animations/HamburgerAnimation'; //hamburger.jsからGSAPアニーションをimport
 import ColorContext from '../contexts/ColorContext';
@@ -41,7 +42,7 @@ const MenuWrapper = styled.div`
     top: 0;
     right: 0;
     width: 100%;
-    height: 70vh;
+    height: 65vh;
     background: #d5ab95;
     transform: translateX(100%);
     z-index: 100;
@@ -56,9 +57,9 @@ const MenuWrapper = styled.div`
       li {
         margin-bottom: 15px;
         a {
+          font-size: 2rem;
           color: #000;
           text-decoration: none;
-          font-size: 2rem;
           font-weight: bold;
         }
       }
@@ -67,30 +68,25 @@ const MenuWrapper = styled.div`
 
   nav.nav2 {
     position: fixed;
-    top: 70vh;
+    top: 65vh;
     right: 0;
     width: 100%;
-    height: 30vh;
+    height: 35vh;
     background: #000000;
     transform: translateX(-100%);
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 12px 24px;
-    padding: 5% 3%;
+    gap: 6px 0;
+    padding: 16px 32px;
     z-index: 100;
     ul {
-      margin-left: 2%;
+      margin-bottom: 5px;
       li {
-        font-size: var(--text-sm);
+        font-size: 2rem;
+        font-weight: bold;
         color: #fff;
         text-align: left;
         cursor: pointer;
         a {
-          font-size: var(--text-sm);
+          font-size: inherit;
           color: #fff;
           text-decoration: none;
           &:hover {
@@ -99,8 +95,34 @@ const MenuWrapper = styled.div`
         }
       }
     }
-    > ul:nth-child(2) {
-      margin-left: 2%;
+    > ul:nth-child(3) {
+      margin-bottom: 0;
+      li {
+        font-size: 1.3rem;
+        color: var(--color-white);
+        font-weight: 300;
+        > span {
+          font-size: inherit;
+          color: var(--color-gray);
+        }
+      }
+    }
+
+    ul.social {
+      margin-bottom: 5px;
+      li {
+        font-size: 0.9rem;
+        color: var(--color-white);
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0 10px;
+        a {
+          display: block;
+        }
+      }
     }
   }
 `;
@@ -180,12 +202,23 @@ const Menu = () => {
         <ul>
           {/* ⬇︎menuItems配列データを"使わない"場合のリンク遷移 */}
           <li onClick={() => handleLinkClick('/')}>MYPORTFOLIO</li>
-          <li onClick={() => handleLinkClick('/#works')}>Works</li>
-          <li onClick={() => handleLinkClick('/#skills')}>Skills</li>
         </ul>
+
+        <ul className='social'>
+          <li>
+            <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
+              <FontAwesomeIcon icon={['fab', 'github']} size='2x'></FontAwesomeIcon>
+            </a>
+            <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
+              <FontAwesomeIcon icon={['fab', 'github']} size='2x'></FontAwesomeIcon>
+            </a>
+          </li>
+        </ul>
+
         <ul>
-          <li>Welcome GSAPメニュー!</li>
-          <li>Welcome GSAPメニュー!</li>
+          <li>
+            Hi, I’m Takahashi, <span>a web front-end engineer working with React and JavaScript.</span>
+          </li>
         </ul>
       </nav>
     </MenuWrapper>

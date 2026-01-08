@@ -2,7 +2,7 @@ import { useRef, useEffect, useLayoutEffect } from 'react';
 import { styled } from 'styled-components';
 import loadingAnimation from '../animations/LoadingAnimation';
 
-//⬇︎「styled-components(CSS-in-JS))で書いてみよう」
+//⬇︎styled-components
 const LoadingWrap = styled.div`
   .bl-loader {
     //「.bl-loader」は“全画面にかぶさる茶色の幕”

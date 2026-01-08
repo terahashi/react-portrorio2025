@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import breakpoints from '../styles/breakpoints';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useMediaQuery from '../hooks/useMediaQuery'; //useMediaQueryカスタムフック
 import ColorContext from '../contexts/ColorContext'; //ColorContext
@@ -64,6 +65,10 @@ const Header = ({ headerRef }) => {
               <Link to='/#works'>Works</Link>
               <Link to='/#about'>About</Link>
               <Link to='/#skills'>Skills</Link>
+
+              <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
+                <FontAwesomeIcon className='github-spin' icon={['fab', 'github']} size='3x' spin></FontAwesomeIcon>
+              </a>
             </div>
           )}
 

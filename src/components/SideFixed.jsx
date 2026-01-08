@@ -15,9 +15,9 @@ const SideFixed = ({ children, title, headerRef, sideText }) => {
       {/* ⬇︎実際に追従するfixed */}
       <div ref={targetRef} className='mb-20 md:mb-0 w-full md:w-[300px]'>
         {/* <SideFixed title='追従タイトル'などから「titleなどのpropsを受け取る。」 */}
-        <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', margin: '0' }}>{title}</h1>
+        <h1>{title}</h1>
         {/* sideText が「truthy（真)」のときだけ{sideText}を表示  */}
-        {sideText && <h2 style={{ fontSize: '1.0rem' }}>{sideText}</h2>}
+        {sideText && <h3>{sideText}</h3>}
       </div>
 
       {/* ⬇︎display: flexで横並び */}
