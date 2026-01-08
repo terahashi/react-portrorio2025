@@ -1,9 +1,5 @@
 /* main.jsx に読み込まれる。全ページ共通のCSSは「index.css」に書くのが基本です。 */
 
-/* 🔶「normalize.css」を使用する*/
-/* ①yarn add normalize.cssでインストール。 */
-/* ②「main.jsx」でimportする */
-
 /* 🔶「tailwind.css」を使用する*/
 /* ①yarn add -D tailwindcss @tailwindcss/vite */
 /* ②「main.jsx」でimportする */
@@ -45,10 +41,8 @@
   --text-button: 0.875rem;
 
   /* color */
-  --color-heading: #fff;
-  --color-text: #fff;
-  --color-span: #fff;
-  --color-primary: #f6cf65;
+  --color-white: #fff;
+  --color-gray: #6a7282;
 
   /* width / padding / margin / height */
   --header-height: 60px;
@@ -60,7 +54,7 @@
 /* ・つまり下記のcssは、TailWindCSSと競合せず「TailWindCSSが最優先されるようになる。」 */
 @layer base {
   html {
-    /* font-sizeを rem で使用する */
+    /* font-sizeを rem で使用するための基準16px */
     font-size: 16px;
   }
 
@@ -75,56 +69,62 @@
     background-color: #242424;
   }
 
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
     font-size: var(--text-heading-h1);
-    color: var(--color-heading);
+    color: var(--color-white);
     line-height: 1.2;
   }
   h2 {
-    margin-top: 0;
     font-size: var(--text-heading-h2);
-    color: var(--color-heading);
+    color: var(--color-white);
     line-height: 1.25;
   }
   h3 {
-    margin-top: 0;
     font-size: var(--text-heading-h3);
-    color: var(--color-heading);
+    color: var(--color-white);
     line-height: 1.3;
   }
   h4 {
-    margin-top: 0;
     font-size: var(--text-heading-h4);
-    color: var(--color-heading);
+    color: var(--color-white);
     line-height: 1.35;
   }
   h5 {
-    margin-top: 0;
     font-size: var(--text-heading-h5);
-    color: var(--color-heading);
+    color: var(--color-white);
     line-height: 1.4;
   }
   h6 {
-    margin-top: 0;
     font-size: var(--text-heading-h6);
-    color: var(--color-heading);
+    color: var(--color-white);
     line-height: 1.45;
   }
 
   p {
     font-size: var(--text-base);
-    color: var(--color-text);
+    color: var(--color-white);
     line-height: 1.7;
   }
 
   span {
     font-size: var(--text-span);
+    color: var(--color-white);
     line-height: 1.7;
   }
 
   small {
     font-size: var(--text-small);
+    color: var(--color-white);
     line-height: 1.6;
   }
 
@@ -158,6 +158,10 @@
   50% {
     opacity: 0;
   }
+}
+
+.github-spin {
+  animation: fa-spin 5s linear infinite;
 }
 
 /******** デフォルト設定********/

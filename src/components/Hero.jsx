@@ -5,7 +5,7 @@ import { Wrapper, Inner } from './common/LayoutPrimitives';
 
 const Hero = ({ targetRef }) => {
   return (
-    <div ref={targetRef} className='bg-[#ffe4d7] w-full min-h-screen  pt-[var(--header-height)] relative'>
+    <section ref={targetRef} className='bg-[#ffe4d7] w-full min-h-screen  pt-[var(--header-height)] relative'>
       <Wrapper>
         <Inner className='pt-[50px] md:pt-[80px]'>
           <HeroscrambleText />
@@ -16,7 +16,7 @@ const Hero = ({ targetRef }) => {
           <ScrollDown />
         </Inner>
       </Wrapper>
-    </div>
+    </section>
   );
 };
 

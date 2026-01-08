@@ -5,13 +5,11 @@ import { Wrapper, Inner } from './common/LayoutPrimitives';
 
 const ParaSection = styled.section`
   background: #494949;
-  padding: 10px;
   margin-bottom: 100px;
   &:last-of-type {
     margin-bottom: 25%;
   }
   .paragraph-area {
-    padding: 10px;
   }
   .headline {
     position: relative;
