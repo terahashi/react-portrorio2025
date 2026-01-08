@@ -33,6 +33,10 @@ const HeaderWrap = styled.header`
   }
   .pc-menu {
     display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
   }
   a {
     font-size: var(--text-sm);
