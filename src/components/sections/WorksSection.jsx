@@ -15,9 +15,8 @@ const WorkSection = () => {
       <WorkWrap>
         <Wrapper>
           <Inner>
-            <ParagraphSection title='Works'>
-              <Works />
-            </ParagraphSection>
+            <ParagraphSection title='Works' />
+            <Works />
           </Inner>
         </Wrapper>
       </WorkWrap>
