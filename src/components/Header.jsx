@@ -66,8 +66,8 @@ const Header = ({ headerRef }) => {
 
           {!isMobile && (
             <div className='pc-menu gap-x-4 '>
-              <Link to='/#works'>Works</Link>
               <Link to='/#about'>About</Link>
+              <Link to='/#works'>Works</Link>
               <Link to='/#skills'>Skills</Link>
 
               <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>

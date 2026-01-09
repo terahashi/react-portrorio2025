@@ -10,10 +10,19 @@ import { useContext, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import ColorContext from '../../contexts/ColorContext'; //useContext(ColorContext)
+
 import { Wrapper, Inner } from '../../components/common/LayoutPrimitives';
+import styled from 'styled-components';
 
 import worksData from '../../data/worksData';
 import SideFixed from '../../components/SideFixed';
+
+const WorkDeWrap = styled.section`
+  margin-top: 100px;
+`;
+// const WorkDeWrapChilldren = styled.section`
+//   margin-top: 100px;
+// `;
 
 const WorksDetail = () => {
   //useContext(ColorContext)・Headerの文字色を白にする
@@ -38,12 +47,20 @@ const WorksDetail = () => {
   }, [setIsDark]);
 
   return (
-    <section style={{ marginTop: '30vh' }}>
+    <WorkDeWrap className='pt-[var(--header-height)]'>
       <Wrapper>
         <Inner>
+          <div className='pb-[100px]'>
+            <h1>{workdetail.title}</h1>
+            <p>{workdetail.desctription}</p>
+          </div>
           {/* sideText={workdetail.sideText} ⬅︎ <SideFixed>コンポーネントに「"worksData"のsideTextデータを渡す」 */}
           <SideFixed title={workdetail.title} sideText={workdetail.sideText}>
-            <div style={{ height: '3000px' }}>
+            <div
+              style={{
+                height: '3000px',
+              }}
+            >
               <h1>{workdetail.title}</h1>
               <img src={workdetail.image} alt={workdetail.titke} />
               <p>{workdetail.desctription}</p>
@@ -56,7 +73,7 @@ const WorksDetail = () => {
           </Link>
         </Inner>
       </Wrapper>
-    </section>
+    </WorkDeWrap>
   );
 };
 
