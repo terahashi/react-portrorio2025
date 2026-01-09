@@ -1,13 +1,9 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
 import paragraphAnime from '../animations/paragraphAnime';
 import styled from 'styled-components';
-import { Wrapper, Inner } from './common/LayoutPrimitives';
 
-const ParaSection = styled.section`
-  background: #494949;
-  margin-bottom: 100px;
+const ParaWrap = styled.div`
   &:last-of-type {
-    margin-bottom: 25%;
   }
   .paragraph-area {
   }
@@ -47,21 +43,17 @@ const ParagraphSection = ({ title, children }) => {
   }, []);
 
   return (
-    <ParaSection>
-      <Wrapper>
-        <Inner>
-          <div className='paragraph-area' ref={paraRef}>
-            <h1 className='headline'>
-              <span className='rect'></span>
-              <span className='label'>{title}</span>
-            </h1>
+    <ParaWrap>
+      <div className='paragraph-area' ref={paraRef}>
+        <h1 className='headline'>
+          <span className='rect'></span>
+          <span className='label'>{title}</span>
+        </h1>
 
-            {/* 👇 Works / Skills / */}
-            {children}
-          </div>
-        </Inner>
-      </Wrapper>
-    </ParaSection>
+        {/* 👇 Works / Skills / */}
+        {children}
+      </div>
+    </ParaWrap>
   );
 };
 

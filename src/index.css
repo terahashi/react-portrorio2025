@@ -45,8 +45,9 @@
   --color-gray: #6a7282;
 
   /* width / padding / margin / height */
-  --header-height: 60px;
+  --header-height: 76.05px;
   --layout-padding: 16px;
+  --sec-bottom-padding: 100px;
   --layout-max-width: 1280px;
 }
 

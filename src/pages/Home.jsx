@@ -1,21 +1,21 @@
 import { useEffect, useContext } from 'react';
-import { useOutletContext } from 'react-router-dom'; //⭐️useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【データ:headerRef】を渡すためのフック」
+import { useOutletContext } from 'react-router-dom'; //⭐️useOutletContextは「親(Layout.jsx)から子(Home.jsx)に【headerRef】を渡すためのフック」
 
+//⬇︎CoustomHook
 import useIntersection from '../hooks/useIntersection';
 import ColorContext from '../contexts/ColorContext';
 
+//⬇︎components
 import Hero from '../components/Hero';
-import Three from '../components/Three';
-import ParagraphSection from '../components/ParagraphSection';
-import SideFixed from '../components/SideFixed.jsx';
+import WorkSection from '../components/sections/WorksSection.jsx';
+import AboutSection from '../components/sections/AboutSection.jsx';
+import SkillsSection from '../components/sections/SkillsSection.jsx';
 import GetInTouch from '../components/GetInTouch';
-
-import Works from '../components/Works';
-import SampleContent from '../components/SampleContent';
-import SampleContent2 from '../components/SampleContent2.jsx';
 
 const Home = () => {
   //⬇︎親(Layout.jsx)から受け取った「headerRefを使用するために【useOutletContext()】を使用する」
+  // headerRef は「固定（fixed）要素が Header に被らないようにするため」に使っています。
+  // headerRefで「side.jsのareaFixedFunk関数」でHeaderの高さ・位置取得
   const { headerRef } = useOutletContext();
 
   //⬇︎useContext(ColorContext)使用
@@ -40,30 +40,11 @@ const Home = () => {
     <>
       <Hero targetRef={targetRef} />
 
-      <section id='works'>
-        <ParagraphSection title='Works'>
-          <Works />
-        </ParagraphSection>
-      </section>
+      <AboutSection />
 
-      <Three />
+      <WorkSection />
 
-      <ParagraphSection title='sample'>
-        {/* SideFixedで追従タイトルを部品化 */}
-        <SideFixed
-          title='追従タイトル'
-          sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
-          headerRef={headerRef}
-        >
-          <SampleContent />
-        </SideFixed>
-      </ParagraphSection>
-
-      <section id='skills'>
-        <ParagraphSection title='Skills'>
-          <SampleContent2 />
-        </ParagraphSection>
-      </section>
+      <SkillsSection headerRef={headerRef} />
 
       <GetInTouch />
     </>

@@ -98,7 +98,7 @@ const MenuWrapper = styled.div`
     > ul:nth-child(3) {
       margin-bottom: 0;
       li {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: var(--color-white);
         font-weight: 300;
         > span {
