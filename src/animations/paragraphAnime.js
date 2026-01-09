@@ -12,7 +12,6 @@ const paragraphAnime = (paraRef) => {
       start: 'top 80%',
       end: 'bottom 50%',
       toggleActions: 'play none none reset', //「スクロールによってアニメーションの各領域の発動するタイミング」を指定。左からenter（画面に入ったとき）、leave（画面から出たとき）、enterBack（下から再び画面に入ったとき）、leaveBack（上にスクロールして画面から出たとき）
-      loop: true,
       // markers: true,
     },
   });

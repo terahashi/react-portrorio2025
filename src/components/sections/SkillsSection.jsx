@@ -16,15 +16,14 @@ const SkillsSection = ({ headerRef }) => {
       <SkillsWrap>
         <Wrapper>
           <Inner>
-            <ParagraphSection title='Skills'>
-              <SideFixed
-                title='追従タイトル'
-                sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
-                headerRef={headerRef}
-              >
-                <SampleContent2 />
-              </SideFixed>
-            </ParagraphSection>
+            <ParagraphSection title='Skills' />
+            <SideFixed
+              title='追従タイトル'
+              sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
+              headerRef={headerRef}
+            >
+              <SampleContent2 />
+            </SideFixed>
           </Inner>
         </Wrapper>
       </SkillsWrap>
