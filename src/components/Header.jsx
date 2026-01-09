@@ -39,7 +39,7 @@ const HeaderWrap = styled.header`
     flex-wrap: nowrap;
   }
   a {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     text-decoration: none;
     transition: color 0.8s ease; /* ⬅︎colorプロパティだけ滑らかにスピードを変化させる */
     /* ⬇︎$darkが「trueなら白」「falseなら黒」 */

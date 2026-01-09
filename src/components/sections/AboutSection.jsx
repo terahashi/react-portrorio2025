@@ -19,20 +19,22 @@ const AboutSection = () => {
             <ParagraphSection title='About' />
             <FadeUp
               options={{
-                y: 60,
+                y: 40,
                 stagger: 0.1,
                 duration: 0.4,
+                glitch: true,
               }}
             >
-              <h1 className='split'>
+              <div className='split'>
                 {'ABOUT'.split('').map((char, i) => (
-                  <div key={i} className='char inline-block'>
+                  <span key={i} className='char inline-block text-[3rem] font-bold'>
                     {char}
-                  </div>
+                  </span>
                 ))}
-              </h1>
+              </div>
               <p className='char inline-block'>スクロール</p>
             </FadeUp>
+
             <Three />
           </Inner>
         </Wrapper>

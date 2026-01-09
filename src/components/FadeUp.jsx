@@ -5,24 +5,24 @@ const FadeUp = ({ title, children, options }) => {
   //useRefを作成
   const FadeRef = useRef(null);
 
-  //useEffect
+  //useEffectで描画後に実行
   useEffect(() => {
     const root = FadeRef.current;
     if (!root) return;
 
-    // ① FadeRefのDOMの「h1を全て取得。」
-    fadeUp(root, root.querySelectorAll('h1'), {
-      y: 40,
-      duration: 0.6,
+    // ① FadeRefのDOMの「タイトル部分の.splitを全て取得。」
+    fadeUp(root, root.querySelectorAll('.split'), {
+      y: 70,
+      duration: 0.4,
     });
 
-    // ②  FadeRefのDOM「charを全て取得。」
+    // ② FadeRefのDOM「.charを全て取得。」
     fadeUp(root, root.querySelectorAll('.char'), options);
   }, []);
 
   return (
     <div ref={FadeRef} className='overflow-hidden'>
-      <h1>{title}</h1>
+      {title}
       {children}
     </div>
   );
