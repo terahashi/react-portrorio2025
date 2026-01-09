@@ -15,7 +15,7 @@ const loadingAnimation = (blinds, onComplete) => {
     scaleY: 0, //scaleY
     duration: 0.5,
     ease: 'power2.in',
-    stagger: 0.07, //⬅︎staggerで".blind二要素1つ1つが順番に開く"「0に近づくほど速く開く」
+    stagger: 0.04, //⬅︎staggerで".blind二要素1つ1つが順番に開く"「0に近づくほど速く開く」
   });
 
   // 1つずつ左から右に開くブラインドアニメ

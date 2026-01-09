@@ -51,7 +51,7 @@ const Loading = ({ onComplete }) => {
     <LoadingWrap>
       <div className='bl-loader'>
         <div className='blind-container' ref={containerRef}>
-          {Array.from({ length: 10 }).map((_, index) => (
+          {Array.from({ length: 15 }).map((_, index) => (
             <div className='blind' key={index}></div>
           ))}
 
