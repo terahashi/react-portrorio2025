@@ -13,7 +13,7 @@ const FadeUp = ({ title, children, options }) => {
     // ① FadeRefのDOMの「タイトル部分の.splitを全て取得。」
     fadeUp(root, root.querySelectorAll('.split'), {
       y: 70,
-      duration: 0.4,
+      //duration: 5, //duration（アニメ1つの所要時間が5秒と遅い）
     });
 
     // ② FadeRefのDOM「.charを全て取得。」
