@@ -114,31 +114,33 @@
   p {
     font-size: var(--text-base);
     color: var(--color-white);
-    line-height: 1.7;
+    line-height: 1.4;
   }
 
   span {
     font-size: var(--text-span);
     color: var(--color-white);
-    line-height: 1.7;
+    line-height: 1.4;
   }
 
   small {
     font-size: var(--text-small);
     color: var(--color-white);
-    line-height: 1.6;
+    line-height: 1.4;
   }
 
   button {
     font-size: var(--text-button);
-    line-height: 1.2;
+    line-height: 1.4;
   }
 }
 
 /* タイピングアニメーション(点滅アニメも追加) */
 .ityped {
-  display: inline-block;
-  white-space: nowrap;
+  line-height: 1.4;
+  display: inline;
+  white-space: normal;
+  word-break: break-word;
 }
 .ityped + .ityped-cursor {
   color: #000;

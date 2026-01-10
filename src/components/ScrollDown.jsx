@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import breakpoints from '../styles/breakpoints';
 
 //ScrollMouseで全体配置
 const ScrollMouse = styled.div`
-  position: absolute;
-  right: 50px;
-  bottom: 80px;
+  /* position: absolute;
+  right: 100px;
+  bottom: 130px; */
 
-  margin-top: 30px;
-  margin-inline: auto;
+  margin-left: auto;
+  margin-bottom: 30px;
   width: fit-content;
   text-align: center;
 
@@ -15,7 +16,10 @@ const ScrollMouse = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row-reverse;
-  gap: 0 20px;
+  gap: 0 14px;
+  @media (min-width: ${breakpoints.tablet}) {
+    margin-bottom: 0;
+  }
 
   //「scroll」の文字
   .scroll-text {
