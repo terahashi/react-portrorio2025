@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 import ParagraphSection from '../ParagraphSection';
 import SideFixed from '../SideFixed';
+import Skillslist from '../SkillsList';
+
 import SampleContent2 from '../SampleContent2';
 
 const SkillsWrap = styled.section`
-  background-color: #494949;
+  background-color: #1e1c1c;
   padding-bottom: var(--sec-bottom-padding);
 `;
 
@@ -22,6 +24,7 @@ const SkillsSection = ({ headerRef }) => {
               sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
               headerRef={headerRef}
             >
+              <Skillslist />
               <SampleContent2 />
             </SideFixed>
           </Inner>

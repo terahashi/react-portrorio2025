@@ -6,7 +6,10 @@ import scrambleText from '../animations/ScrambleText';
 const ScrambleWrapper = styled.div`
   height: 200px; //最大表示時の高さで固定
   @media (min-width: ${breakpoints.tablet}) {
-    height: 180px;
+    height: 150px;
+  }
+  @media (min-width: ${breakpoints.pc}) {
+    height: 160px;
   }
 `;
 
