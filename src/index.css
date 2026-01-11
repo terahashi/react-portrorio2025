@@ -147,11 +147,19 @@
   font-size: 1rem;
   animation: blink 1s step-start infinite; /* 点滅アニメのkeyframes */
 }
+
 @media (min-width: 768px) {
   .ityped + .ityped-cursor {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .ityped + .ityped-cursor {
+    font-size: 1rem;
+  }
+}
+
 /* 点滅アニメのkeyframes */
 @keyframes blink {
   0%,
@@ -166,7 +174,9 @@
 .github-spin {
   animation: fa-spin 5s linear infinite;
 }
-
+.skill-icon {
+  color: #61dafb;
+}
 /******** デフォルト設定********/
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -3,6 +3,7 @@ import paragraphAnime from '../animations/paragraphAnime';
 import styled from 'styled-components';
 
 const ParaWrap = styled.div`
+  padding-bottom: 50px;
   &:last-of-type {
   }
   .paragraph-area {

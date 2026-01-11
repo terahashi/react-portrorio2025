@@ -7,7 +7,7 @@ const Hero = ({ targetRef }) => {
   return (
     <section ref={targetRef} className='bg-[#ffe4d7] w-full min-h-screen  pt-[var(--header-height)] relative'>
       <Wrapper>
-        <Inner className='pt-[50px] md:pt-[80px]'>
+        <Inner className='pt-[50px] md:pt-[75px] lg:pt-[90px]'>
           <HeroscrambleText />
           <div className='flex-none md:flex md:flex-nowrap md:flex-row md:justify-start md:items-end md:gap-x-3 md:mb-[30px]'>
             <img className='w-full md:w-[320px] lg:w-[400px] mb-[30px] md:mb-[0]' src='images/nature.jpg' alt='nature' />
