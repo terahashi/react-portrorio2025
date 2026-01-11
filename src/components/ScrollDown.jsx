@@ -10,7 +10,6 @@ const ScrollMouse = styled.div`
   margin-left: auto;
   margin-bottom: 30px;
   width: fit-content;
-  text-align: center;
 
   display: flex;
   justify-content: space-between;
@@ -19,6 +18,11 @@ const ScrollMouse = styled.div`
   gap: 0 14px;
   @media (min-width: ${breakpoints.tablet}) {
     margin-bottom: 0;
+    flex-direction: column-reverse;
+  }
+  @media (min-width: ${breakpoints.pc}) {
+    margin-bottom: 0;
+    flex-direction: row-reverse;
   }
 
   //「scroll」の文字
@@ -26,8 +30,8 @@ const ScrollMouse = styled.div`
     display: block;
     color: #000;
     font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 0.08em;
+    text-align: left;
+    /* letter-spacing: 0.01em; */
   }
   //マウスの形
   .mouse {
