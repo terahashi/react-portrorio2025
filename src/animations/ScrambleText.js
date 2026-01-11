@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
 
-const texts = ['MY PORTFORIO|', 'WEB ENGINEER|'];
+const texts = ['MY PORTFORIO', 'WEB ENGINEER'];
 
 const ScrambleText = (refs, duration = 2) => {
   const tl = gsap.timeline({
