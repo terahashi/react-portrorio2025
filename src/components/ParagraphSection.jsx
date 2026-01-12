@@ -3,7 +3,6 @@ import paragraphAnime from '../animations/paragraphAnime';
 import styled from 'styled-components';
 
 const ParaWrap = styled.div`
-  padding-bottom: 50px;
   &:last-of-type {
   }
   .paragraph-area {
@@ -28,7 +27,7 @@ const ParaWrap = styled.div`
     span.label {
       display: inline-block;
       color: #fff;
-      font-size: 3rem;
+      font-size: 4.5rem;
       font-weight: bold;
     }
   }
@@ -44,9 +43,9 @@ const ParagraphSection = ({ title, children }) => {
   }, []);
 
   return (
-    <ParaWrap>
+    <ParaWrap className='pb-[70px]'>
       <div className='paragraph-area' ref={paraRef}>
-        <h1 className='headline'>
+        <h1 className='headline mb-0'>
           <span className='rect'></span>
           <span className='label'>{title}</span>
         </h1>

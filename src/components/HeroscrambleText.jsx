@@ -4,12 +4,12 @@ import breakpoints from '../styles/breakpoints';
 import scrambleText from '../animations/ScrambleText';
 
 const ScrambleWrapper = styled.div`
-  height: 200px; //最大表示時の高さで固定
+  height: 180px; //最大表示時の高さで固定
   @media (min-width: ${breakpoints.tablet}) {
-    height: 150px;
+    height: 170px;
   }
   @media (min-width: ${breakpoints.pc}) {
-    height: 160px;
+    height: 180px;
   }
 `;
 
@@ -29,7 +29,7 @@ const HeroscrambleText = () => {
     <>
       <ScrambleWrapper>
         {/* <h1 ref={refs.original}>Loading...</h1> */}
-        <h2 ref={refs.text1} className='text-[4rem] md:text-[5rem] lg:text-[6.5rem] mb-0 lg:text-[6.5rem] text-[#000] font-extrabold'></h2>
+        <h2 ref={refs.text1} className='text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] mb-0 lg:text-[6.5rem] text-[#000] font-extrabold'></h2>
       </ScrambleWrapper>
     </>
   );

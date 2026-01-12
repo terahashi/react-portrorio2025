@@ -21,7 +21,7 @@ const FadeUp = ({ title, children, options }) => {
   }, []);
 
   return (
-    <div ref={FadeRef} className='overflow-hidden'>
+    <div ref={FadeRef} className='overflow-hidden mb-[30px]'>
       {title}
       {children}
     </div>

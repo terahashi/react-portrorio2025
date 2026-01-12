@@ -2,9 +2,7 @@ const worksData = [
   {
     id: '01',
     skilltitle: 'React',
-    image: '/images/nature.jpg',
-    icon: 'react',
-    desctription: 'サンプルサイト1のdescriptionとして定義',
+    icon: 'react', //images/icon.jpgに入れて「画像を.mapでループさせよう。」
     skillText:
       'サンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルです',
     years: '自主学習2~3years',
@@ -12,9 +10,7 @@ const worksData = [
   {
     id: '02',
     skilltitle: 'JavaScript',
-    image: '/images/nature.jpg',
     icon: 'react',
-    desctription: 'サンプルサイト1のdescriptionとして定義',
     skillText:
       'サンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルです',
     years: '自主学習2~3years',
@@ -22,9 +18,7 @@ const worksData = [
   {
     id: '03',
     skilltitle: 'Git・Github',
-    image: '/images/nature.jpg',
     icon: 'react',
-    desctription: 'サンプルサイト1のdescriptionとして定義',
     skillText:
       'サンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルですサンプルです',
     years: '自主学習2~3years',

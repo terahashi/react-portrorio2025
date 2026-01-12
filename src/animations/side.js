@@ -5,10 +5,15 @@
 const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
   if (!areaRef.current || !targetRef.current) return; // targetRefとareaRefがなければ実行せず終了
 
-  //⬇︎スマホ版では「areaFixedFunk関数を使わないで追従ロジック自体を無効化」する
-  if (window.innerWidth <= 768) {
+  //⬇︎タブレットの縦向き以下(ブラウザ幅1023px以下)では「追従ロジック自体を無効化」する。areaFixedFunk関数を使わない。
+  if (window.innerWidth <= 1023) {
     return () => {};
   }
+
+  //⬇︎スマホ以下(ブラウザ幅767px以下)では「追従ロジック自体を無効化」する。areaFixedFunk関数を使わない。
+  // if (window.innerWidth <= 767) {
+  //   return () => {};
+  // }
 
   let ticking = false; //フラグの役割 = スクロール中に何度も処理されるのを抑制して、パフォーマンス改善。
 
