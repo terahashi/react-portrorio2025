@@ -4,6 +4,7 @@ import worksData from '../data/worksData'; //worksData(データ(タイトルや
 
 import WorksItem from './WorksItem';
 import WorksHover from './WorksHover';
+import breakpoints from '../styles/breakpoints';
 
 ////・Worksのデータの一覧表示の流れ
 //①worksData(データ(タイトルやimage)を取得
@@ -13,16 +14,26 @@ import WorksHover from './WorksHover';
 //③WorksItem
 
 const WorksWrap = styled.div`
-  background: #000000;
+  /* background: #000000; */
   .w__list {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); //「横に2列、縦は必要な分だけ行ができる」
+    gap: 30px 15px;
+    @media (min-width: ${breakpoints.tablet}) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
     .w__item {
-      width: calc(33.333% - 10px);
-      img {
-        width: 100%;
+      background-color: var(--color-gray);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+
+      video {
+        width: 75%;
+        margin: 0 auto;
         aspect-ratio: 16 / 9; //縦横比をCSS側で指定。高さを直接書かなくていい。レスポンシブで安定する。
         object-fit: cover;
         display: block;

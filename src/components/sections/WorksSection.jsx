@@ -2,6 +2,8 @@ import { Wrapper, Inner } from '../common/LayoutPrimitives';
 import styled from 'styled-components';
 
 import ParagraphSection from '../ParagraphSection';
+
+import FadeUp from '../FadeUp';
 import Works from '../Works';
 
 const WorkWrap = styled.section`
@@ -17,6 +19,25 @@ const WorkSection = () => {
         <Wrapper>
           <Inner>
             <ParagraphSection title='Works' />
+
+            <FadeUp
+              options={{
+                y: 40,
+                stagger: 0.1,
+                duration: 0.4,
+                glitch: true,
+              }}
+            >
+              <div className='split'>
+                {'WORKS'.split('').map((char, i) => (
+                  <span key={i} className='char'>
+                    {char}
+                  </span>
+                ))}
+              </div>
+              <p className='char'>スクロール</p>
+            </FadeUp>
+
             <Works />
           </Inner>
         </Wrapper>
