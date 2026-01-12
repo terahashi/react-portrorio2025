@@ -5,16 +5,6 @@
 const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
   if (!areaRef.current || !targetRef.current) return; // targetRefとareaRefがなければ実行せず終了
 
-  //⬇︎タブレットの縦向き以下(ブラウザ幅1023px以下)では「追従ロジック自体を無効化」する。areaFixedFunk関数を使わない。
-  if (window.innerWidth <= 1023) {
-    return () => {};
-  }
-
-  //⬇︎スマホ以下(ブラウザ幅767px以下)では「追従ロジック自体を無効化」する。areaFixedFunk関数を使わない。
-  // if (window.innerWidth <= 767) {
-  //   return () => {};
-  // }
-
   let ticking = false; //フラグの役割 = スクロール中に何度も処理されるのを抑制して、パフォーマンス改善。
 
   //⬇︎Headerの高さを取得する関数を作成する。「Layout.jsx」にuseRefがあります。
@@ -70,9 +60,9 @@ const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
 
     if (!target) return; //targetが「turthyでなければ」実行せず終了
 
-    //リサイズ処理
-    //スマホ版(768px以下)の場合
-    if (width <= 768) {
+    //⭐️リサイズ処理
+    //タブレットの縦向き以下(ブラウザ幅1023px以下))の場合
+    if (width <= 1023) {
       // スマホでは「static」で追従解除
       target.style.position = 'static'; //target.style.position = 'static';で 開発者ツールで初回マウント時スマホ版 では追従を解除する
       target.style.top = '0';
