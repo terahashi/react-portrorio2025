@@ -14,29 +14,43 @@ import breakpoints from '../styles/breakpoints';
 //③WorksItem
 
 const WorksWrap = styled.div`
-  /* background: #000000; */
   .w__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr); //「横に2列、縦は必要な分だけ行ができる」
-    gap: 30px 15px;
+    gap: 15px;
     @media (min-width: ${breakpoints.tablet}) {
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 20px;
+    }
+    @media (min-width: ${breakpoints.pc}) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .w__item {
-      background-color: var(--color-gray);
+      background-color: #141414;
+      height: auto;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      padding: 10px;
-
+      padding: 15px;
+      @media (min-width: ${breakpoints.tablet}) {
+        height: 220px;
+        padding: 25px;
+      }
+      @media (min-width: ${breakpoints.pc}) {
+        height: 280px;
+      }
       video {
-        width: 75%;
+        width: 100%;
+        height: auto;
         margin: 0 auto;
         aspect-ratio: 16 / 9; //縦横比をCSS側で指定。高さを直接書かなくていい。レスポンシブで安定する。
         object-fit: cover;
         display: block;
+        @media (min-width: ${breakpoints.tablet}) {
+          width: 88%;
+        }
       }
     }
   }
