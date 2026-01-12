@@ -5,7 +5,8 @@ import ParagraphSection from '../ParagraphSection';
 import Works from '../Works';
 
 const WorkWrap = styled.section`
-  background-color: #494949;
+  background-color: #1e1c1c;
+  padding-top: var(--sec-top-padding);
   padding-bottom: var(--sec-bottom-padding);
 `;
 

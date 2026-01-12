@@ -7,7 +7,7 @@ import skillsData from '../data/skillsData';
 const BorderLine = styled.div`
   background-color: var(--color-gray);
   width: 100%;
-  height: 1px;
+  height: 1.5px;
 `;
 
 const iconMap = {
@@ -18,8 +18,8 @@ const Skillslist = () => {
   return (
     <div>
       {skillsData.map((skills) => (
-        <div className='mb-20 md:mb-20' key={skills.id}>
-          <h2 className='mb-0 pb-2 text-[1.5rem] text-(--color-gray) font-[600]'>{skills.id}</h2>
+        <div className='mb-20 md:mb-30' key={skills.id}>
+          <h2 className='mb-0 pb-2 text-[2rem] text-(--color-gray) font-[600]'>{skills.id}</h2>
 
           {/* gridを使用 */}
           <div className='grid-cols-none md:grid md:grid-cols-[auto_1fr] md:items-baseline gap-x-10 pb-2'>
@@ -30,7 +30,7 @@ const Skillslist = () => {
             <p className='pb-2'>{skills.years}</p>
           </div>
 
-          <p className='text-(--color-gray) pb-5'>{skills.skillText}</p>
+          <p className='text-(--color-gray) pb-5 md:pb-10 md:max-w-lg lg:max-w-xl'>{skills.skillText}</p>
 
           <BorderLine />
         </div>

@@ -8,7 +8,7 @@ const ScrollMouse = styled.div`
   bottom: 130px; */
 
   margin-left: auto;
-  margin-bottom: 30px;
+  padding-bottom: 0;
   width: fit-content;
 
   display: flex;
@@ -17,11 +17,10 @@ const ScrollMouse = styled.div`
   flex-direction: row-reverse;
   gap: 0 14px;
   @media (min-width: ${breakpoints.tablet}) {
-    margin-bottom: 0;
+    padding-bottom: 30px;
     flex-direction: column-reverse;
   }
   @media (min-width: ${breakpoints.pc}) {
-    margin-bottom: 0;
     flex-direction: row-reverse;
   }
 

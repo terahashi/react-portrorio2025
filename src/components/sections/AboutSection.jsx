@@ -6,7 +6,8 @@ import FadeUp from '../FadeUp';
 import Three from '../Three';
 
 const AboutWrap = styled.section`
-  background-color: #494949;
+  background-color: #1e1c1c;
+  padding-top: var(--sec-top-padding);
   padding-bottom: var(--sec-bottom-padding);
 `;
 
@@ -27,12 +28,12 @@ const AboutSection = () => {
             >
               <div className='split'>
                 {'ABOUT'.split('').map((char, i) => (
-                  <span key={i} className='char inline-block text-[3rem] font-bold'>
+                  <span key={i} className='char'>
                     {char}
                   </span>
                 ))}
               </div>
-              <p className='char inline-block'>スクロール</p>
+              <p className='char'>スクロール</p>
             </FadeUp>
 
             <Three />

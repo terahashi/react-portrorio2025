@@ -9,6 +9,7 @@ import SampleContent2 from '../SampleContent2';
 
 const SkillsWrap = styled.section`
   background-color: #1e1c1c;
+  padding-top: var(--sec-top-padding);
   padding-bottom: var(--sec-bottom-padding);
 `;
 
@@ -20,7 +21,7 @@ const SkillsSection = ({ headerRef }) => {
           <Inner>
             <ParagraphSection title='Skills' />
             <SideFixed
-              title='追従タイトル'
+              title='追従タイトル追従タイトル追従タイトル'
               sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
               headerRef={headerRef}
             >
