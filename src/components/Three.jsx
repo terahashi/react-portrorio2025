@@ -81,7 +81,7 @@ const Three = () => {
       <AppLayout>
         {/* 左 */}
         <LeftArea className='p-8'>
-          <h1>sampleです</h1>
+          <h2>sampleです</h2>
           <p>Blenderで自作 cat-Robo</p>
         </LeftArea>
 
