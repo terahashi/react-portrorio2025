@@ -20,9 +20,6 @@ import SideFixed from '../../components/SideFixed';
 const WorkDeWrap = styled.section`
   margin-top: 100px;
 `;
-// const WorkDeWrapChilldren = styled.section`
-//   margin-top: 100px;
-// `;
 
 const WorksDetail = () => {
   //useContext(ColorContext)・Headerの文字色を白にする

@@ -29,7 +29,7 @@ const HeroscrambleText = () => {
     <>
       <ScrambleWrapper>
         {/* <h1 ref={refs.original}>Loading...</h1> */}
-        <h2 ref={refs.text1} className='text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] mb-0 lg:text-[6.5rem] text-[#000] font-extrabold'></h2>
+        <h1 ref={refs.text1} className='text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] mb-0 lg:text-[6.5rem] text-[#000] font-extrabold'></h1>
       </ScrambleWrapper>
     </>
   );
