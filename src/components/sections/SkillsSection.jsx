@@ -21,24 +21,31 @@ const SkillsSection = ({ headerRef }) => {
       <SkillsWrap>
         <Wrapper>
           <Inner>
-            <ParagraphSection title='Skills' />
+            {/* <ParagraphSection title='Skills' /> */}
 
             <FadeUp
               options={{
-                y: 40,
-                stagger: 0.1,
-                duration: 0.4,
-                glitch: true,
+                y: 150,
+                stagger: 0.12,
+                duration: 0.9,
+                // glitch: true,
               }}
             >
-              <div className='split'>
+              <div>
                 {'SKILLS'.split('').map((char, i) => (
-                  <span key={i} className='char'>
+                  <span key={i} className='fade-split'>
                     {char}
                   </span>
                 ))}
               </div>
+
               <p className='char'>スクロール</p>
+            </FadeUp>
+
+            <FadeUp options={{ y: 200, duration: 0.4 }}>
+              <p className='fade-p md:max-w-lg lg:max-w-xl '>
+                ここに長文を入力します。 ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。
+              </p>
             </FadeUp>
 
             <SideFixed

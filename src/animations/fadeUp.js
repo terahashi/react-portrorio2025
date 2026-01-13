@@ -8,7 +8,7 @@ const fadeUp = (trigger, targets, options = {}) => {
   //⬇︎キーが options に渡ってこなかった場合」に発動
   //duration（アニメ1つの所要時間）
   //stagger = 0.1（次の分割文字が始まるまでの遅延）
-  const { y = 40, duration = 0.5, stagger = 0.5, ease = 'power3.out', start = 'top 70%', end = 'bottom 50%', glitch = true } = options;
+  const { y = 100, duration = 0.5, stagger = 0.15, ease = 'power3.out', start = 'top 70%', end = 'bottom 50%', glitch = true } = options;
 
   const tl = gsap.timeline({
     scrollTrigger: {

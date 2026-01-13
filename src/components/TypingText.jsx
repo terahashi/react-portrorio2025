@@ -20,7 +20,7 @@ const TypingText = () => {
   return (
     <>
       <Brand>MY PORTFORIO</Brand>
-      <p ref={textRef} className='ityped text-[#71685b] '></p>
+      <p ref={textRef} className='ityped text-[#71685b]'></p>
     </>
   );
 };

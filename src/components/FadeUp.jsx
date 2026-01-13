@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+
 import fadeUp from '../animations/fadeUp';
 
 const FadeUp = ({ title, children, options }) => {
@@ -10,19 +12,31 @@ const FadeUp = ({ title, children, options }) => {
     const root = FadeRef.current;
     if (!root) return;
 
-    // ① FadeRefのDOMの「タイトル部分の.splitを全て取得。」
-    fadeUp(root, root.querySelectorAll('.split'), {
-      y: 80,
-      //duration: 5, //duration（アニメ1つの所要時間が5秒と遅い）
-    });
+    //下記の「.fade-splitや.charや.fade-p」は【別々に呼び出されている。(まとめて渡している訳ではない)】
 
-    // ② FadeRefのDOM「.charを全て取得。」
-    fadeUp(root, root.querySelectorAll('.char'), options);
+    //①FadeRefのDOMの「タイトル部分の.fade-splitを全て取得。」
+    // ①だけgsap.utils.toArrayを使っている理由はstagger前提だから
+    const splits = gsap.utils.toArray(root.querySelectorAll('.fade-split'));
+    //⬇︎「このFadeUpには.fade-splitが存在しないケースがある」だからif文を使用して防御コードを作成する。
+    if (splits.length) {
+      fadeUp(root, splits, options);
+    }
+
+    // ②FadeRefのDOM「.charを全て取得。」
+    const chars = root.querySelectorAll('.char');
+    if (chars.length) {
+      fadeUp(root, chars, options);
+    }
+
+    // ③FadeRefのDOM「.fade-pを全て取得。」
+    const fadep = root.querySelectorAll('.fade-p');
+    if (fadep.length) {
+      fadeUp(root, fadep, options);
+    }
   }, []);
 
   return (
-    <div ref={FadeRef} className='overflow-hidden mb-[30px]'>
-      {title}
+    <div ref={FadeRef} className='overflow-hidden mb-[50px] md:mb-[55px]'>
       {children}
     </div>
   );

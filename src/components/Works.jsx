@@ -27,13 +27,14 @@ const WorksWrap = styled.div`
       gap: 20px;
     }
     .w__item {
-      background-color: #141414;
+      background-color: #353535;
       height: auto;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
       padding: 15px;
+      border-radius: 5px;
       @media (min-width: ${breakpoints.tablet}) {
         height: 220px;
         padding: 25px;

@@ -45,7 +45,8 @@
   --color-gray: #6a7282;
 
   /* width / padding / margin / height */
-  --header-height: 76.05px;
+  --header-height: 82.2px;
+
   --layout-padding: 16px;
   --sec-top-padding: 100px;
   --sec-bottom-padding: 100px;
@@ -140,13 +141,17 @@
     line-height: 1.4;
   }
 
-  span.char {
+  span.fade-split {
     font-size: 4.5rem;
     display: inline-block;
     font-weight: bold;
   }
   p.char {
     font-size: 1.5rem;
+    font-weight: bold;
+  }
+  p.fade-p {
+    /* font-size: 1.2rem; */
     font-weight: bold;
   }
 
