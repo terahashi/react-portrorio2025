@@ -1,6 +1,7 @@
 // animations/side.js
 // chatGPTの助言もあり作成ができた！
-//useRefが渡ってくる。extraOffsetは余白。
+// useRefが渡ってくる。
+// extraOffsetは余白。
 
 const areaFixedFunk = (areaRef, targetRef, headerRef, extraOffset = 100) => {
   if (!areaRef.current || !targetRef.current) return; // targetRefとareaRefがなければ実行せず終了

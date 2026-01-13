@@ -4,12 +4,12 @@ import breakpoints from '../styles/breakpoints';
 import scrambleText from '../animations/ScrambleText';
 
 const ScrambleWrapper = styled.div`
-  height: 180px; //最大表示時の高さで固定
+  height: 150px; //最大表示時の高さで固定
   @media (min-width: ${breakpoints.tablet}) {
     height: 170px;
   }
   @media (min-width: ${breakpoints.pc}) {
-    height: 180px;
+    height: 190px;
   }
 `;
 
