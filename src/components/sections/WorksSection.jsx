@@ -40,7 +40,7 @@ const WorkSection = () => {
             </FadeUp>
 
             <FadeUp options={{ y: 200, duration: 0.4 }}>
-              <p className='fade-p md:max-w-lg lg:max-w-xl '>
+              <p className='fade-p md:max-w-lg lg:max-w-xl text-(--color-gray)'>
                 ここに長文を入力します。 ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。
               </p>
             </FadeUp>

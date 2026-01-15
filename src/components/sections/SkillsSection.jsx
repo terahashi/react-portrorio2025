@@ -43,14 +43,14 @@ const SkillsSection = ({ headerRef }) => {
             </FadeUp>
 
             <FadeUp options={{ y: 200, duration: 0.4 }}>
-              <p className='fade-p md:max-w-lg lg:max-w-xl '>
+              <p className='fade-p md:max-w-lg lg:max-w-xl text-(--color-gray)'>
                 ここに長文を入力します。 ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。
               </p>
             </FadeUp>
 
             <SideFixed
-              title='追従タイトル追従タイトル追従タイトル'
-              sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
+              title='<Cording />'
+              // sideText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo voluptate, dolor numquam exercitationem quod obcaecati sunt sint commodi laborum. Accusantium, ea. Deserunt dolorum, recusandae consequuntur nisi harum possimus quod.'
               headerRef={headerRef}
             >
               <Skillslist />

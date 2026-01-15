@@ -1,7 +1,23 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import styled from 'styled-components';
 
 import fadeUp from '../animations/fadeUp';
+import breakpoints from '../styles/breakpoints';
+
+const FadeWrap = styled.div`
+  overflow: hidden;
+  margin-bottom: 25px;
+  @media (min-width: ${breakpoints.tablet}) {
+    margin-bottom: 25px;
+  }
+  &:nth-of-type(2) {
+    margin-bottom: 50px;
+    @media (min-width: ${breakpoints.tablet}) {
+      margin-bottom: 50px;
+    }
+  }
+`;
 
 const FadeUp = ({ title, children, options }) => {
   //useRefを作成
@@ -35,11 +51,7 @@ const FadeUp = ({ title, children, options }) => {
     }
   }, []);
 
-  return (
-    <div ref={FadeRef} className='overflow-hidden mb-[50px] md:mb-[55px]'>
-      {children}
-    </div>
-  );
+  return <FadeWrap ref={FadeRef}>{children}</FadeWrap>;
 };
 
 export default FadeUp;
