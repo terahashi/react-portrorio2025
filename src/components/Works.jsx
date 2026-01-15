@@ -28,6 +28,7 @@ const WorksWrap = styled.div`
     }
     .w__item {
       background-color: #353535;
+      /* background-color: var(--color-gray); */
       height: auto;
       display: flex;
       justify-content: center;

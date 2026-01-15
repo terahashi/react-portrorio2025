@@ -9,7 +9,7 @@ const ScrambleWrapper = styled.div`
     height: 170px;
   }
   @media (min-width: ${breakpoints.pc}) {
-    height: 190px;
+    height: 175px;
   }
 `;
 
