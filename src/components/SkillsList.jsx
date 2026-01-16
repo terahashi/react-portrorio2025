@@ -1,22 +1,25 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styled from 'styled-components';
 import skillsData from '../data/skillsData';
+import breakpoints from '../styles/breakpoints';
 
 const BorderLine = styled.div`
   background-color: var(--color-gray);
   width: 100%;
   height: 1px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;
 
 const Skillslist = () => {
   return (
     <div>
       {skillsData.map((skills) => (
-        <div className='mb-20 md:mb-20' key={skills.id}>
+        <div className='mb-20 md:mb-0' key={skills.id}>
           {/* スキル番号 */}
-          <h2 className='pb-2 md:pb-2 mb-0 md:mb-0 text-[1.5rem] md:text-[1.5rem] text-(--color-gray) font-[600]'>{skills.id}</h2>
+          <h2 className='pb-0 md:pb-2 mb-0 md:mb-0 text-[2rem] md:text-[1.5rem] text-(--color-gray) font-[600]'>{skills.id}</h2>
 
           <div className='grid-cols-none md:grid md:grid-cols-[auto_1fr] md:items-baseline gap-x-7 pb-1 md:pb-1'>
             <div className='flex items-center gap-x-2'>

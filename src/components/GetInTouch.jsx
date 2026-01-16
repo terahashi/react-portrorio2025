@@ -1,19 +1,25 @@
 import { useLayoutEffect, useRef } from 'react';
 import getinTouchAnime from '../animations/getinTouchAnime';
 import styled from 'styled-components';
+import breakpoints from '../styles/breakpoints';
 
-const GetInWrap = styled.div`
+const GetInWrap = styled.section`
+  width: 100%;
+  height: 59vh;
+  @media (min-width: ${breakpoints.tablet}) {
+    height: 70vh;
+  }
   .svg-start {
-    width: 100%;
-    height: 100%;
     text-align: center;
-    background: #000;
-    padding-bottom: 60%;
     svg {
       overflow: visible; //⬅︎重要。外すと「一番左の文字が途切れてしまう」
-      width: calc(80% - 20px);
-      height: 40vh;
+      width: calc(100% - 20px);
+      height: 10vh;
       margin: 0 auto;
+      @media (min-width: ${breakpoints.tablet}) {
+        width: calc(80% - 20px);
+        height: 20vh;
+      }
       .char {
         fill: none; //最初は塗りなし
         stroke: #7d7d7d; //描かれていく「線の色」
@@ -23,6 +29,15 @@ const GetInWrap = styled.div`
       }
     }
   }
+  /* .Get-Linked {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0 20px;
+  } */
 `;
 
 const GetInTouch = () => {
@@ -34,7 +49,7 @@ const GetInTouch = () => {
 
   return (
     <GetInWrap>
-      <section className='svg-start'>
+      <div className='svg-start mb-5 md:mb-15'>
         {/*  Get in Touchの SVG */}
         <svg ref={svgRef} width='202' height='27' viewBox='0 0 202 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path
@@ -121,7 +136,13 @@ const GetInTouch = () => {
             d='M16.3403 10.7718C15.935 10.0252 15.3483 9.45983 14.5803 9.07583C13.8337 8.6705 12.9483 8.46783 11.9243 8.46783C10.1537 8.46783 8.735 9.0545 7.66834 10.2278C6.60167 11.3798 6.06834 12.9265 6.06834 14.8678C6.06834 16.9372 6.623 18.5585 7.73234 19.7318C8.863 20.8838 10.4097 21.4598 12.3723 21.4598C13.7163 21.4598 14.847 21.1185 15.7643 20.4358C16.703 19.7532 17.3857 18.7718 17.8123 17.4918H10.8683V13.4598H22.7723V18.5478C22.367 19.9132 21.6737 21.1825 20.6923 22.3558C19.7323 23.5292 18.5057 24.4785 17.0123 25.2038C15.519 25.9292 13.8337 26.2918 11.9563 26.2918C9.73767 26.2918 7.75367 25.8118 6.00434 24.8518C4.27634 23.8705 2.92167 22.5158 1.94034 20.7878C0.980336 19.0598 0.500336 17.0865 0.500336 14.8678C0.500336 12.6492 0.980336 10.6758 1.94034 8.94784C2.92167 7.1985 4.27634 5.84384 6.00434 4.88383C7.73234 3.9025 9.70567 3.41183 11.9243 3.41183C14.6123 3.41183 16.8737 4.0625 18.7083 5.36383C20.5643 6.66517 21.791 8.46784 22.3883 10.7718H16.3403Z'
           />
         </svg>
-      </section>
+      </div>
+
+      <div className='w-full mb-20 flex justify-center items-center gap-x-8'>
+        <h4 className='text-(--color-gray)'>MAIL</h4>
+        <h4 className='text-(--color-gray)'>GitHub</h4>
+        <h4 className='text-(--color-gray)'>Qiita</h4>
+      </div>
     </GetInWrap>
   );
 };

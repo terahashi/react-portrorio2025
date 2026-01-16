@@ -3,7 +3,6 @@ import initThree from '../animations/threeAnime';
 import styled from 'styled-components';
 import breakpoints from '../styles/breakpoints';
 
-//全体を横並びにする
 const AppLayout = styled.div`
   width: 100%;
   display: block;
