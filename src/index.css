@@ -42,15 +42,18 @@
 
   /* color */
   --color-white: #fff;
-  --color-gray: #6a7282;
+  --color-gray: #929292;
 
   /* width / padding / margin / height */
   --header-height: 82.2px;
 
-  --layout-padding: 16px;
-  --sec-top-padding: 100px;
-  --sec-bottom-padding: 100px;
   --layout-max-width: 1280px;
+  --layout-padding: 16px;
+
+  --res-sec-top-padding: 50px;
+  --sec-top-padding: 100px;
+  --res-sec-bottom-padding: 50px;
+  --sec-bottom-padding: 100px;
 }
 
 /* @layer base{}で TailWindCSSを優先させるように設定 */

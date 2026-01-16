@@ -12,9 +12,9 @@ const FadeWrap = styled.div`
     margin-bottom: 25px;
   }
   &:nth-of-type(2) {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     @media (min-width: ${breakpoints.tablet}) {
-      margin-bottom: 50px;
+      margin-bottom: 70px;
     }
   }
 `;

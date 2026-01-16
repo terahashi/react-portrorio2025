@@ -15,13 +15,13 @@ const SideFixed = ({ children, title, headerRef, sideText }) => {
       {/* ⬇︎実際に追従するfixed */}
       <div ref={targetRef} className='mb-0 w-full md:w-full lg:w-[400px]'>
         {/* <SideFixed title='追従タイトル'などから「titleなどのpropsを受け取る。」 */}
-        <h1 className='text-[2rem] md:text-[3rem]'>{title}</h1>
+        <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{title}</h1>
         {/* sideText が「truthy（真)」のときだけ{sideText}を表示  */}
         {sideText && <h3 className='text-(--color-gray)'>{sideText}</h3>}
       </div>
 
       {/* ⬇︎1024px(lg以上を超えないように) */}
-      <div className='flex justify-between flex-col lg:flex-row gap-y-10 md:gap-y-12 lg:gap-y-0 lg:gap-10'>
+      <div className='flex justify-between flex-col lg:flex-row gap-y-1 md:gap-y-0 gap-x-0 md:gap-x-10'>
         {/* 左側領域で幅を確保 */}
         <div className='w-full md:w-full lg:w-[400px]'></div>
         {/* 右側領域で{children} */}

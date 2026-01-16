@@ -48,13 +48,20 @@ const worksData = [
   },
   {
     id: '07',
+    skilltitle: 'Tailwind CSS',
+    icon: ['images/icons/tailwindcss.svg'],
+    skillText: '',
+    years: '2years',
+  },
+  {
+    id: '08',
     skilltitle: 'sass',
     icon: ['images/icons/sass.png'],
     skillText: '',
     years: '6years',
   },
   {
-    id: '08',
+    id: '09',
     skilltitle: 'Wordpress',
     icon: ['images/icons/wordpress.svg'],
     skillText: '',

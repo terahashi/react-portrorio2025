@@ -1,15 +1,18 @@
 import { Wrapper, Inner } from '../common/LayoutPrimitives';
+import breakpoints from '../../styles/breakpoints';
 import styled from 'styled-components';
-
-import ParagraphSection from '../ParagraphSection';
 
 import FadeUp from '../FadeUp';
 import Works from '../Works';
 
 const WorkWrap = styled.section`
   background-color: #1e1c1c;
-  padding-top: var(--sec-top-padding);
-  padding-bottom: var(--sec-bottom-padding);
+  padding-top: var(--res-sec-top-padding);
+  padding-bottom: var(--res-sec-bottom-padding);
+  @media (min-width: ${breakpoints.tablet}) {
+    padding-top: var(--sec-top-padding);
+    padding-bottom: var(--sec-bottom-padding);
+  }
 `;
 
 const WorkSection = () => {
@@ -18,8 +21,6 @@ const WorkSection = () => {
       <WorkWrap>
         <Wrapper>
           <Inner>
-            {/* <ParagraphSection title='Works' /> */}
-
             <FadeUp
               options={{
                 y: 150,
