@@ -5,25 +5,24 @@ import breakpoints from '../styles/breakpoints';
 
 //全体を横並びにする
 const AppLayout = styled.div`
-  display: block;
   width: 100%;
-  height: 100vh;
+  display: block;
+  margin-top: 70px;
   @media (min-width: ${breakpoints.tablet}) {
-    display: flex;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* grid-template-columns: repeat(2, 1fr); */
   }
 `;
 
 //左
 const LeftArea = styled.div`
   width: 100%;
-  height: auto;
-  background: #000;
-  display: block;
+  margin-bottom: 30px;
   @media (min-width: ${breakpoints.tablet}) {
-    height: 100vh;
-    width: 30%;
+    margin-bottom: 0;
     display: flex;
-    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -33,18 +32,9 @@ const LeftArea = styled.div`
 //右（3D）
 const RightArea = styled.div`
   width: 100%;
-  height: 70vh;
-  background: #000;
-  display: block;
-
+  height: 40vh;
   @media (min-width: ${breakpoints.tablet}) {
-    height: 100vh;
-    width: auto;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 50vh;
   }
 `;
 
@@ -77,20 +67,17 @@ const Three = () => {
   }, []);
 
   return (
-    <div>
-      <AppLayout>
-        {/* 左 */}
-        <LeftArea className='p-8'>
-          <h2>sampleです</h2>
-          <p>Blenderで自作 cat-Robo</p>
-        </LeftArea>
+    <AppLayout>
+      {/* 左 */}
+      <LeftArea>
+        <h2 className='text-[2rem] text-(--color-gray) mb-0'>sampleですsampleですsampleですsampleですsampleですsampleですsampleですsampleですsampleです</h2>
+      </LeftArea>
 
-        {/* 右（3D犬） */}
-        <RightArea className='p-8'>
-          <ModelArea id='cat-area' ref={containerRef}></ModelArea>
-        </RightArea>
-      </AppLayout>
-    </div>
+      {/* 右（3D）*/}
+      <RightArea>
+        <ModelArea id='cat-area' ref={containerRef}></ModelArea>
+      </RightArea>
+    </AppLayout>
   );
 };
 export default Three;

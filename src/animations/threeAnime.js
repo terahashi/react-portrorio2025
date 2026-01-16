@@ -18,7 +18,7 @@ const initThree = (container) => {
 
   // カメラ(cat-areaに合わせる)
   const camera = new THREE.PerspectiveCamera(
-    60,
+    30, //ズーム
     rect.width / rect.height, //rectで「cat-area」のサイズ取得
     0.1,
     1000

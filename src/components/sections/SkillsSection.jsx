@@ -1,7 +1,6 @@
 import { Wrapper, Inner } from '../common/LayoutPrimitives';
 import styled from 'styled-components';
-
-import ParagraphSection from '../ParagraphSection';
+import breakpoints from '../../styles/breakpoints';
 
 import FadeUp from '../FadeUp';
 import SideFixed from '../SideFixed';
@@ -11,8 +10,12 @@ import SampleContent2 from '../SampleContent2';
 
 const SkillsWrap = styled.section`
   background-color: #1e1c1c;
-  padding-top: var(--sec-top-padding);
-  padding-bottom: var(--sec-bottom-padding);
+  padding-top: var(--res-sec-top-padding);
+  padding-bottom: var(--res-sec-bottom-padding);
+  @media (min-width: ${breakpoints.tablet}) {
+    padding-top: var(--sec-top-padding);
+    padding-bottom: var(--sec-bottom-padding);
+  }
 `;
 
 const SkillsSection = ({ headerRef }) => {
@@ -21,8 +24,6 @@ const SkillsSection = ({ headerRef }) => {
       <SkillsWrap>
         <Wrapper>
           <Inner>
-            {/* <ParagraphSection title='Skills' /> */}
-
             <FadeUp
               options={{
                 y: 150,
