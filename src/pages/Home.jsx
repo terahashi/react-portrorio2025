@@ -10,7 +10,7 @@ import Hero from '../components/Hero';
 import WorkSection from '../components/sections/WorksSection.jsx';
 import AboutSection from '../components/sections/AboutSection.jsx';
 import SkillsSection from '../components/sections/SkillsSection.jsx';
-import GetInTouch from '../components/GetInTouch';
+import ContactSection from '../components/sections/ContactSection.jsx';
 
 const Home = () => {
   //⬇︎親(Layout.jsx)から受け取った「headerRefを使用するために【useOutletContext()】を使用する」
@@ -46,7 +46,7 @@ const Home = () => {
 
       <SkillsSection headerRef={headerRef} />
 
-      <GetInTouch />
+      <ContactSection />
     </>
   );
 };

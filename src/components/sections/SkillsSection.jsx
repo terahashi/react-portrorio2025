@@ -6,8 +6,6 @@ import FadeUp from '../FadeUp';
 import SideFixed from '../SideFixed';
 import Skillslist from '../SkillsList';
 
-import SampleContent2 from '../SampleContent2';
-
 const SkillsWrap = styled.section`
   background-color: #1e1c1c;
   padding-top: var(--res-sec-top-padding);
@@ -55,7 +53,6 @@ const SkillsSection = ({ headerRef }) => {
               headerRef={headerRef}
             >
               <Skillslist />
-              <SampleContent2 />
             </SideFixed>
           </Inner>
         </Wrapper>
