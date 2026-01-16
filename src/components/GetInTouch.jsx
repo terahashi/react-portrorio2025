@@ -5,7 +5,7 @@ import breakpoints from '../styles/breakpoints';
 
 const GetInWrap = styled.section`
   width: 100%;
-  height: 59vh;
+  height: 70vh;
   @media (min-width: ${breakpoints.tablet}) {
     height: 70vh;
   }
@@ -29,15 +29,6 @@ const GetInWrap = styled.section`
       }
     }
   }
-  /* .Get-Linked {
-    width: 100%;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0 20px;
-  } */
 `;
 
 const GetInTouch = () => {
@@ -49,7 +40,7 @@ const GetInTouch = () => {
 
   return (
     <GetInWrap>
-      <div className='svg-start mb-5 md:mb-15'>
+      <div className='svg-start mt-30 md:mt-50 mb-5 md:mb-15'>
         {/*  Get in Touchの SVG */}
         <svg ref={svgRef} width='202' height='27' viewBox='0 0 202 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path

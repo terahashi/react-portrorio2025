@@ -17,7 +17,7 @@ const Skillslist = () => {
   return (
     <div>
       {skillsData.map((skills) => (
-        <div className='mb-20 md:mb-0' key={skills.id}>
+        <div className='mb-20 md:mb-20' key={skills.id}>
           {/* スキル番号 */}
           <h2 className='pb-0 md:pb-2 mb-0 md:mb-0 text-[2rem] md:text-[1.5rem] text-(--color-gray) font-[600]'>{skills.id}</h2>
 
