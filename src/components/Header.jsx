@@ -76,6 +76,9 @@ const Header = ({ headerRef }) => {
               <Link to='/#skills' data-stalker>
                 Skills
               </Link>
+              <Link to='/#contact' data-stalker>
+                Contact
+              </Link>
 
               <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
                 <FontAwesomeIcon className='github-spin' icon={['fab', 'github']} size='3x'></FontAwesomeIcon>
