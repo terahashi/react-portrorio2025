@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const WorksItem = ({ work, onHover }) => {
   return (
     <div className='w__item' key={work.id} onMouseEnter={() => onHover(work)} onMouseLeave={() => onHover(null)}>
-      <Link to={`/works/${work.id}`}>
+      <Link to={`/works/${work.id}`} data-stalker>
         {/* <img src={work.image} alt={work.title} /> */}
         <video src={work.videos} autoPlay muted loop playsInline />
         {/* preload="metadata" で「動画の長さやサイズ を最低限だけ取得」 */}

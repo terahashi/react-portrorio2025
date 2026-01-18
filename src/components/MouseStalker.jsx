@@ -70,7 +70,7 @@ const MouseStalker = ({ isHovering }) => {
       mouseX.current = e.clientX; //現在のX軸のマウス位置を取得
       mouseY.current = e.clientY; //現在のY軸のマウス位置を取得
     };
-    document.addEventListener('mousemove', handleMouseMove); //「'mousemove'が動いたらイベント処理(handleMouseMove)を実行する。」
+    document.addEventListener('mousemove', handleMouseMove); //「'mousemoveイベント'が動いたらイベント処理(handleMouseMove)を実行する。」
 
     //===================================
     //==== ②アニメーション(ストーカー処理) ===
@@ -91,31 +91,41 @@ const MouseStalker = ({ isHovering }) => {
     //==============================
     //==== ③hoverを判定する(link) ===
     //==============================
-    const links = document.querySelectorAll('a'); //DOMのすべてのa要素を取得
+    //❌以前までの失敗コード:GetInTouch の data-stalker が反応しない理由
+    //・『querySelectorAll』は「useEffect実行時に存在するDOM」しか取れない
+    //・FadeUp/video/ルーティング後の「Linkは後から生成」 -> そのためイベントが登録されていない
+    // -> 解決策：documentに対するイベントを託す（closest('[data-stalker]')）
 
-    const linkEnter = () => {
-      stalker.classList.add('is-hover'); // .is-hoverを追加
+    //⭕️今回:イベントを託す
+    //1.マウスが要素に乗った瞬間に「mouseoverイベント」が発火。document.addEventListener('mouseover', linkEnter);
+    //2.実際にhoverされた「一番内側の要素(例:videoタグなど)」がe.target
+    //3.そこから「closestメソッドで、親方向へ探す(例:videoタグではなく、親要素を上に辿って一番近いLinkタグを一致要素を探す)」
+    //4.if(target)でdocumentが常に監視。
+    //5.data-stalkerを持つ要素が見つかったら.is-hoverクラスが反応
+
+    const linkEnter = (e) => {
+      const target = e.target.closest('[data-stalker]');
+      if (target) {
+        stalker.classList.add('is-hover');
+      }
     };
-    const linkLeave = () => {
-      stalker.classList.remove('is-hover'); // .is-hoverを外す
+    const linkLeave = (e) => {
+      const target = e.target.closest('[data-stalker]');
+      if (target) {
+        stalker.classList.remove('is-hover');
+      }
     };
-    //⬇「links(aタグ)」に各種イベントを登録
-    links.forEach((link) => {
-      link.addEventListener('mouseenter', linkEnter);
-      link.addEventListener('mouseleave', linkLeave);
-    });
+    document.addEventListener('mouseover', linkEnter);
+    document.addEventListener('mouseout', linkLeave);
 
     //=======================
     //==== ④クリーンナップ ===
     //=======================
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', linkEnter);
+      document.removeEventListener('mouseout', linkLeave);
       cancelAnimationFrame(raf);
-
-      links.forEach((link) => {
-        link.removeEventListener('mouseenter', linkEnter);
-        link.removeEventListener('mouseleave', linkLeave);
-      });
     };
   }, []);
 

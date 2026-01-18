@@ -4,20 +4,23 @@ import styled from 'styled-components';
 import skillsData from '../data/skillsData';
 import breakpoints from '../styles/breakpoints';
 
-const BorderLine = styled.div`
-  background-color: var(--color-gray);
-  width: 100%;
-  height: 1px;
+const SkillsMap = styled.div`
   &:last-of-type {
     margin-bottom: 0;
   }
+`;
+
+const BorderLine = styled.div`
+  background-color: #414140;
+  width: 100%;
+  height: 0.5px;
 `;
 
 const Skillslist = () => {
   return (
     <div>
       {skillsData.map((skills) => (
-        <div className='mb-20 md:mb-20' key={skills.id}>
+        <SkillsMap className='mb-20 md:mb-20' key={skills.id}>
           {/* スキル番号 */}
           <h2 className='pb-0 md:pb-2 mb-0 md:mb-0 text-[2rem] md:text-[1.5rem] text-(--color-gray) font-[600]'>{skills.id}</h2>
 
@@ -39,7 +42,7 @@ const Skillslist = () => {
 
           {/* 下線 */}
           <BorderLine />
-        </div>
+        </SkillsMap>
       ))}
     </div>
   );
