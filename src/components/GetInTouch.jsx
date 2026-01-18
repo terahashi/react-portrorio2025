@@ -51,7 +51,7 @@ const GetInTouch = () => {
   return (
     <GetInWrap>
       {/*  Get in Touch のSVG */}
-      <div className='svg-start mt-15 md:mt-25 mb-5 md:mb-10'>
+      <div className='svg-start mt-15 md:mt-25 mb-5 md:mb-15 lg:mb-20'>
         <svg ref={svgRef} width='202' height='27' viewBox='0 0 202 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path
             className='char'
