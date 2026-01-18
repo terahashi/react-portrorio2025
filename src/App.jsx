@@ -24,12 +24,12 @@ function App() {
 
   return (
     <>
-      {/* ⬇︎マウスストーカー */}
-      <MouseStalker />
-
       {/* useContextの「ColorContext.Provider」を使用する */}
       <ColorContext.Provider value={{ isDark, setIsDark }}>
         <BrowserRouter>
+          {/* ⬇︎マウスストーカー */}
+          <MouseStalker />
+
           {/* ⬇︎ページ遷移時に「ページ最上部に戻る」 */}
           <ScrollToTop />
 

@@ -1,5 +1,5 @@
-//「jsファイルはいらない」
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 ////styled-components
@@ -45,23 +45,33 @@ const Stalker = styled.div`
   }
 `;
 
-////MouseStalkerコンポーネント
-const MouseStalker = ({ isHovering }) => {
-  //⬇useRef
+//////MouseStalkerコンポーネント
+const MouseStalker = () => {
+  //⬇︎useLocationを作成
+  const location = useLocation();
+  //⬇stalkerRef、textRefを作成
   const stalkerRef = useRef(null);
   const textRef = useRef(null);
-  //マウスのref
+  //マウスのRefを作成
   const mouseX = useRef(0);
   const mouseY = useRef(0);
-  //マウスストーカーのref
+  //マウスストーカーのRefを作成
   const stalkerX = useRef(0);
   const stalkerY = useRef(0);
   //easeは「"遅れ具合"を表す」
   const ease = 0.1;
 
-  ////⬇︎useEffect
+  ////useEffect
   useEffect(() => {
-    const stalker = stalkerRef.current; //「stalkerRef」が参照しているDOM要素を取得
+    //=======================
+    //==== URL変更時の「.is-hover状態を強制的にリセットする。」 ===
+    //=======================
+    //stalkerRef.currentが「参照しているDOM要素」を取得。
+    const stalker = stalkerRef.current;
+    //URL(location.pathname)が変わってuseEffectが再実行されたタイミングで「前ページで付いたままの.is-hover状態を強制的にリセットする。」
+    if (stalker) {
+      stalker.classList.remove('is-hover');
+    }
 
     //=======================
     //==== ①マウス位置の取得 ===
@@ -127,7 +137,7 @@ const MouseStalker = ({ isHovering }) => {
       document.removeEventListener('mouseout', linkLeave);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [location.pathname]); //[location.pathname]でURLが変わるたびに必ず「.is-hover」を外す
 
   return (
     <Stalker ref={stalkerRef}>
