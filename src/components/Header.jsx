@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import breakpoints from '../styles/breakpoints';
+import { Wrapper, Inner } from './common/LayoutPrimitives';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import breakpoints from '../styles/breakpoints';
 import useMediaQuery from '../hooks/useMediaQuery'; //useMediaQueryカスタムフック
 import ColorContext from '../contexts/ColorContext'; //ColorContext
 
-import { Wrapper, Inner } from './common/LayoutPrimitives';
 import Menu from './Menu';
 
 //styled-components
@@ -61,16 +60,24 @@ const Header = ({ headerRef }) => {
       <Wrapper>
         <HeaderInner>
           <div className='my-logo'>
-            <Link to='/'>MYPORTFOLIO</Link>
+            <Link to='/' data-stalker>
+              MYPORTFOLIO
+            </Link>
           </div>
 
           {!isMobile && (
             <div className='pc-menu gap-x-4 '>
-              <Link to='/#about'>About</Link>
-              <Link to='/#works'>Works</Link>
-              <Link to='/#skills'>Skills</Link>
+              <Link to='/#about' data-stalker>
+                About
+              </Link>
+              <Link to='/#works' data-stalker>
+                Works
+              </Link>
+              <Link to='/#skills' data-stalker>
+                Skills
+              </Link>
 
-              <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
+              <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
                 <FontAwesomeIcon className='github-spin' icon={['fab', 'github']} size='3x' spin></FontAwesomeIcon>
               </a>
             </div>

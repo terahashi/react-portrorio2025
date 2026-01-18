@@ -58,6 +58,7 @@
 
 /* @layer base{}で TailWindCSSを優先させるように設定 */
 /* ・つまり下記のcssは、TailWindCSSと競合せず「TailWindCSSが最優先されるようになる。」 */
+/* ・@layer base{}の外に書いたCSSは「Tailwind utilitiesより後に出力されるようになり、TailWindCSSが最優先されない。」 */
 @layer base {
   html {
     /* font-sizeを rem で使用するための基準16px */
@@ -180,27 +181,26 @@
       font-size: 1rem;
     }
   }
-}
 
-/* 点滅アニメのkeyframes */
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
+  /* 点滅アニメのkeyframes */
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
-  50% {
-    opacity: 0;
-  }
-}
 
-.github-spin {
-  animation: fa-spin 5s linear infinite;
-}
-.skill-icon {
-  color: #61dafb;
-}
-/******** デフォルト設定********/
-/* :root {
+  .github-spin {
+    animation: fa-spin 5s linear infinite;
+  }
+  .skill-icon {
+    color: #61dafb;
+  }
+  /******** デフォルト設定********/
+  /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -213,45 +213,45 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+  a:hover {
+    color: #535bf2;
+  }
 
-body {
-  margin: 0;
-  /* display: flex; */
-  /* place-items: center; */
-}
+  body {
+    margin: 0;
+    /* display: flex; */
+    /* place-items: center; */
+  }
 
-h1 {
-  line-height: 1.1;
-}
+  h1 {
+    line-height: 1.1;
+  }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
 
-/* @media (prefers-color-scheme: light) {
+  /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -263,3 +263,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+}

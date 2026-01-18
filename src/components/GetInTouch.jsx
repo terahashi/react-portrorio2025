@@ -1,7 +1,10 @@
 import { useLayoutEffect, useRef } from 'react';
-import getinTouchAnime from '../animations/getinTouchAnime';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import getinTouchAnime from '../animations/getinTouchAnime';
 import breakpoints from '../styles/breakpoints';
+import FadeUp from './FadeUp';
 
 const GetInWrap = styled.section`
   width: 100%;
@@ -40,8 +43,8 @@ const GetInTouch = () => {
 
   return (
     <GetInWrap>
-      <div className='svg-start mt-30 md:mt-50 mb-5 md:mb-15'>
-        {/*  Get in Touchの SVG */}
+      {/*  Get in Touch のSVG */}
+      <div className='svg-start mt-15 md:mt-25 mb-10 md:mb-20'>
         <svg ref={svgRef} width='202' height='27' viewBox='0 0 202 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path
             className='char'
@@ -129,11 +132,26 @@ const GetInTouch = () => {
         </svg>
       </div>
 
-      <div className='w-full mb-20 flex justify-center items-center gap-x-8'>
-        <h4 className='text-(--color-gray)'>MAIL</h4>
-        <h4 className='text-(--color-gray)'>GitHub</h4>
-        <h4 className='text-(--color-gray)'>Qiita</h4>
-      </div>
+      <FadeUp
+        options={{
+          y: 140,
+          duration: 0.1,
+        }}
+      >
+        <div className='w-full flex justify-center items-center overflow-hidden gap-x-8'>
+          <Link to='/EmailAddress' data-stalker>
+            <h4 className='char text-[var(--color-white)] mb-0'>Mail</h4>
+          </Link>
+
+          <a className='char text-(--color-white) ' href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
+            GitHub
+          </a>
+
+          <a className='char text-[var(--color-white)]  ' href='https://qiita.com/tuyukuzi' target='_blank' rel='noopener noreferrer' data-stalker>
+            Qiita
+          </a>
+        </div>
+      </FadeUp>
     </GetInWrap>
   );
 };
