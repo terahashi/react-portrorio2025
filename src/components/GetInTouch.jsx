@@ -8,8 +8,11 @@ import FadeUp from './FadeUp';
 
 const GetInWrap = styled.section`
   width: 100%;
-  height: 70vh;
+  height: 40vh;
   @media (min-width: ${breakpoints.tablet}) {
+    height: 50vh;
+  }
+  @media (min-width: ${breakpoints.pc}) {
     height: 70vh;
   }
   .svg-start {
@@ -20,6 +23,10 @@ const GetInWrap = styled.section`
       height: 10vh;
       margin: 0 auto;
       @media (min-width: ${breakpoints.tablet}) {
+        width: calc(80% - 20px);
+        height: 15vh;
+      }
+      @media (min-width: ${breakpoints.pc}) {
         width: calc(80% - 20px);
         height: 20vh;
       }
@@ -44,7 +51,7 @@ const GetInTouch = () => {
   return (
     <GetInWrap>
       {/*  Get in Touch のSVG */}
-      <div className='svg-start mt-15 md:mt-25 mb-10 md:mb-20'>
+      <div className='svg-start mt-15 md:mt-25 mb-5 md:mb-10'>
         <svg ref={svgRef} width='202' height='27' viewBox='0 0 202 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path
             className='char'
@@ -143,11 +150,11 @@ const GetInTouch = () => {
             <h4 className='char text-[var(--color-white)] mb-0'>Mail</h4>
           </Link>
 
-          <a className='char text-(--color-white) ' href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
+          <a className='char text-[var(--color-white)]' href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
             GitHub
           </a>
 
-          <a className='char text-[var(--color-white)]  ' href='https://qiita.com/tuyukuzi' target='_blank' rel='noopener noreferrer' data-stalker>
+          <a className='char text-[var(--color-white)]' href='https://qiita.com/tuyukuzi' target='_blank' rel='noopener noreferrer' data-stalker>
             Qiita
           </a>
         </div>
