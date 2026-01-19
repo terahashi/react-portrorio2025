@@ -8,7 +8,6 @@
 
 import { useContext, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import ColorContext from '../../contexts/ColorContext'; //useContext(ColorContext)
 
 import { Wrapper, Inner } from '../../components/common/LayoutPrimitives';
@@ -18,7 +17,7 @@ import breakpoints from '../../styles/breakpoints';
 import SideFixed from '../../components/SideFixed';
 import worksData from '../../data/worksData';
 import ParagraphSection from '../../components/ParagraphSection';
-import ReturnTopButton from '../../components/common/ReturnTop';
+import ReturnTop from '../../components/common/ReturnTop';
 
 const DetailWrap = styled.section`
   background-color: #1e1c1c;
@@ -73,7 +72,7 @@ const WorksDetail = () => {
 
           <ParagraphSection className='text-center mb-[10px]' title='PORTFOLIO2025'></ParagraphSection>
 
-          <ReturnTopButton />
+          <ReturnTop />
 
           {/* <Link to='/' className='back-home'>
             ← トップに戻る
