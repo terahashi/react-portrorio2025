@@ -53,13 +53,13 @@ const WorksDetail = () => {
     <DetailWrap>
       <Wrapper>
         <Inner>
-          <div className='mb-[70px] md:mb-[100px]'>
+          <div className='mb-[70px] lg:mb-[100px]'>
             <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{workdetail.title}</h1>
             <p>{workdetail.desctription}</p>
           </div>
 
           <SideFixed visitsite={workdetail.visitsite} url={workdetail.url}>
-            <div className='mb-[50px] md:mb-[100px]'>
+            <div className='mb-[70px] lg:mb-[100px]'>
               <div className='w-full pb-10'>
                 <video src={workdetail.videos} autoPlay muted loop playsInline />
               </div>
@@ -70,15 +70,12 @@ const WorksDetail = () => {
             </div>
           </SideFixed>
 
-          <ParagraphSection className='text-center mb-[10px]' title='PORTFOLIO2025'></ParagraphSection>
-
-          <ReturnTop />
-
-          {/* <Link to='/' className='back-home'>
-            ← トップに戻る
-          </Link> */}
+          <ParagraphSection className='text-center mb-[70px] lg:mb-[100px]' title='PORTFOLIO2025'></ParagraphSection>
         </Inner>
       </Wrapper>
+
+      {/* ⬇︎ページ最上部へ戻るボタン ReturnTop.jsx内で「Wrapperが既に適用されてるので必ず外に出す」 */}
+      <ReturnTop />
     </DetailWrap>
   );
 };
