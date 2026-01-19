@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import areaFixedFunk from '../animations/side';
 
-const SideFixed = ({ children, title, headerRef, sideText }) => {
+const SideFixed = ({ children, title, headerRef, sideText, visitsite, url }) => {
   const areaRef = useRef(null);
   const targetRef = useRef(null);
 
@@ -15,9 +15,18 @@ const SideFixed = ({ children, title, headerRef, sideText }) => {
       {/* ⬇︎実際に追従するfixed */}
       <div ref={targetRef} className='mb-0 w-full md:w-full lg:w-[400px]'>
         {/* <SideFixed title='追従タイトル'などから「titleなどのpropsを受け取る。」 */}
-        <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold md:mb-5'>{title}</h1>
+        {/* title が「truthy（真)」のときだけ{title}を表示 */}
+        {title && <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold md:mb-5'>{title}</h1>}
+
         {/* sideText が「truthy（真)」のときだけ{sideText}を表示  */}
         {sideText && <h3 className='text-(--color-gray)'>{sideText}</h3>}
+
+        {/* visitsite が「truthy（真)」のときだけ URL付きの{visitsite}を表示  */}
+        {visitsite && (
+          <a href={url} className='text-center block mb-[50px] md:mb-[100px] lg:mb-0'>
+            {visitsite}
+          </a>
+        )}
       </div>
 
       {/* ⬇︎1024px(lg以上を超えないように) */}

@@ -55,7 +55,7 @@ const worksData = [
   },
   {
     id: '08',
-    skilltitle: 'sass',
+    skilltitle: 'Sass',
     icon: ['images/icons/sass.png'],
     skillText: '',
     years: '6years',

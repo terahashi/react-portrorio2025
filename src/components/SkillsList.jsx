@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import styled from 'styled-components';
 import skillsData from '../data/skillsData';
-import breakpoints from '../styles/breakpoints';
 
 const SkillsMap = styled.div`
   &:last-of-type {

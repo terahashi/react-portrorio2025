@@ -1,10 +1,9 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
 import paragraphAnime from '../animations/paragraphAnime';
 import styled from 'styled-components';
+import breakpoints from '../styles/breakpoints';
 
 const ParaWrap = styled.div`
-  &:last-of-type {
-  }
   .paragraph-area {
   }
   .headline {
@@ -12,7 +11,6 @@ const ParaWrap = styled.div`
     overflow: hidden;
     display: inline-block; //rectを文字幅ピッタリにする。inline-blockは「中身（内容）分だけの幅を取る」
     text-align: left;
-    /* margin-bottom: 0; */
     .rect {
       content: '';
       width: 100%;
@@ -27,14 +25,22 @@ const ParaWrap = styled.div`
     span.label {
       display: inline-block;
       color: #fff;
-      font-size: 4.5rem;
+      font-size: 2rem;
       font-weight: bold;
+      @media (min-width: ${breakpoints.tablet}) {
+        font-size: 4rem;
+      }
+      @media (min-width: ${breakpoints.pc}) {
+        font-size: 4.5rem;
+      }
     }
   }
 `;
 
-const ParagraphSection = ({ title, children }) => {
-  //useRefを作成する
+const ParagraphSection = ({ className = '', title, children }) => {
+  //⬆︎ { className = ''} はデフォルト引数。propで取得したclassNameが「undefinedなら、空文字''を使う」
+
+  //useRefを作成
   const paraRef = useRef(null);
 
   //useLayoutEffectで「ブラウザに描画される直前に実行」
@@ -43,14 +49,14 @@ const ParagraphSection = ({ title, children }) => {
   }, []);
 
   return (
-    <ParaWrap className='pb-[70px]'>
+    <ParaWrap className={`paragraph-section ${className}`}>
       <div className='paragraph-area' ref={paraRef}>
         <h1 className='headline mb-0'>
           <span className='rect'></span>
           <span className='label'>{title}</span>
         </h1>
 
-        {/* 👇 Works / Skills / */}
+        {/* childrenには「親コンポーネントで挟んだWorks/Skills」なども入れることができる */}
         {children}
       </div>
     </ParaWrap>
