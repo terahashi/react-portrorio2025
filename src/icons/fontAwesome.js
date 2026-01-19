@@ -1,6 +1,9 @@
+//svg-core
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import { faReact } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faGithub);
-// library.add(faGithub, faReact);
+//free
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
+
+//library.add
+library.add(faGithub, faArrowTurnUp);
