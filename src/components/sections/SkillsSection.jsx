@@ -8,11 +8,11 @@ import Skillslist from '../SkillsList';
 
 const SkillsWrap = styled.section`
   background-color: #1e1c1c;
-  padding-top: var(--res-sec-top-padding);
-  padding-bottom: var(--res-sec-bottom-padding);
+  padding-top: var(--res-sec-padding-top);
+  padding-bottom: var(--res-sec-padding-bottom);
   @media (min-width: ${breakpoints.tablet}) {
-    padding-top: var(--sec-top-padding);
-    padding-bottom: var(--sec-bottom-padding);
+    padding-top: var(--sec-padding-top);
+    padding-bottom: var(--sec-padding-bottom);
   }
 `;
 

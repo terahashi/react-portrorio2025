@@ -13,16 +13,23 @@ import ColorContext from '../../contexts/ColorContext'; //useContext(ColorContex
 
 import { Wrapper, Inner } from '../../components/common/LayoutPrimitives';
 import styled from 'styled-components';
+import breakpoints from '../../styles/breakpoints';
 
-import worksData from '../../data/worksData';
 import SideFixed from '../../components/SideFixed';
+import worksData from '../../data/worksData';
+import ParagraphSection from '../../components/ParagraphSection';
+import ReturnTopButton from '../../components/ReturnTop';
 
-const WorkDeWrap = styled.section`
-  margin-top: 100px;
+const DetailWrap = styled.section`
+  background-color: #1e1c1c;
+  padding-top: calc(var(--header-height) + var(--res-pages-padding-top));
+  @media (min-width: ${breakpoints.tablet}) {
+    padding-top: calc(var(--header-height) + var(--pages-padding-top));
+  }
 `;
 
 const WorksDetail = () => {
-  //useContext(ColorContext)・Headerの文字色を白にする
+  //useContext(ColorContext)でHeaderの文字色を白にする
   const { setIsDark } = useContext(ColorContext);
 
   //idでページURL取得
@@ -34,43 +41,46 @@ const WorksDetail = () => {
     return <Navigate to='/404' replace />;
   }
 
-  //⬇︎ページに入った瞬間に「・Headerの文字色を白にする」
+  ////⬇︎ページに入った瞬間に「Headerの文字色を白にする」
   useEffect(() => {
     setIsDark(true);
-    //クリーンナップ
+    //⬇︎クリーンナップ;
     return () => {
       setIsDark(false);
     };
   }, [setIsDark]);
 
   return (
-    <WorkDeWrap className='pt-[var(--header-height)]'>
+    <DetailWrap>
       <Wrapper>
         <Inner>
-          <div className='pb-[100px]'>
-            <h1>{workdetail.title}</h1>
+          <div className='mb-[70px] md:mb-[100px]'>
+            <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{workdetail.title}</h1>
             <p>{workdetail.desctription}</p>
           </div>
-          {/* sideText={workdetail.sideText} ⬅︎ <SideFixed>コンポーネントに「"worksData"のsideTextデータを渡す」 */}
-          <SideFixed title={workdetail.title} sideText={workdetail.sideText}>
-            <div
-              style={{
-                height: '3000px',
-              }}
-            >
-              <h1>{workdetail.title}</h1>
-              <img src={workdetail.image} alt={workdetail.titke} />
-              <p>{workdetail.desctription}</p>
-              <p>{workdetail.desctription2}</p>
+
+          <SideFixed visitsite={workdetail.visitsite} url={workdetail.url}>
+            <div className='mb-[50px] md:mb-[100px]'>
+              <div className='w-full pb-10'>
+                <video src={workdetail.videos} autoPlay muted loop playsInline />
+              </div>
+
+              <div className='w-full pb-10'>
+                <img src={workdetail.image} alt={workdetail.titke} />
+              </div>
             </div>
           </SideFixed>
 
-          <Link to='/' className='back-home'>
+          <ParagraphSection className='text-center mb-[10px]' title='PORTFOLIO2025'></ParagraphSection>
+
+          <ReturnTopButton />
+
+          {/* <Link to='/' className='back-home'>
             ← トップに戻る
-          </Link>
+          </Link> */}
         </Inner>
       </Wrapper>
-    </WorkDeWrap>
+    </DetailWrap>
   );
 };
 

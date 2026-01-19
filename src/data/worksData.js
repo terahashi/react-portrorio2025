@@ -6,38 +6,42 @@ const worksData = [
     id: 1,
     title: 'サンプルサイト1',
     image: '/images/nature.jpg',
-    videos: '/videos/work1sample.mp4', //mp4動画
-    desctription: 'サンプルサイト1のdescriptionとして定義',
-    desctription2: '‼️サンプルサイト1のdescription2として定義',
+    videos: '/videos/work1sample.mp4',
+    desctription: 'サンプルサイト1のdescription',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
-    // link: '/works/1', ////⬅︎WorksItem.jsxで<Link to={work.link}>で使う場合
+    visitsite: 'visit website',
+    url: 'https://takahashiportfolio.netlify.app/',
+    // link: '/works/1', //⬅︎WorksItem.jsxで <Link to={work.link}>で使う場合
   },
   {
     id: 2,
     title: 'サンプルサイト2',
-    description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    desctription: 'サンプルサイト2 descriptionとして定義',
-    desctription2: 'サンプルサイト2 description2として定義',
+    desctription: 'サンプルサイト2のdescription',
+    sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
+    visitsite: 'visit website',
+    url: 'https://takahashiportfolio.netlify.app/',
   },
   {
     id: 3,
     title: 'サンプルサイト3',
-    description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    desctription: 'サンプルサイト3 descriptionとして定義',
-    desctription2: 'サンプルサイト3 description2として定義',
+    desctription: 'サンプルサイト3のdescription',
+    sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
+    visitsite: 'visit website',
+    url: 'https://takahashiportfolio.netlify.app/',
   },
   {
     id: 4,
     title: 'サンプルサイト4',
-    description: 'Reactで作成したポートフォリオサイトです',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    desctription: 'サンプルサイト4 descriptionとして定義',
-    desctription2: 'サンプルサイト4 description2として定義',
+    desctription: 'サンプルサイト4のdescription',
+    sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
+    visitsite: 'visit website',
+    url: 'https://takahashiportfolio.netlify.app/',
   },
 ];
 
