@@ -23,7 +23,7 @@ const SideFixed = ({ children, title, headerRef, sideText, visitsite, url }) => 
 
         {/* visitsite が「truthy（真)」のときだけ URL付きの{visitsite}を表示  */}
         {visitsite && (
-          <a href={url} className='text-center block mb-[50px] md:mb-[100px] lg:mb-0'>
+          <a href={url} className='text-center block mb-[70px] lg:mb-0' data-stalker>
             {visitsite}
           </a>
         )}

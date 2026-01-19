@@ -78,6 +78,7 @@
     line-height: 1.7;
     letter-spacing: 0.02em;
     background-color: #242424;
+    /* background-color: #1e1c1c; */
   }
 
   /* ⬇︎日本語タイトルだけにNotoSansJPを使用する。これを付けない日本語等にはPoppinsが使用される。端末環境ではsans-serifが使用。 */

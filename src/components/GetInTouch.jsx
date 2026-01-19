@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import getinTouchAnime from '../animations/getinTouchAnime';
 import breakpoints from '../styles/breakpoints';
-import FadeUp from './FadeUp';
 
 const GetInWrap = styled.section`
   width: 100%;
@@ -139,26 +138,19 @@ const GetInTouch = () => {
         </svg>
       </div>
 
-      <FadeUp
-        options={{
-          y: 140,
-          duration: 0.1,
-        }}
-      >
-        <div className='w-full flex justify-center items-center overflow-hidden gap-x-8'>
-          <Link to='/EmailAddress' data-stalker>
-            <h4 className='char text-[var(--color-white)] mb-0'>Mail</h4>
-          </Link>
+      <div className='w-full flex justify-center items-center overflow-hidden gap-x-8'>
+        <Link to='/EmailAddress' data-stalker>
+          <h4 className='char text-[var(--color-white)] mb-0'>Mail</h4>
+        </Link>
 
-          <a className='char text-[var(--color-white)]' href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
-            GitHub
-          </a>
+        <a className='char text-[var(--color-white)]' href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
+          GitHub
+        </a>
 
-          <a className='char text-[var(--color-white)]' href='https://qiita.com/tuyukuzi' target='_blank' rel='noopener noreferrer' data-stalker>
-            Qiita
-          </a>
-        </div>
-      </FadeUp>
+        <a className='char text-[var(--color-white)]' href='https://qiita.com/tuyukuzi' target='_blank' rel='noopener noreferrer' data-stalker>
+          Qiita
+        </a>
+      </div>
     </GetInWrap>
   );
 };
