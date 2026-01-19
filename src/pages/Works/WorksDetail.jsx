@@ -18,7 +18,7 @@ import breakpoints from '../../styles/breakpoints';
 import SideFixed from '../../components/SideFixed';
 import worksData from '../../data/worksData';
 import ParagraphSection from '../../components/ParagraphSection';
-import ReturnTopButton from '../../components/ReturnTop';
+import ReturnTopButton from '../../components/common/ReturnTop';
 
 const DetailWrap = styled.section`
   background-color: #1e1c1c;
