@@ -4,7 +4,7 @@ import breakpoints from '../styles/breakpoints';
 import scrambleText from '../animations/ScrambleText';
 
 const ScrambleWrapper = styled.div`
-  height: 120px;
+  height: 130px;
   @media (min-width: ${breakpoints.tablet}) {
     height: 170px;
   }
