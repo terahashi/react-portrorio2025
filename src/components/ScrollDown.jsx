@@ -3,10 +3,6 @@ import breakpoints from '../styles/breakpoints';
 
 //ScrollMouseで全体配置
 const ScrollMouse = styled.div`
-  /* position: absolute;
-  right: 100px;
-  bottom: 130px; */
-
   margin-left: auto;
   padding-bottom: 0;
   width: fit-content;
@@ -17,7 +13,6 @@ const ScrollMouse = styled.div`
   flex-direction: row-reverse;
   gap: 0 14px;
   @media (min-width: ${breakpoints.tablet}) {
-    padding-bottom: 30px;
     flex-direction: column-reverse;
   }
   @media (min-width: ${breakpoints.pc}) {
