@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import areaFixedFunk from '../animations/side';
+import VisitButton from '../components/common/VisitButton';
 
 const SideFixed = ({ children, title, headerRef, sideText, visitsite, url }) => {
   const areaRef = useRef(null);
@@ -8,7 +9,7 @@ const SideFixed = ({ children, title, headerRef, sideText, visitsite, url }) => 
   useEffect(() => {
     const cleanup = areaFixedFunk(areaRef, targetRef, headerRef, 80);
     return cleanup;
-  }, [headerRef]); //[headerRef]はheaderRefが変わったらこのuseEffectを再実行という意味だけど「今回だけはheaderRefはほぼ変わりません。」このuseEffectはheaderRefに依存してますよ、という意味付けだけ。
+  }, [headerRef]); //[headerRef]は、headerRefが変わったらこのuseEffectを再実行という意味だけど「今回だけはheaderRefはほぼ変わりません。」このuseEffectはheaderRefに依存してますよ、という意味付けだけ。
 
   return (
     <div ref={areaRef} style={{ position: 'relative' }}>
@@ -22,11 +23,7 @@ const SideFixed = ({ children, title, headerRef, sideText, visitsite, url }) => 
         {sideText && <h3 className='text-(--color-gray)'>{sideText}</h3>}
 
         {/* visitsite が「truthy（真)」のときだけ URL付きの{visitsite}を表示  */}
-        {visitsite && (
-          <a href={url} className='text-center block mb-[70px] lg:mb-0' data-stalker>
-            {visitsite}
-          </a>
-        )}
+        {visitsite && <VisitButton visitsite={visitsite} url={url} />}
       </div>
 
       {/* ⬇︎1024px(lg以上を超えないように) */}

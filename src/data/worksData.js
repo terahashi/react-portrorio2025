@@ -9,7 +9,7 @@ const worksData = [
     videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト1のdescription',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
-    visitsite: 'visit website',
+    visitsite: 'VISIT WEBSITE',
     url: 'https://takahashiportfolio.netlify.app/',
     // link: '/works/1', //⬅︎WorksItem.jsxで <Link to={work.link}>で使う場合
   },
@@ -20,7 +20,7 @@ const worksData = [
     videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト2のdescription',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
-    visitsite: 'visit website',
+    visitsite: 'VISIT WEBSITE',
     url: 'https://takahashiportfolio.netlify.app/',
   },
   {
@@ -30,7 +30,7 @@ const worksData = [
     videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト3のdescription',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
-    visitsite: 'visit website',
+    visitsite: 'VISIT WEBSITE',
     url: 'https://takahashiportfolio.netlify.app/',
   },
   {
@@ -40,7 +40,7 @@ const worksData = [
     videos: '/videos/work1sample.mp4',
     desctription: 'サンプルサイト4のdescription',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
-    visitsite: 'visit website',
+    visitsite: 'VISIT WEBSITE',
     url: 'https://takahashiportfolio.netlify.app/',
   },
 ];
