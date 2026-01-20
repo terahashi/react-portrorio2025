@@ -15,7 +15,7 @@ const HeaderInner = styled(Inner)`
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  @media (min-width: ${breakpoints}) {
+  @media (min-width: ${breakpoints.tablet}) {
     padding: 16px;
   }
 `;

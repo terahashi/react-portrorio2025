@@ -27,7 +27,7 @@ const DetailWrap = styled.section`
   }
 `;
 
-const WorksDetail = () => {
+const WorksDetail = ({ headerRef }) => {
   //useContext(ColorContext)でHeaderの文字色を白にする
   const { setIsDark } = useContext(ColorContext);
 
@@ -53,19 +53,19 @@ const WorksDetail = () => {
     <DetailWrap>
       <Wrapper>
         <Inner>
-          <div className='mb-[70px] lg:mb-[100px]'>
+          <div className='mb-[70px] lg:mb-[130px]'>
             <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{workdetail.title}</h1>
             <p>{workdetail.desctription}</p>
           </div>
 
-          <SideFixed visitsite={workdetail.visitsite} url={workdetail.url}>
+          <SideFixed visitsite={workdetail.visitsite} url={workdetail.url} headerRef={headerRef}>
             <div className='mb-[70px] lg:mb-[100px]'>
               <div className='w-full pb-10'>
                 <video src={workdetail.videos} autoPlay muted loop playsInline />
               </div>
 
               <div className='w-full pb-10'>
-                <img src={workdetail.image} alt={workdetail.titke} />
+                <img src={workdetail.image} alt={workdetail.title} />
               </div>
             </div>
           </SideFixed>

@@ -7,7 +7,7 @@ const PageTopWrap = styled.div`
   background-color: #1e1c1c;
 `;
 
-////・⬇︎文字のみ「トップへ戻る」
+////⬇︎文字のみ「トップへ戻る」
 const PageTop = styled.div`
   margin-left: auto;
   width: fit-content;
@@ -42,7 +42,7 @@ const PageTop = styled.div`
   }
 `;
 
-// ////・⬇︎枠線グラデーション発光の「トップへ戻るボタン」
+// ////⬇︎枠線グラデーション発光の「トップへ戻るボタン」
 // const PageTop = styled.button`
 //   margin-left: auto;
 //   display: block;
@@ -82,7 +82,9 @@ const PageTop = styled.div`
 //   border-radius: 4px;
 // `;
 
+/////⬇︎コンポーネント
 const ReturnTop = () => {
+  //window.scrollTo
   const returnTop = () => {
     window.scrollTo({
       top: 0,
