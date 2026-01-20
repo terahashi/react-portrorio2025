@@ -6,7 +6,7 @@ import useIntersection from '../hooks/useIntersection';
 import ColorContext from '../contexts/ColorContext';
 
 //⬇︎components
-import Hero from '../components/Hero';
+import Hero from '../components/sections/Hero.jsx';
 import WorkSection from '../components/sections/WorksSection.jsx';
 import AboutSection from '../components/sections/AboutSection.jsx';
 import SkillsSection from '../components/sections/SkillsSection.jsx';

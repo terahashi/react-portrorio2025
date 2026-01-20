@@ -1,7 +1,7 @@
-import { Wrapper, Inner } from './common/LayoutPrimitives';
-import HeroscrambleText from './HeroscrambleText';
-import TypingText from './TypingText';
-import ScrollDown from './ScrollDown';
+import { Wrapper, Inner } from '../common/LayoutPrimitives';
+import HeroscrambleText from '../HeroscrambleText';
+import TypingText from '../TypingText';
+import ScrollDown from '../ScrollDown';
 
 const Hero = ({ targetRef }) => {
   return (
