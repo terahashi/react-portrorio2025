@@ -10,14 +10,12 @@ import ColorContext from '../contexts/ColorContext'; //ColorContext
 import Menu from './Menu';
 
 //styled-components
+//メモ:import { Inner }を上書きして使用できます。
 const HeaderInner = styled(Inner)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  @media (min-width: ${breakpoints.tablet}) {
-    padding: 16px;
-  }
 `;
 
 const HeaderWrap = styled.header`

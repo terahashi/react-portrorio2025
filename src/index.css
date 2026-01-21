@@ -151,12 +151,12 @@
   }
 
   span.fade-split {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     display: inline-block;
     font-weight: bold;
   }
   p.char {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
   }
   p.fade-p {
@@ -176,11 +176,23 @@
     font-size: 1rem;
     animation: blink 1s step-start infinite; /* 点滅アニメのkeyframes */
   }
+
+  /****** @media (min-width: 768px〜 ******/
   @media (min-width: 768px) {
+    span.fade-split {
+      font-size: 4.5rem;
+      display: inline-block;
+      font-weight: bold;
+    }
+    p.char {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
     .ityped + .ityped-cursor {
       font-size: 1rem;
     }
   }
+  /****** @media (min-width: 1024px〜 ******/
   @media (min-width: 1024px) {
     .ityped + .ityped-cursor {
       font-size: 1rem;

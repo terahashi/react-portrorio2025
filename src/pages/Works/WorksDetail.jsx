@@ -8,14 +8,14 @@
 
 import { useContext, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import ColorContext from '../../contexts/ColorContext'; //useContext(ColorContext)
+import styled from 'styled-components';
 
 import { Wrapper, Inner } from '../../components/common/LayoutPrimitives';
-import styled from 'styled-components';
+import ColorContext from '../../contexts/ColorContext'; //useContext(ColorContext)
 import breakpoints from '../../styles/breakpoints';
+import worksData from '../../data/worksData';
 
 import SideFixed from '../../components/SideFixed';
-import worksData from '../../data/worksData';
 import ParagraphSection from '../../components/ParagraphSection';
 import ReturnTop from '../../components/common/ReturnTop';
 

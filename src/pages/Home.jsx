@@ -15,7 +15,7 @@ import ReturnTop from '../components/common/ReturnTop.jsx';
 
 const Home = () => {
   //⬇︎親(Layout.jsx)から受け取った「headerRefを使用するために【useOutletContext()】を使用する」
-  // headerRef は「固定（fixed）要素が Header に被らないようにするため」に使っています。
+  // headerRef は「固定（SideFixed.jsx）要素が Header に被らないようにするため」に使っています。
   // headerRefで「side.jsのareaFixedFunk関数」でHeaderの高さ・位置取得
   const { headerRef } = useOutletContext();
 
