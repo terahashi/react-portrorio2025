@@ -2,7 +2,7 @@ import { Wrapper, Inner } from '../common/LayoutPrimitives';
 import breakpoints from '../../styles/breakpoints';
 import styled from 'styled-components';
 
-import ParagraphSection from '../ParagraphSection';
+// import ParagraphSection from '../ParagraphSection';
 import FadeUp from '../FadeUp';
 import Three from '../Three';
 

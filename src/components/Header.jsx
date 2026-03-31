@@ -15,7 +15,6 @@ const HeaderInner = styled(Inner)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
 `;
 
 const HeaderWrap = styled.header`
@@ -24,7 +23,6 @@ const HeaderWrap = styled.header`
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: var(--header-height);
   .my-logo {
     position: relative;
   }

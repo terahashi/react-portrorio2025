@@ -5,11 +5,8 @@ import ScrollDown from '../ScrollDown';
 
 const Hero = ({ targetRef }) => {
   return (
-    <section
-      ref={targetRef}
-      className='bg-[#ffe4d7] w-full min-h-screen pt-[var(--header-height)] md:pt-[calc(var(--header-height)+30px)] lg:pt-[calc(var(--header-height)+50px)] pb-[10px] lg:pb-[40px] relative'
-    >
-      <Wrapper>
+    <section ref={targetRef} className='bg-[#ffe4d7] w-full min-h-[100vh] flex items-center pb-[10px] lg:pb-[0] relative'>
+      <Wrapper className='w-full'>
         <Inner>
           <HeroscrambleText />
           <div className='flex md:flex md:flex-nowrap flex-col md:flex-row md:justify-start md:items-end gap-x-0 md:gap-x-3 gap-y-5 md:gap-y-0 mb-0 md:mb-0'>

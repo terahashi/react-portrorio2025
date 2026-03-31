@@ -147,7 +147,7 @@ const Menu = () => {
   //コードを作成する理由2: menuItems配列データを"使わない"場合を想定したリンク遷移は、メニューを閉じただけなのにトップに戻るバグが発生するため。
   const navigate = useNavigate();
 
-  //⬇︎「menuItems配列データを"使わない"場合を想定したリンク遷移」のイベントハンドラー。
+  //⬇︎「menuItems配列データを"使わない"場合を想定したリンク遷移」のイベントハンドラー関数。
   //・リンクがクリックされたら、メニューを閉じて、閉じ終わったらその時に navigate(path) を実行して遷移する。
   const handleLinkClick = (path) => {
     controllerRef.current?.closeMenu(() => {
