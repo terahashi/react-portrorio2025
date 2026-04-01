@@ -10,7 +10,7 @@ const initType = (textRef) => {
   if (!textRef.current) return; //ref.currentが存在しない場合実行しない
 
   init(textRef.current, {
-    strings: ['web front-end engineer working with React and JavaScript. React and JavaScript.'],
+    strings: ["I'm a Web engineer. Enjoys Web development, Animals, and Nature. I learn React, Next.js, and JavaScript."],
     startDelay: 100,
     typeSpeed: 100,
     showCursor: true,

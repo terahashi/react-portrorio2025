@@ -209,15 +209,15 @@ const Menu = () => {
             <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
               <FontAwesomeIcon icon={['fab', 'github']} size='2x'></FontAwesomeIcon>
             </a>
-            <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
+            {/* <a href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer'>
               <FontAwesomeIcon icon={['fab', 'github']} size='2x'></FontAwesomeIcon>
-            </a>
+            </a> */}
           </li>
         </ul>
 
         <ul>
           <li>
-            Hi, I’m Takahashi, <span>a web front-end engineer working with React and JavaScript.</span>
+            <span>I enjoy web development, animals, and nature.</span>
           </li>
         </ul>
       </nav>
