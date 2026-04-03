@@ -4,7 +4,10 @@ import styled from 'styled-components';
 
 // import ParagraphSection from '../ParagraphSection';
 import FadeUp from '../FadeUp';
-import Three from '../Three';
+// import Three from '../Three';
+
+import { lazy, Suspense } from 'react'; //遅延読み込み(lazy loading)
+const Three = lazy(() => import('../Three')); //これで「遅延読み込み完了。Threeはすぐ読み込まれない。」
 
 const AboutWrap = styled.section`
   background-color: #1e1c1c;
@@ -50,7 +53,10 @@ const AboutSection = () => {
             </FadeUp> */}
 
             {/* ⬇︎About文言+3D */}
-            <Three />
+            {/* <Three /> */}
+            <Suspense fallback={<div style={{ height: '300px' }} />}>
+              <Three />
+            </Suspense>
           </Inner>
         </Wrapper>
       </AboutWrap>

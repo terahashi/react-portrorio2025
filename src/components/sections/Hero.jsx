@@ -10,7 +10,7 @@ const Hero = ({ targetRef }) => {
         <Inner>
           <HeroscrambleText />
           <div className='flex md:flex md:flex-nowrap flex-col md:flex-row md:justify-start md:items-end gap-x-0 md:gap-x-3 gap-y-5 md:gap-y-0 mb-0 md:mb-0'>
-            <img className='w-full md:w-[320px] lg:w-[450px] pb-0 mb-[0]' src='images/nature.jpg' alt='nature' />
+            <img className='w-full md:w-[320px] lg:w-[450px] pb-0 mb-[0]' width='450' height='300' src='images/nature.webp' loading='eager' alt='自然の風景(ポートフォリオのメインビジュアル)' />
 
             <div className='pb-0 mb-[0] md:w-[calc(100%-(320px+170px))] lg:w-[400px]'>
               <TypingText />
