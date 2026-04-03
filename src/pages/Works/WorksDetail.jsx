@@ -55,7 +55,7 @@ const WorksDetail = ({ headerRef }) => {
         <Inner>
           <div className='mb-[70px] lg:mb-[130px]'>
             <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{workdetail.title}</h1>
-            <p className='whitespace-pre-line'>{workdetail.desctription}</p>
+            <p className='whitespace-pre-line text-[var(--color-gray)]'>{workdetail.desctription}</p>
           </div>
 
           <SideFixed visitsite={workdetail.visitsite} url={workdetail.url} headerRef={headerRef}>
