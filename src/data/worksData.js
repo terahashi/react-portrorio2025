@@ -4,10 +4,20 @@
 const worksData = [
   {
     id: 1,
-    title: 'サンプルサイト1',
+    title: 'Takahashi Portfolio',
     image: '/images/nature.jpg',
     videos: '/videos/work1sample.mp4',
-    desctription: 'サンプルサイト1のdescription',
+    desctription: `
+      ■ 概要
+      Reactを用いて作成したポートフォリオサイトです。
+      習得したコンポーネント設計や状態管理を実践するために、設計、開発、実装までを行いました。
+
+      ■ 使用技術
+	    •	React(SPA / CSR)
+	    •	JavaScript
+	    •	CSS（TailwindCSS / Styled-components）
+	    •	Netlify(デプロイ)
+      `,
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
     visitsite: 'VISIT WEBSITE',
     url: 'https://takahashiportfolio.netlify.app/',

@@ -37,11 +37,11 @@ const WorksWrap = styled.div`
       padding: 15px;
       border-radius: 5px;
       @media (min-width: ${breakpoints.tablet}) {
-        height: 220px;
+        height: 250px;
         padding: 25px;
       }
       @media (min-width: ${breakpoints.pc}) {
-        height: 280px;
+        height: 250px;
       }
       video {
         width: 100%;

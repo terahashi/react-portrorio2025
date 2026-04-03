@@ -37,14 +37,14 @@ const WorkSection = () => {
                 ))}
               </div>
 
-              <p className='char'>スクロール</p>
+              <p className='char title__ja'>制作実績</p>
             </FadeUp>
 
-            <FadeUp options={{ y: 200, duration: 0.4 }}>
-              <p className='fade-p md:max-w-lg lg:max-w-xl text-(--color-gray)'>
+            {/* <FadeUp options={{ y: 200, duration: 0.4 }}>
+              <p className='sub-text md:max-w-lg lg:max-w-xl'>
                 ここに長文を入力します。 ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。
               </p>
-            </FadeUp>
+            </FadeUp> */}
 
             <Works />
           </Inner>

@@ -97,7 +97,7 @@
   h5,
   h6 {
     margin-top: 0;
-    margin-bottom: 0.6em;
+    margin-bottom: var(--md-margin);
   }
 
   h1 {
@@ -137,6 +137,12 @@
     line-height: 1.7;
     margin-bottom: var(--md-margin);
   }
+  p.sub-text {
+    font-size: 1.2rem;
+    color: var(--color-gray);
+    line-height: 1.7;
+    margin-bottom: var(--md-margin);
+  }
 
   span {
     font-size: var(--text-span);
@@ -159,14 +165,15 @@
     font-size: 3.5rem;
     display: inline-block;
     font-weight: bold;
+    line-height: 1.5;
   }
-  p.char {
-    font-size: 1rem;
-    font-weight: bold;
+  .char {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
   }
-  p.fade-p {
-    font-size: 1rem;
-    font-weight: bold;
+  .fade-p {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
   }
 
   /* タイピングアニメーション(点滅アニメも追加) */
@@ -188,11 +195,16 @@
       font-size: 4.5rem;
       display: inline-block;
       font-weight: bold;
+      line-height: 1.5;
     }
-    p.char {
-      font-size: 1.2rem;
+    .char {
+      font-size: 1.5rem;
+      /* font-weight: bold; */
+    }
+    /* .fade-p {
+      font-size: 1.5rem;
       font-weight: bold;
-    }
+    } */
     .ityped + .ityped-cursor {
       font-size: 1rem;
     }

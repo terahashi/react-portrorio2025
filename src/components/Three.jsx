@@ -6,7 +6,7 @@ import breakpoints from '../styles/breakpoints';
 const AppLayout = styled.div`
   width: 100%;
   display: block;
-  margin-top: 70px;
+  /* margin-top: 25px; */
   @media (min-width: ${breakpoints.tablet}) {
     margin-top: 0;
     display: grid;
@@ -24,7 +24,7 @@ const LeftArea = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
   }
 `;
 
@@ -69,12 +69,20 @@ const Three = () => {
     <AppLayout>
       {/* 左 */}
       <LeftArea>
-        <p className='text-[1.2rem] text-(--color-gray)'>Webデザイナー/コーダーとしてWebサイト制作者として働いてきました。現在は独学でプログラミング技術を学習しています。</p>
-        <p className='text-[1.2rem] text-(--color-gray)'>
-          React / Next.js / JavaScriptを独学で学び、AIも活用しながら複数のWebサイトを作成してきました。
-          <br /> 開発では「なぜその技術を選ぶのか」「どうすればより良いユーザー体験になるのか」を意識しながら取り組んでいます。
+        <p className='sub-text'>
+          こんにちは。高橋と申します。
+          <br />
+          Webデザイナー/コーダーとして従事してきました。 現在は独学でプログラミング技術を学習しています。
         </p>
-        <p className='text-[1.2rem] text-(--color-gray)'>今後はフロントエンドを中心に設計・改善まで担えるWebエンジニアとして成長していきたいと考えています。</p>
+        <p className='sub-text'>
+          React / Next.js / JavaScriptを独学で学び、AIも活用しながら複数のWebサイトを作成してきました。
+          <br />
+          開発では「なぜその技術を選ぶのか」「どうすればより良いユーザー体験になるのか」を意識しながら取り組んでいます。
+        </p>
+        <p className='sub-text'>
+          自然や動物やゲームが好きで、リフレッシュしながら継続して学習を続けています。
+          <br /> 今後はフロントエンドを中心に設計・改善まで担えるWebエンジニアとして成長していきたいと考えています。
+        </p>
       </LeftArea>
 
       {/* 右（3D）*/}

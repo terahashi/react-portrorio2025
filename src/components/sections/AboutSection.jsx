@@ -40,7 +40,7 @@ const AboutSection = () => {
                 ))}
               </div>
 
-              <p className='char'>私のこと</p>
+              <p className='char title__ja'>私のこと</p>
             </FadeUp>
 
             {/* <FadeUp options={{ y: 200, duration: 0.4 }}>
@@ -49,6 +49,7 @@ const AboutSection = () => {
               </p>
             </FadeUp> */}
 
+            {/* ⬇︎About文言+3D */}
             <Three />
           </Inner>
         </Wrapper>
