@@ -38,14 +38,13 @@ const SkillsSection = ({ headerRef }) => {
                 ))}
               </div>
 
-              <p className='char'>スクロール</p>
+              <p className='char title__ja'>技術</p>
             </FadeUp>
 
-            <FadeUp options={{ y: 200, duration: 0.4 }}>
-              <p className='fade-p md:max-w-lg lg:max-w-xl text-(--color-gray)'>
-                ここに長文を入力します。 ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。ここに長文を入力します。
-              </p>
-            </FadeUp>
+            <p className='sub-text pb-[var(--res-sec-padding-bottom)] md:pb-[var(--sec-padding-bottom)] md:max-w-lg lg:max-w-xl'>
+              これまでの開発経験を通して習得したスキルです。独学も含めています。
+              <br />
+            </p>
 
             <SideFixed
               title='<Cording />'

@@ -12,12 +12,12 @@ const SideFixed = ({ children, title, headerRef, sideText, visitsite, url }) => 
   }, [headerRef]); //[headerRef]は、headerRefが変わったらこのuseEffectを再実行という意味だけど「今回だけはheaderRefはほぼ変わりません。」このuseEffectはheaderRefに依存してますよ、という意味付けだけ。
 
   return (
-    <div ref={areaRef} style={{ position: 'relative' }}>
+    <div ref={areaRef} className='relative'>
       {/* ⬇︎実際に追従するfixed */}
       <div ref={targetRef} className='mb-0 w-full md:w-full lg:w-[400px]'>
         {/* <SideFixed title='追従タイトル'などから「titleなどのpropsを受け取る。」 */}
         {/* title が「truthy（真)」のときだけ{title}を表示 */}
-        {title && <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold md:mb-5'>{title}</h1>}
+        {title && <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{title}</h1>}
 
         {/* sideText が「truthy（真)」のときだけ{sideText}を表示  */}
         {sideText && <h3 className='text-(--color-gray)'>{sideText}</h3>}
