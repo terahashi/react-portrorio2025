@@ -67,6 +67,10 @@ const WorksDetail = ({ headerRef }) => {
               <div className='w-full pb-10'>
                 <img src={workdetail.image} alt={workdetail.title} />
               </div>
+
+              <div className='w-full pb-10'>
+                <img src={workdetail.hoverthumbnail} alt={workdetail.title} />
+              </div>
             </div>
           </SideFixed>
 

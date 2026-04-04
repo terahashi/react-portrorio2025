@@ -27,23 +27,19 @@ const WorksWrap = styled.div`
       gap: 20px;
     }
     .w__item {
-      background-color: #353535;
-      /* background-color: var(--color-gray); */
+      /* background-color: #353535;*/
+      background-color: #080808;
+      border-radius: 5px;
       height: auto;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      padding: 15px;
-      border-radius: 5px;
+      padding: 15px 15px 10px;
       @media (min-width: ${breakpoints.tablet}) {
-        height: 250px;
-        padding: 25px;
+        padding: 40px 40px 25px;
       }
-      @media (min-width: ${breakpoints.pc}) {
-        height: 250px;
-      }
-      video {
+      /* video {
         width: 100%;
         height: auto;
         margin: 0 auto;
@@ -53,7 +49,7 @@ const WorksWrap = styled.div`
         @media (min-width: ${breakpoints.tablet}) {
           width: 88%;
         }
-      }
+      } */
     }
   }
 `;

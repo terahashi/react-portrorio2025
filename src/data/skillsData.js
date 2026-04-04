@@ -10,7 +10,8 @@ const worksData = [
     id: '02',
     skilltitle: 'Next.js',
     icon: ['images/icons/next.svg'],
-    skillText: 'App Routerを用いたページ設計を活用した開発が可能。「ReactからNext.js」の順序で学習を進めたのでスムーズに理解できました。SSR / SSGを適切に使い分けた開発を意識しています。',
+    skillText:
+      'App Routerを用いたページ設計を活用した開発が可能。「ReactからNext.js」の順序で学習を進めたのでスムーズに理解できました。SSR / SSGを適切に使い分けた開発を意識しています。個人開発したギャラリーサイトやブログサイトで使用。',
     years: '自主学習: 1年',
   },
   {
