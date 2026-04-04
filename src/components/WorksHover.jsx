@@ -10,9 +10,9 @@ const HoverWrap = styled.section`
   @media (hover: none) {
     display: none;
   }
-  .works__preview {
-    background-color: #000;
-    padding: 12px;
+  .works_preview {
+    background-color: #080808;
+    padding: 17px;
     width: 400px;
   }
   img,
@@ -28,11 +28,13 @@ const WorksHover = ({ work, mousePos }) => {
   return (
     /* hoverしたらプレビュー */
     <HoverWrap x={mousePos.x} y={mousePos.y}>
-      <div className='works__preview'>
+      <div className='works_preview'>
         {/* {work.video ? <video src={work.video} autoPlay muted loop /> : <img src={work.image} alt={work.title} />} */}
-        <img src={work.image} alt={work.title} />
+        {/* <img src={work.image} alt={work.title} /> */}
 
-        <h4>{work.title}</h4>
+        <img src={work.hoverthumbnail} alt={work.title} />
+
+        <h4 className='mt-[10px] mb-[0]'>{work.title}</h4>
       </div>
     </HoverWrap>
   );
