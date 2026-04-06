@@ -29,6 +29,7 @@ const worksData = [
       ・TailwindCSSとStyled-componentsを併用し、効率的なスタイリングとレスポンシブ対応を実装。
       ・React Hooksを活用し、状態管理や副作用処理を適切に実装。
       ・Three.jsを用いた3D表現やUI改善に取り組み、UX向上を意識。
+      ・useContextと、IntersectionObserverを組み合わせ、スクロール位置に応じたヘッダーのカラー変更を実装。
 
       ■ 苦労した点
     	・UI/UXを意識したデザインと実装のバランス調整に苦戦。

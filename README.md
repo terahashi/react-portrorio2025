@@ -1,12 +1,45 @@
-# React + Vite
+# Takahashi Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 概要
 
-Currently, two official plugins are available:
+Webエンジニアとして独学したスキルや制作物をまとめたポートフォリオサイトです。
+コンポーネント設計や状態管理の理解を深めることを目的に、設計から実装まで一貫して行いました。
+再利用性・保守性を意識し、実務を想定した構成で開発しています。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## URL
 
-## Expanding the ESLint configuration
+https://takahashiportfolio.netlify.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 使用技術
+
+- React(SPA / CSR)
+- JavaScript
+- Tailwind CSS
+- Styled-components
+- Three.js
+- Git / GitHub
+- Netlify(デプロイ)
+
+## 主な機能
+
+- ポートフォリオ情報の表示
+- 各制作実績の詳細ページの表示
+- レスポンシブ対応(スマホ / iPadなどのタブレット / PC)
+- Three.jsを用いた3D表現
+
+## 工夫した点
+
+- コンポーネント設計を意識し、再利用性と保守性の高い構成を実現
+- TailwindCSSとStyled-componentsを併用し、効率的かつ柔軟なスタイリングを実装
+- React Hooksを活用し、状態管理や副作用処理を適切に分離
+- Three.jsを導入し、視覚的なインパクトとUX向上を実現
+- useContextとIntersectionObserverを組み合わせ、スクロール位置に応じたヘッダーのカラー変更を実装
+
+## セットアップ方法
+
+以下の手順でローカル環境で動作確認できます。
+
+```
+npm install
+npm run dev
+```
