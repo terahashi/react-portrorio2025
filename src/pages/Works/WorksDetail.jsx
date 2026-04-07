@@ -53,9 +53,15 @@ const WorksDetail = ({ headerRef }) => {
     <DetailWrap>
       <Wrapper>
         <Inner>
-          <div className='mb-[70px] lg:mb-[130px]'>
+          <div className='mb-[70px] lg:mb-[100px]'>
             <h1 className='text-[2.5rem] md:text-[3rem] font-extrabold'>{workdetail.title}</h1>
-            <p className='whitespace-pre-line text-[var(--color-gray)]'>{workdetail.desctription}</p>
+            <p className='whitespace-pre-line text-[var(--color-gray)] mb-[20px] md:mb-[25px]'>{workdetail.desctription}</p>
+            {/* ⬇︎作品詳細GitHubページへ */}
+            {workdetail.github && (
+              <a href={workdetail.github} target='_blank' rel='noopener noreferrer'>
+                GitHubでコードを見る
+              </a>
+            )}
           </div>
 
           <SideFixed visitsite={workdetail.visitsite} url={workdetail.url} headerRef={headerRef}>
