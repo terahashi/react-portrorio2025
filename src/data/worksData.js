@@ -39,7 +39,7 @@ const worksData = [
       ・パフォーマンスのさらなる最適化(表示速度の改善や不要なレンダリングの削減など)
       ・アクセシビリティの改善(キーボード操作を追加するなど)
       `,
-
+    github: 'https://github.com/terahashi/react-portrorio2025',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
     visitsite: 'VISIT WEBSITE',
     url: 'https://takahashiportfolio.netlify.app/',
@@ -81,8 +81,8 @@ const worksData = [
 
     ■ 今後の改善点
     ・画像数増加に対応するため、ページネーションやUI改善によるUX向上。
-
     `,
+    github: 'https://github.com/terahashi/next-gallery',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
     visitsite: 'VISIT WEBSITE',
     url: 'https://next-gallery-azure.vercel.app/',
@@ -125,8 +125,8 @@ const worksData = [
       ■ 今後の改善点
       ・検索機能の追加によるUX向上。
       ・パフォーマンスのさらなる最適化。
-
     `,
+    github: 'https://github.com/terahashi/next-microcms-blog',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
     visitsite: 'VISIT WEBSITE',
     url: 'https://next-microcms-blog-fawn.vercel.app/',
@@ -204,7 +204,6 @@ const worksData = [
       1: 画像の最適化（WebP化・遅延読み込み）
       2: 不要なJavaScriptの削減および読み込み制御。
       3: WordPressプラグインの整理とキャッシュ戦略の見直し。
-
     `,
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
     visitsite: 'VISIT WEBSITE',
