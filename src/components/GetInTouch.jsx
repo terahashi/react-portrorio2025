@@ -139,9 +139,9 @@ const GetInTouch = () => {
       </div>
 
       <div className='w-full flex justify-center items-center overflow-hidden gap-x-8'>
-        <Link to='/EmailAddress' data-stalker>
+        <a href='mailto:tkshplant@outlook.jp' className='char text-[var(--color-white)]' data-stalker>
           <h4 className='char text-[var(--color-white)] mb-0'>Mail</h4>
-        </Link>
+        </a>
 
         <a className='char text-[var(--color-white)]' href='https://github.com/terahashi?tab=repositories' target='_blank' rel='noopener noreferrer' data-stalker>
           GitHub
