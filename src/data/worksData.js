@@ -247,6 +247,52 @@ const worksData = [
     visitsite: 'VISIT WEBSITE',
     url: 'https://taksplant.main.jp/portfolio-wp/',
   },
+
+  {
+    id: 7,
+    title: 'React自主学習',
+    image: '/images/site_thumbnail/site-thumbnail-07.jpg',
+    sitethumbnail: '/images/site_thumbnail/site-thumbnail-07.jpg',
+    hoverthumbnail: '/images/site_thumbnail/hover_thumbnail07.jpg',
+    desctription: `
+    ■ 概要
+    ・Reactの基礎学習を目的として作成した学習用サイトです。
+    ・useStateやuseRefなどのReact Hooksを用いた状態管理や、イベント処理、フォーム制御、コンポーネント設計を実践的に学習しました。
+
+    ■ 使用技術
+    ・React
+    ・JavaScript
+    ・Git / GitHub
+    ・CSSInJS
+
+    ■ 学習期間
+     約6ヶ月
+
+    ■ 学習内容
+    ・カウントアプリによる状態管理(useState)
+    ・Todoアプリの作成
+    ・フォーム入力(Textarea / Radio / Select / Checkbox)
+    ・リスト表示とfilterを用いた絞り込み処理
+    ・条件分岐レンダリング
+    ・CSS-in-JSによるスタイリング
+    ・ModalやToastコンポーネントの実装
+    ・useRefを用いたDOM操作
+    ・React Routerによる画面遷移
+
+    ■ 工夫した点
+    ・機能ごとにコンポーネントを分割し、再利用性を意識した設計を行いました。
+    ・各機能を「自分で確認しながらReactの仕組みを理解することを意識しました。」
+
+    ■ 苦労した点
+    ・React状態管理や再レンダリングの仕組みを理解するまでに時間がかかりました。
+    ・特に「Stateを直接変更してはいけないこと(状態変更を検知できず、期待した再レンダリングが行われない)」や「コンポーネントの再描画タイミング(コンポーネント関数を再実行する)」などの理解に苦戦しました。
+
+    `,
+
+    sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
+    visitsite: 'VISIT WEBSITE',
+    url: 'http://react-next-study.netlify.app/',
+  },
 ];
 
 export default worksData;
