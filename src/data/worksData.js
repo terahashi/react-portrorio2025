@@ -288,7 +288,7 @@ const worksData = [
     ・特に「Stateを直接変更してはいけないこと(状態変更を検知できず、期待した再レンダリングが行われない)」や「コンポーネントの再描画タイミング(コンポーネント関数を再実行する)」などの理解に苦戦しました。
 
     `,
-
+    github: 'https://github.com/terahashi/react-next-study',
     sideText: 'sideText sideTex tsideText sideText sideText sideText sideText', //<SideFixed>コンポーネント渡す
     visitsite: 'VISIT WEBSITE',
     url: 'http://react-next-study.netlify.app/',
